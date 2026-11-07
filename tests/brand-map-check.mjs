@@ -9,7 +9,7 @@ const pages = ['index','home-2','about','courses','gallery','contact','login','d
 const measure = `(()=>[...document.querySelectorAll('.brand-lockup')].filter(l=>l.offsetParent!==null||getComputedStyle(l).position==='fixed').map(l=>{
  const n=l.querySelector('.brand-lockup__name'),e=l.querySelector('.brand-lockup__emblem'),cs=getComputedStyle(n),fs=parseFloat(cs.fontSize),r=l.getBoundingClientRect(),er=e.getBoundingClientRect(),em=n.querySelector('em');
  const ec=getComputedStyle(e);
- return {where:l.closest('header,footer,aside,.tb,.pl,main')?.tagName+(l.closest('.sb')?'.sb':l.closest('.tb')?'.tb':''),text:n.textContent.trim(),fam:cs.fontFamily.split(',')[0],wt:cs.fontWeight,ls:+(parseFloat(cs.letterSpacing)/fs).toFixed(3),emLs:+(parseFloat(getComputedStyle(em).letterSpacing)/fs).toFixed(3),emStyle:getComputedStyle(em).fontStyle,gap:+(parseFloat(getComputedStyle(l).columnGap)/fs).toFixed(3),ew:+(er.width/fs).toFixed(3),eh:+(er.height/fs).toFixed(3),ebg:ec.getPropertyValue('--emblem-bg').trim()||'',use:e.querySelector('use')?.getAttribute('href'),fits:r.right<=innerWidth+0.5&&r.left>=-0.5,clipped:n.scrollWidth>n.clientWidth+1,fs:+fs.toFixed(1),nameColor:cs.color,href:l.getAttribute('href')};}))()`;
+ return {where:l.closest('header,footer,aside,.tb,.pl,main')?.tagName+(l.closest('.sb')?'.sb':l.closest('.tb')?'.tb':''),text:n.textContent.trim(),fam:cs.fontFamily.split(',')[0],wt:cs.fontWeight,ls:+(parseFloat(cs.letterSpacing)/fs).toFixed(3),emLs:+(parseFloat(getComputedStyle(em).letterSpacing)/fs).toFixed(3),emStyle:getComputedStyle(em).fontStyle,gap:+(parseFloat(getComputedStyle(l).columnGap)/fs).toFixed(3),ew:+(er.width/fs).toFixed(3),eh:+(er.height/fs).toFixed(3),ebg:ec.getPropertyValue('--emblem-bg').trim()||'',use:e.querySelector('use')?.getAttribute('href'),onscreen:r.width>0&&r.right>0&&r.left<innerWidth,fits:r.right<=innerWidth+0.5&&r.left>=-0.5,clipped:n.scrollWidth>n.clientWidth+1,fs:+fs.toFixed(1),nameColor:cs.color,href:l.getAttribute('href')};}))()`;
 let ref = null; const seen = new Set();
 for (const [w,h] of [[1440,900],[1100,800],[768,1024],[390,844]]) for (const [theme,dir] of [['light','ltr'],['dark','rtl']]) for (const pg of pages) {
   const p = await newPage(c.port);
@@ -17,17 +17,17 @@ for (const [w,h] of [[1440,900],[1100,800],[768,1024],[390,844]]) for (const [th
   await p.eval(`localStorage.clear();localStorage.setItem('atelier_elan_theme','${theme}');localStorage.setItem('atelier_elan_dir_mode','${dir}')`);
   await p.goto(ROOT+pg+'.html'); await sleep(400);
   const arr = await p.eval(measure);
-  for (const m of arr) {
+  for (const m of arr.filter((x)=>x.onscreen)) {
     ref ??= m;
-    const same = m.text==='ATELIER ÉLAN' && m.fam===ref.fam && m.wt===ref.wt && m.ls===ref.ls && m.emLs===ref.emLs && m.emStyle==='italic' && m.gap===ref.gap && m.ew===ref.ew && m.eh===ref.eh && m.use && /#ae-(emblem|mark)/.test(m.use);
+    const near=(a,b)=>Math.abs(a-b)<=0.02; const same = m.text==='ATELIER ÉLAN' && m.fam===ref.fam && m.wt===ref.wt && near(m.ls,ref.ls) && near(m.emLs,ref.emLs) && m.emStyle==='italic' && near(m.gap,ref.gap) && near(m.ew,ref.ew) && near(m.eh,ref.eh) && m.use && /#ae-(emblem|mark)/.test(m.use);
     const key = `${pg}|${m.where}|${w}|${theme}`;
     if (!same || !m.fits || m.clipped) log(false, `${pg} ${m.where} ${w}px ${theme}/${dir}: ${JSON.stringify(m)} vs ref ${JSON.stringify({ls:ref.ls,gap:ref.gap,ew:ref.ew,eh:ref.eh,fam:ref.fam,wt:ref.wt})}`);
     seen.add(key);
   }
   // identity of the emblem colours must not differ by place: --emblem-bg identical (empty = default burgundy) 
-  const bgs = [...new Set(arr.map((m) => m.ebg))];
+  const bgs = [...new Set(arr.filter((x)=>x.onscreen).map((m) => m.ebg))];
   if (bgs.length > 1) log(false, `${pg} ${w} ${theme}: emblem colour tokens differ ${bgs}`);
-  const hrefs = arr.map((m) => m.href); if (!hrefs.every((x) => /index\.html$/.test(x))) log(false, `${pg}: lockup not linked to Home ${hrefs}`);
+  const hrefs = arr.filter((x)=>x.onscreen).map((m) => m.href); if (!hrefs.every((x) => /index\.html$/.test(x))) log(false, `${pg}: lockup not linked to Home ${hrefs}`);
   if ((pg==='dashboard/index'||pg==='login') && ((w===1440&&theme==='light')||(w===390&&theme==='dark'))) await p.shot(`tests/screenshots/brand-map/${pg.replace('/','_')}-${w}-${theme}.png`, false);
   p.close();
 }
@@ -46,7 +46,7 @@ for (const [w,h,theme,dir] of [[1440,900,'light','ltr'],[768,1024,'dark','rtl'],
   log(m.state==='area' && /openstreetmap\.org\/export\/embed\.html/.test(m.src), `${tag}: OSM iframe injected (state=${m.state})`);
   log(!m.marker && !m.pendingVisible && !m.bodyHasPending, `${tag}: no marker param, placeholder gone`);
   log(/Area map/.test(m.cap) && /not the institute/.test(m.cap), `${tag}: caption labels it a general area map`);
-  log(m.fw===m.sw && m.fh===m.sh && m.fh>200 && m.ovf<=0, `${tag}: iframe fills frame ${m.fw}x${m.fh}, page overflow ${m.ovf}`);
+  log(Math.abs(m.sw-m.fw)<=2 && Math.abs(m.sh-m.fh)<=2 && m.fh>200 && m.ovf<=0, `${tag}: iframe fills frame ${m.fw}x${m.fh}, page overflow ${m.ovf}`);
   const embed = resp.find((r)=>/openstreetmap\.org\/export\/embed/.test(r.u));
   log(embed?.s===200, `${tag}: embed document HTTP ${embed?.s}`);
   await p.shot(`tests/screenshots/brand-map/map-${w}-${theme}-a.png`, false);

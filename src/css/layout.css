@@ -94,9 +94,9 @@
 @media (min-width: 1440px) { .brand-lockup__sub { display: block; } }
 .brand-lockup--compact { --u: 1.08rem; }
 .brand-lockup--footer { --u: 1.3rem; gap: 0.62em; max-width: 100%; }
-@media (min-width: 640px) { .brand-lockup--footer { --u: 1.7rem; } }
+@media (min-width: 640px) { .brand-lockup--footer { --u: 1.36rem; } } /* same size as the desktop header lockup */
 .brand-lockup--footer .brand-lockup__text { min-width: 0; }
-.brand-lockup--footer .brand-lockup__sub { display: block; white-space: normal; line-height: 1.5; }
+.brand-lockup--footer .brand-lockup__sub { display: block; }
 .site-footer .brand-lockup__name { color: #FAF8F5; }
 .site-footer .brand-lockup__name em { color: #D9A9B3; }
 .site-footer .brand-lockup__sub { color: rgba(250, 248, 245, 0.78); border-top-color: rgba(250, 248, 245, 0.22); }

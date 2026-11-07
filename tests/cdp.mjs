@@ -6,11 +6,11 @@ import path from 'node:path';
 
 const CHROME = 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';
 
-export async function launch(port = 9333) {
+export async function launch(port = 9333, extra = []) {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'ae-chrome-'));
   const proc = spawn(CHROME, [
     '--headless=new', `--remote-debugging-port=${port}`, `--user-data-dir=${dir}`,
-    '--disable-gpu', '--no-first-run', '--allow-file-access-from-files', 'about:blank',
+    '--disable-gpu', '--no-first-run', '--allow-file-access-from-files', ...extra, 'about:blank',
   ], { stdio: 'ignore' });
   for (let i = 0; i < 50; i++) {
     try { await (await fetch(`http://127.0.0.1:${port}/json/version`)).json(); break; } catch { await sleep(200); }

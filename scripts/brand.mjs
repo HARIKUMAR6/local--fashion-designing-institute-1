@@ -32,7 +32,6 @@ const INK = 'var(--emblem-ink,#FAF8F5)';
 const EDGE = 'var(--emblem-edge,#C28E98)';
 const arch = (bg, edge) => `<path d="${ARCH}" fill="${bg}" stroke="${edge}" stroke-width="1.3"/>`;
 const fullBody = (bg, ink, edge = EDGE) => `${arch(bg, edge)}<path d="${KEYLINE}" fill="none" stroke="${ink}" stroke-width="0.7" opacity="0.55"/>${DIAMOND(ink)}${MONOGRAM(ink)}${STITCHES(ink)}`;
-const markBody = (bg, ink, edge = EDGE) => `${arch(bg, edge)}${MONOGRAM(ink)}`;
 
 /* ---------- Files --------------------------------------------------------------------------------- */
 const svg = (vb, inner, extra = '') => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${vb}" role="img" aria-label="${BRAND.name} emblem"${extra}>${inner}</svg>\n`;
@@ -42,14 +41,12 @@ export function build() {
   fs.mkdirSync('assets/brand', { recursive: true });
   // One emblem treatment for every background: burgundy badge, ivory monogram, thin rose edge (keeps it visible on charcoal).
   fs.writeFileSync('assets/brand/emblem.svg', svg('0 0 60 72', clean(fullBody('#691829', '#FAF8F5', '#C28E98'))));
-  // Simplified mark for small sizes.
-  fs.writeFileSync('assets/brand/mark.svg', svg('0 0 60 72', clean(markBody('#691829', '#FAF8F5', '#C28E98'))));
-  // Favicon: the mark centred on a square canvas.
-  fs.writeFileSync('assets/brand/favicon.svg', svg('-2 0 64 72', clean(markBody('#691829', '#FAF8F5')), ' width="64" height="64"').replace(' role="img" aria-label="' + BRAND.name + ' emblem"', ''));
+  // Favicon: the very same emblem, centred on a square canvas (no simplified or alternative drawing anywhere).
+  fs.writeFileSync('assets/brand/favicon.svg', svg('-2 0 64 72', clean(fullBody('#691829', '#FAF8F5', '#C28E98')), ' width="64" height="64"').replace(' role="img" aria-label="' + BRAND.name + ' emblem"', ''));
+  if (fs.existsSync('assets/brand/mark.svg')) fs.unlinkSync('assets/brand/mark.svg'); // retired: the header emblem is the only emblem
   // Inline sprite used by the shared header/footer (inherits --emblem-bg / --emblem-ink so it follows light/dark).
   const sprite = `<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <symbol id="ae-emblem" viewBox="0 0 60 72">${clean(fullBody('var(--emblem-bg,#691829)', INK))}</symbol>
-  <symbol id="ae-mark" viewBox="0 0 60 72">${clean(markBody('var(--emblem-bg,#691829)', INK))}</symbol>
 </svg>`;
   fs.writeFileSync('src/partials/brand-sprite.html', sprite + '\n');
   console.log('brand assets built');
