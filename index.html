@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- @brand:head:start -->
+  <link rel="icon" href="./assets/brand/favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#691829">
+  <!-- @brand:head:end -->
+  <title>ATELIER ÉLAN – Institute of Fashion &amp; Creative Arts</title>
+  <meta name="description" content="ATELIER ÉLAN is a studio-led fashion institute offering diploma and advanced courses in fashion designing, fashion illustration and textile designing.">
+
+  <!-- Apply saved theme and direction before first paint (prevents flash / layout shift) -->
+  <script>
+    try {
+      var t = localStorage.getItem('atelier_elan_theme');
+      if (t ? t === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches) document.documentElement.classList.add('dark');
+      document.documentElement.setAttribute('dir', localStorage.getItem('atelier_elan_dir_mode') === 'rtl' ? 'rtl' : 'ltr');
+    } catch (e) {}
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./dist/output.css">
+</head>
+<body class="page-tight bg-surface text-ink antialiased selection:bg-burgundy selection:text-warm-ivory min-h-screen flex flex-col">
+
+  <!-- @layout:header:start -->
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="ae-emblem" viewBox="0 0 60 72"><path d="M30 2C38 10 54 14 54 32V66Q54 70 50 70H10Q6 70 6 66V32C6 14 22 10 30 2Z" fill="var(--emblem-bg,#691829)" stroke="var(--emblem-edge,#C28E98)" stroke-width="1.3"/><path d="M30 6.4C37 13.4 50.6 17 50.6 33V65.4Q50.6 66.8 49.2 66.8H10.8Q9.4 66.8 9.4 65.4V33C9.4 17 23 13.4 30 6.4Z" fill="none" stroke="var(--emblem-ink,#FAF8F5)" stroke-width="0.7" opacity="0.55"/><path d="M30 14.2l2.2 3.1-2.2 3.1-2.2-3.1z" fill="var(--emblem-ink,#FAF8F5)"/><g fill="none" stroke="var(--emblem-ink,#FAF8F5)" stroke-linecap="butt" transform="translate(30 42) scale(1.1) translate(-30 -42)"><path d="M24 28.6L14.6 56" stroke-width="1.2"/><path d="M23.4 27.6L33.4 56" stroke-width="3.4"/><path d="M37.2 27.4V56" stroke-width="3.4"/><path d="M36 28.6H47.6" stroke-width="1.2"/><path d="M19.4 42H45" stroke-width="1.2"/><path d="M13.2 56.6H47.6" stroke-width="1.2"/></g><path d="M18.5 63.4H41.5" fill="none" stroke="var(--emblem-ink,#FAF8F5)" stroke-width="0.9" stroke-dasharray="1.7 2.4" stroke-linecap="round"/></symbol>
+  <symbol id="ae-mark" viewBox="0 0 60 72"><path d="M30 2C38 10 54 14 54 32V66Q54 70 50 70H10Q6 70 6 66V32C6 14 22 10 30 2Z" fill="var(--emblem-bg,#691829)" stroke="var(--emblem-edge,#C28E98)" stroke-width="1.3"/><g fill="none" stroke="var(--emblem-ink,#FAF8F5)" stroke-linecap="butt" transform="translate(30 42) scale(1.1) translate(-30 -42)"><path d="M24 28.6L14.6 56" stroke-width="1.2"/><path d="M23.4 27.6L33.4 56" stroke-width="3.4"/><path d="M37.2 27.4V56" stroke-width="3.4"/><path d="M36 28.6H47.6" stroke-width="1.2"/><path d="M19.4 42H45" stroke-width="1.2"/><path d="M13.2 56.6H47.6" stroke-width="1.2"/></g></symbol>
+</svg>
+<header id="main-header" class="site-header">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="atelier-container site-header__bar">
+    <!-- Brand -->
+    <a href="./index.html" class="brand-lockup" aria-label="ATELIER ÉLAN – Homepage">
+      <svg class="brand-lockup__emblem" width="40" height="48" viewBox="0 0 60 72" aria-hidden="true" focusable="false"><use href="#ae-emblem"/></svg>
+      <span class="brand-lockup__text"><span class="brand-lockup__name">ATELIER <em>ÉLAN</em></span><span class="brand-lockup__sub">Institute of Fashion &amp; Creative Arts</span></span>
+    </a>
+
+    <!-- Primary navigation (desktop) -->
+    <nav class="site-nav" aria-label="Primary">
+      <ul class="site-nav__list">
+        <li id="home-dropdown-wrapper" class="site-nav__item site-nav__item--dropdown">
+          <button id="home-dropdown-trigger" type="button" class="site-nav__link site-nav__trigger" aria-expanded="false" aria-haspopup="true" aria-controls="home-dropdown-menu">
+            <span>Home</span>
+            <svg class="site-nav__chevron" width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5"/></svg>
+          </button>
+          <ul id="home-dropdown-menu" class="site-dropdown">
+            <li><a href="./index.html" class="site-dropdown__link">Home 1</a></li>
+            <li><a href="./home-2.html" class="site-dropdown__link">Home 2</a></li>
+          </ul>
+        </li>
+        <li class="site-nav__item"><a href="./about.html" class="site-nav__link">About</a></li>
+        <li class="site-nav__item"><a href="./courses.html" class="site-nav__link">Courses</a></li>
+        <li class="site-nav__item"><a href="./gallery.html" class="site-nav__link">Gallery</a></li>
+        <li class="site-nav__item"><a href="./contact.html" class="site-nav__link">Contact</a></li>
+        <li class="site-nav__item"><a href="./dashboard/index.html" class="site-nav__link">Dashboard</a></li>
+      </ul>
+    </nav>
+
+    <!-- Actions -->
+    <div class="site-header__actions">
+      <button id="theme-toggle-btn" type="button" class="site-control site-control--icon" aria-label="Switch to dark mode">
+        <svg id="theme-icon-sun" class="hidden" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg id="theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <button id="dir-toggle-btn" type="button" class="site-control site-control--text" aria-label="Switch to RTL">RTL</button>
+      <a href="./login.html" class="site-cta">Student Login</a>
+      <button id="mobile-menu-btn" type="button" class="site-burger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu-drawer">
+        <span class="site-burger__bar"></span>
+        <span class="site-burger__bar"></span>
+        <span class="site-burger__bar"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile navigation -->
+<div id="mobile-menu-backdrop" class="mobile-backdrop" aria-hidden="true"></div>
+<div id="mobile-menu-drawer" class="mobile-drawer" role="dialog" aria-modal="true" aria-label="Site navigation" aria-hidden="true">
+  <div class="mobile-drawer__head">
+    <a href="./index.html" class="brand-lockup brand-lockup--compact" aria-label="ATELIER ÉLAN – Homepage">
+      <svg class="brand-lockup__emblem" width="36" height="43" viewBox="0 0 60 72" aria-hidden="true" focusable="false"><use href="#ae-emblem"/></svg>
+      <span class="brand-lockup__text"><span class="brand-lockup__name">ATELIER <em>ÉLAN</em></span></span>
+    </a>
+    <button id="mobile-menu-close-btn" type="button" class="site-control site-control--icon" aria-label="Close navigation menu">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"/></svg>
+    </button>
+  </div>
+  <nav class="mobile-drawer__nav" aria-label="Mobile">
+    <ul>
+      <li>
+        <span class="mobile-drawer__label">Home</span>
+        <ul class="mobile-drawer__sub">
+          <li><a href="./index.html" class="mobile-drawer__link">Home 1</a></li>
+          <li><a href="./home-2.html" class="mobile-drawer__link">Home 2</a></li>
+        </ul>
+      </li>
+      <li><a href="./about.html" class="mobile-drawer__link mobile-drawer__link--main">About</a></li>
+      <li><a href="./courses.html" class="mobile-drawer__link mobile-drawer__link--main">Courses</a></li>
+      <li><a href="./gallery.html" class="mobile-drawer__link mobile-drawer__link--main">Gallery</a></li>
+      <li><a href="./contact.html" class="mobile-drawer__link mobile-drawer__link--main">Contact</a></li>
+      <li><a href="./dashboard/index.html" class="mobile-drawer__link mobile-drawer__link--main">Dashboard</a></li>
+    </ul>
+  </nav>
+  <a href="./login.html" class="site-cta site-cta--block">Student Login</a>
+</div>
+<!-- @layout:header:end -->
+
+  <main id="main-content" class="flex-grow" style="padding-top: var(--header-h)">
+
+    <!-- ===================================================================== -->
+    <!-- 01 HERO                                                               -->
+    <!-- ===================================================================== -->
+    <section class="hero-viewport-section hero-1" aria-labelledby="hero-title">
+      <div class="hero-1__media">
+        <img src="./assets/images/hero-polka-dress.jpg" alt="A model in a burgundy polka-dot two-piece, skirt lifting in the wind across a golden field" width="2000" height="1333" fetchpriority="high">
+      </div>
+      <div class="hero-1__body">
+        <div class="atelier-container">
+          <div class="hero-1__copy">
+            <span class="eyebrow eyebrow--light">Atelier Élan · Paris &amp; Milan</span>
+            <h1 id="hero-title" class="hero-1__title">Design your <em>own legacy.</em></h1>
+            <p class="hero-1__text">Where creativity meets craftsmanship. Discover your vision, develop your signature, and shape the future of fashion.</p>
+            <div class="hero-1__actions">
+              <a href="./courses.html" class="btn-editorial-primary">Explore Courses</a>
+              <a href="./about.html" class="btn-editorial-white-outline">Discover Our World</a>
+            </div>
+            <ul class="hero-1__facts">
+              <li><strong>18</strong><span>Years of teaching</span></li>
+              <li><strong>40+</strong><span>Industry mentors</span></li>
+              <li><strong>1,200</strong><span>Alumni worldwide</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- 02 INSTITUTE INTRODUCTION                                             -->
+    <!-- ===================================================================== -->
+    <section class="section bg-surface" aria-labelledby="intro-title">
+      <div class="atelier-container grid gap-14 lg:grid-cols-12 lg:gap-16 items-center">
+        <div class="lg:col-span-6 relative pb-16 sm:pb-24 pe-10 sm:pe-20">
+          <div class="frame aspect-[4/5]">
+            <img src="./assets/images/studio-mannequins.jpg" alt="A tailoring classroom with dress forms, sewing tables and pattern boards" width="1600" height="1065" loading="lazy">
+          </div>
+          <div class="absolute bottom-0 end-0 w-[44%]"><div class="frame aspect-[4/5] border-[6px] border-surface">
+            <img src="./assets/images/desk-sketches-pencils.jpg" alt="Pencils laid over fashion sketches on a studio table" width="1000" height="1781" loading="lazy">
+          </div></div>
+        </div>
+        <div class="lg:col-span-6">
+          <span class="eyebrow">01 · The Institute</span>
+          <h2 id="intro-title" class="h-section">More than an institute. <em>A creative movement.</em></h2>
+          <p class="lead mt-8 max-w-xl">ATELIER ÉLAN is a studio-led school where design is learned with the hands as much as the eye. Small cohorts, working ateliers and mentors from the industry shape every student's point of view.</p>
+          <p class="lead mt-4 max-w-xl">From the first sketch to the final fitting, you build a body of work that carries your name.</p>
+          <div class="mt-10">
+            <a href="./about.html" class="btn-editorial-outline">About Our Institute</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- 03 FEATURED COURSES                                                   -->
+    <!-- ===================================================================== -->
+    <section class="section bg-surface-alt" aria-labelledby="courses-title">
+      <div class="atelier-container">
+        <div class="grid gap-8 lg:grid-cols-12 lg:items-end">
+          <div class="lg:col-span-8">
+            <span class="eyebrow">02 · Courses</span>
+            <h2 id="courses-title" class="h-section">Explore your <em>creative direction.</em></h2>
+          </div>
+          <p class="lead lg:col-span-4 max-w-md">Four programmes, one studio culture. Choose the path that fits where you are and where you want your work to go.</p>
+        </div>
+
+        <div class="mt-12 grid gap-x-8 gap-y-14 lg:grid-cols-12 lg:items-end lg:gap-y-16">
+          <article class="lg:col-span-7">
+            <div class="frame aspect-[4/3]">
+              <img src="./assets/images/course-dress-form.jpg" alt="Two fashion designers draping a garment on a dress form" width="1400" height="788" loading="lazy">
+            </div>
+            <div class="mt-6 flex items-baseline justify-between gap-6">
+              <h3 class="font-serif text-3xl sm:text-4xl leading-tight"><span class="text-accent italic text-xl me-3">01</span>Diploma in Fashion Designing</h3>
+              <span class="shrink-0 text-xs font-semibold uppercase tracking-[0.18em] text-ink-muted">12 Months</span>
+            </div>
+            <p class="lead mt-3 max-w-xl">A complete foundation in design, pattern cutting and garment construction, built around a graduate collection.</p>
+            <a href="./courses.html" class="link-arrow mt-5">View Course <svg width="16" height="10" viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 5h14M10 1l4 4-4 4"/></svg></a>
+          </article>
+
+          <article class="lg:col-span-5">
+            <div class="frame aspect-[4/5] lg:aspect-square">
+              <img src="./assets/images/course-ruffled-gown.jpg" alt="A model in a ruffled collar and patterned gown against a dark backdrop" width="1200" height="1797" loading="lazy">
+            </div>
+            <div class="mt-6 flex items-baseline justify-between gap-6">
+              <h3 class="font-serif text-3xl leading-tight"><span class="text-accent italic text-xl me-3">02</span>Advanced Fashion Designing</h3>
+              <span class="shrink-0 text-xs font-semibold uppercase tracking-[0.18em] text-ink-muted">18 Months</span>
+            </div>
+            <p class="lead mt-3">Develop a signature collection with couture techniques, styling and portfolio direction.</p>
+            <a href="./courses.html" class="link-arrow mt-5">View Course <svg width="16" height="10" viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 5h14M10 1l4 4-4 4"/></svg></a>
+          </article>
+
+          <article class="lg:col-span-5">
+            <div class="frame aspect-[4/5] lg:aspect-square">
+              <img src="./assets/images/course-illustration.jpg" alt="Fashion illustration sketches pinned and laid out on paper" width="1200" height="1600" loading="lazy">
+            </div>
+            <div class="mt-6 flex items-baseline justify-between gap-6">
+              <h3 class="font-serif text-3xl leading-tight"><span class="text-accent italic text-xl me-3">03</span>Fashion Illustration</h3>
+              <span class="shrink-0 text-xs font-semibold uppercase tracking-[0.18em] text-ink-muted">6 Months</span>
+            </div>
+            <p class="lead mt-3">Learn to draw the figure, the fabric and the idea, by hand and in digital media.</p>
+            <a href="./courses.html" class="link-arrow mt-5">View Course <svg width="16" height="10" viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 5h14M10 1l4 4-4 4"/></svg></a>
+          </article>
+
+          <article class="lg:col-span-7">
+            <div class="frame aspect-[4/3]">
+              <img src="./assets/images/course-fabric-palette.jpg" alt="Hands choosing fabric samples from a colour palette" width="1400" height="2099" loading="lazy" class="object-[50%_38%]">
+            </div>
+            <div class="mt-6 flex items-baseline justify-between gap-6">
+              <h3 class="font-serif text-3xl sm:text-4xl leading-tight"><span class="text-accent italic text-xl me-3">04</span>Textile Designing</h3>
+              <span class="shrink-0 text-xs font-semibold uppercase tracking-[0.18em] text-ink-muted">9 Months</span>
+            </div>
+            <p class="lead mt-3 max-w-xl">Explore print, surface and weave, and turn colour and pattern into fabric with a voice of its own.</p>
+            <a href="./courses.html" class="link-arrow mt-5">View Course <svg width="16" height="10" viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M0 5h14M10 1l4 4-4 4"/></svg></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- 04 STUDENT FASHION SHOWS                                              -->
+    <!-- ===================================================================== -->
+    <section class="section on-dark bg-charcoal text-warm-ivory" aria-labelledby="shows-title">
+      <div class="atelier-container grid gap-12 lg:grid-cols-12 lg:gap-14 lg:items-stretch">
+        <figure class="lg:col-span-7 lg:flex lg:flex-col">
+          <div class="frame aspect-[4/3] lg:aspect-auto lg:flex-1 lg:min-h-[26rem] !bg-charcoal-light">
+            <img src="./assets/images/runway-red-coat.jpg" alt="A model in a long red coat and patterned trousers walking the runway before an audience" width="1600" height="1067" loading="lazy" class="object-[50%_72%]">
+          </div>
+          <figcaption class="mt-4 flex items-center justify-between gap-4 text-xs uppercase tracking-[0.2em] text-warm-ivory/70">
+            <span>Graduate Runway 2026</span><span>Paris</span>
+          </figcaption>
+        </figure>
+
+        <div class="lg:col-span-5 lg:flex lg:flex-col lg:justify-center">
+          <span class="eyebrow eyebrow--light">03 · Fashion Shows</span>
+          <h2 id="shows-title" class="h-section">Where student creativity <em>takes the stage.</em></h2>
+          <p class="lead mt-8">Every year our graduating class presents a full runway show, with lighting, styling and music produced by the students themselves. It is the moment a sketchbook becomes a collection.</p>
+
+          <ul class="mt-10 divide-y divide-warm-ivory/15 border-y border-warm-ivory/15">
+            <li class="flex items-center gap-5 py-5">
+              <span class="frame w-16 aspect-[4/5] shrink-0"><img src="./assets/images/runway-pink-gown.jpg" alt="A pink feathered gown on a model walking the runway" width="700" height="1048" loading="lazy"></span>
+              <div><h3 class="font-serif text-2xl leading-tight">Opening Collection</h3><p class="mt-1 text-sm font-light text-warm-ivory/70">Graduating class of 2026</p></div>
+            </li>
+            <li class="flex items-center gap-5 py-5">
+              <span class="frame w-16 aspect-[4/5] shrink-0"><img src="./assets/images/runway-floral.jpg" alt="A model in a sheer lavender floral dress under stage lights" width="1600" height="1067" loading="lazy"></span>
+              <div><h3 class="font-serif text-2xl leading-tight">Colour Stories</h3><p class="mt-1 text-sm font-light text-warm-ivory/70">Textile Designing showcase</p></div>
+            </li>
+          </ul>
+
+          <div class="mt-10">
+            <a href="./gallery.html" class="btn-editorial-white-outline">View Gallery</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- 05 STUDENT CREATIVE SHOWCASE                                          -->
+    <!-- ===================================================================== -->
+    <section class="section bg-surface" aria-labelledby="showcase-title">
+      <div class="atelier-container">
+        <div class="max-w-3xl">
+          <span class="eyebrow">04 · Student Work</span>
+          <h2 id="showcase-title" class="h-section">Ideas that <em>become art.</em></h2>
+          <p class="lead mt-6 max-w-xl">Sketches, collections, textile studies and experimental projects, all made inside our studios.</p>
+        </div>
+
+        <div class="mt-10 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-12">
+          <figure class="col-span-2 lg:col-span-5 lg:row-span-2">
+            <div class="frame aspect-[4/5] lg:aspect-auto lg:h-full lg:min-h-[40rem]">
+              <img src="./assets/images/showcase-long-coat.jpg" alt="A garment collection piece: a long camel coat styled against a plain wall" width="1200" height="1800" loading="lazy">
+            </div>
+            <figcaption class="mt-3 text-xs font-semibold uppercase tracking-[0.2em] text-ink-muted">Garment collections</figcaption>
+          </figure>
+          <figure class="col-span-2 lg:col-span-7">
+            <div class="frame aspect-[16/10] lg:aspect-[16/9]">
+              <img src="./assets/images/showcase-collab-desk.jpg" alt="Two women collaborating over design materials at a desk" width="1200" height="1800" loading="lazy" class="object-[50%_58%]">
+            </div>
+            <figcaption class="mt-3 text-xs font-semibold uppercase tracking-[0.2em] text-ink-muted">Student creative projects</figcaption>
+          </figure>
+          <figure class="lg:col-span-4">
+            <div class="frame aspect-square lg:aspect-[4/3]">
+              <img src="./assets/images/showcase-sketch-pattern.jpg" alt="A fashion sketch of a woman in a patterned dress" width="1000" height="1293" loading="lazy">
+            </div>
+            <figcaption class="mt-3 text-xs font-semibold uppercase tracking-[0.2em] text-ink-muted">Fashion sketches</figcaption>
+          </figure>
+          <figure class="lg:col-span-3">
+            <div class="frame aspect-square lg:aspect-[3/4]">
+              <img src="./assets/images/showcase-textile-geometric.jpg" alt="Textile artwork with colourful geometric patterns" width="1000" height="1325" loading="lazy">
+            </div>
+            <figcaption class="mt-3 text-xs font-semibold uppercase tracking-[0.2em] text-ink-muted">Textile artwork</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- 06 WHY CHOOSE ATELIER ÉLAN                                            -->
+    <!-- ===================================================================== -->
+    <section class="section bg-surface-alt" aria-labelledby="why-title">
+      <div class="atelier-container grid gap-14 lg:grid-cols-12 lg:gap-20">
+        <div class="lg:col-span-5">
+          <span class="eyebrow">05 · Why ATELIER ÉLAN</span>
+          <h2 id="why-title" class="h-section">Shaping the next generation <em>of designers.</em></h2>
+          <div class="frame mt-12 aspect-[4/5] max-w-sm hidden lg:block">
+            <img src="./assets/images/why-sketching-studio.jpg" alt="A designer sketching at her desk in a bright studio" width="1000" height="1500" loading="lazy">
+          </div>
+        </div>
+        <ol class="lg:col-span-7 lg:pt-6 border-t border-line list-none m-0 p-0">
+          <li class="grid grid-cols-[3.5rem_1fr] sm:grid-cols-[5rem_1fr] gap-4 py-8 border-b border-line">
+            <span class="font-serif italic text-4xl sm:text-5xl text-accent leading-none">01</span>
+            <div><h3 class="font-serif text-2xl sm:text-3xl leading-tight">Industry-focused learning</h3><p class="lead mt-3 max-w-lg">Briefs, critiques and guest sessions led by working designers keep every project close to how the industry actually operates.</p></div>
+          </li>
+          <li class="grid grid-cols-[3.5rem_1fr] sm:grid-cols-[5rem_1fr] gap-4 py-8 border-b border-line">
+            <span class="font-serif italic text-4xl sm:text-5xl text-accent leading-none">02</span>
+            <div><h3 class="font-serif text-2xl sm:text-3xl leading-tight">Practical studio experience</h3><p class="lead mt-3 max-w-lg">Cutting tables, sewing rooms and a print lab are open to you from the first week, so you learn by making.</p></div>
+          </li>
+          <li class="grid grid-cols-[3.5rem_1fr] sm:grid-cols-[5rem_1fr] gap-4 py-8 border-b border-line">
+            <span class="font-serif italic text-4xl sm:text-5xl text-accent leading-none">03</span>
+            <div><h3 class="font-serif text-2xl sm:text-3xl leading-tight">Portfolio development</h3><p class="lead mt-3 max-w-lg">Each term adds finished pieces to a portfolio that is reviewed, edited and presented the way admissions and employers expect.</p></div>
+          </li>
+          <li class="grid grid-cols-[3.5rem_1fr] sm:grid-cols-[5rem_1fr] gap-4 py-8 border-b border-line">
+            <span class="font-serif italic text-4xl sm:text-5xl text-accent leading-none">04</span>
+            <div><h3 class="font-serif text-2xl sm:text-3xl leading-tight">Creative mentorship</h3><p class="lead mt-3 max-w-lg">A personal mentor follows your progress, challenges your choices and helps you find a signature that is unmistakably yours.</p></div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- 07 STUDENT TESTIMONIALS                                               -->
+    <!-- ===================================================================== -->
+    <section class="section bg-surface" aria-labelledby="stories-title">
+      <div class="atelier-container">
+        <div class="max-w-3xl">
+          <span class="eyebrow">06 · Student Voices</span>
+          <h2 id="stories-title" class="h-section">Stories of <em>creative growth.</em></h2>
+        </div>
+
+        <div class="mt-10 grid gap-10 md:grid-cols-3 md:gap-8 lg:gap-12">
+          <figure>
+            <div class="frame aspect-[4/5]"><img src="./assets/images/portrait-denim-glasses.jpg" alt="Portrait of Léa Moreau" width="900" height="1350" loading="lazy"></div>
+            <blockquote class="mt-6 font-serif text-xl sm:text-2xl leading-snug italic">“I arrived with a sketchbook and no idea how to finish a garment. I left with a collection I was proud to send down a runway.”</blockquote>
+            <figcaption class="mt-5 text-sm"><strong class="block font-semibold tracking-wide">Léa Moreau</strong><span class="text-ink-muted">Diploma in Fashion Designing</span></figcaption>
+          </figure>
+          <figure class="md:mt-10">
+            <div class="frame aspect-[4/5]"><img src="./assets/images/portrait-man-glasses.jpg" alt="Portrait of Daniel Reyes" width="900" height="1108" loading="lazy"></div>
+            <blockquote class="mt-6 font-serif text-xl sm:text-2xl leading-snug italic">“The print lab changed how I think about colour. My mentor pushed me until the fabric said what I wanted it to say.”</blockquote>
+            <figcaption class="mt-5 text-sm"><strong class="block font-semibold tracking-wide">Daniel Reyes</strong><span class="text-ink-muted">Textile Designing</span></figcaption>
+          </figure>
+          <figure>
+            <div class="frame aspect-[4/5]"><img src="./assets/images/portrait-curly-hair.jpg" alt="Portrait of Sofia Lindqvist" width="900" height="1333" loading="lazy"></div>
+            <blockquote class="mt-6 font-serif text-xl sm:text-2xl leading-snug italic">“Drawing here is taught as a way of thinking. My illustrations now lead every collection I design.”</blockquote>
+            <figcaption class="mt-5 text-sm"><strong class="block font-semibold tracking-wide">Sofia Lindqvist</strong><span class="text-ink-muted">Fashion Illustration</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- 08 CREATIVE EXPERIENCE (LEARNING JOURNEY)                             -->
+    <!-- ===================================================================== -->
+    <section class="section bg-surface-alt" aria-labelledby="journey-title">
+      <div class="atelier-container">
+        <div class="max-w-3xl">
+          <span class="eyebrow">07 · The Journey</span>
+          <h2 id="journey-title" class="h-section">From first sketch <em>to final creation.</em></h2>
+        </div>
+
+        <div class="mt-10 grid gap-8 lg:grid-cols-12 lg:gap-16 lg:items-center">
+          <div class="lg:col-span-6 lg:order-2 lg:sticky" style="top: calc(var(--header-h) + 1.5rem)">
+            <div class="frame aspect-[4/3] lg:aspect-[5/4]" id="journey-preview">
+              <img class="journey-preview-img opacity-100" data-step-preview="1" src="./assets/images/journey-concept-paper.jpg" alt="Concept development: working on a large sheet of paper with scissors and tools" width="1200" height="800" loading="lazy">
+              <img class="journey-preview-img opacity-0" data-step-preview="2" src="./assets/images/journey-sketch-coat.jpg" alt="Fashion illustration: a sketch of a woman in a coat and skirt" width="1000" height="1274" loading="lazy">
+              <img class="journey-preview-img opacity-0" data-step-preview="3" src="./assets/images/journey-textile-pile.jpg" alt="Fabric selection: a stack of folded multi-coloured textiles" width="1200" height="1800" loading="lazy">
+              <img class="journey-preview-img opacity-0" data-step-preview="4" src="./assets/images/journey-pattern-cutting.jpg" alt="Pattern making: cutting a paper sewing pattern with scissors" width="1200" height="1500" loading="lazy">
+              <img class="journey-preview-img opacity-0" data-step-preview="5" src="./assets/images/journey-sewing-machine.jpg" alt="Garment construction: hands guiding fabric under a sewing machine" width="1200" height="800" loading="lazy">
+              <img class="journey-preview-img opacity-0" data-step-preview="6" src="./assets/images/journey-runway-red.jpg" alt="Final presentation: a model in a red dress walking the runway" width="1200" height="1800" loading="lazy">
+            </div>
+          </div>
+
+          <div class="lg:col-span-6 lg:order-1" role="group" aria-label="Learning journey steps">
+            <button type="button" class="journey-step-btn" data-step="1" aria-pressed="true"><span class="num">01</span><span><span class="ttl block">Concept development</span><span class="dsc">Research, mood boards and a clear design brief to start from.</span></span></button>
+            <button type="button" class="journey-step-btn" data-step="2" aria-pressed="false"><span class="num">02</span><span><span class="ttl block">Fashion illustration</span><span class="dsc">Ideas drawn into figures, silhouettes and detailed design sheets.</span></span></button>
+            <button type="button" class="journey-step-btn" data-step="3" aria-pressed="false"><span class="num">03</span><span><span class="ttl block">Fabric selection</span><span class="dsc">Handling, testing and sourcing cloth that suits the design.</span></span></button>
+            <button type="button" class="journey-step-btn" data-step="4" aria-pressed="false"><span class="num">04</span><span><span class="ttl block">Pattern making</span><span class="dsc">Flat patterns drafted, graded and refined to fit the body.</span></span></button>
+            <button type="button" class="journey-step-btn" data-step="5" aria-pressed="false"><span class="num">05</span><span><span class="ttl block">Garment construction</span><span class="dsc">Cutting, sewing and finishing in the studio, fitting by fitting.</span></span></button>
+            <button type="button" class="journey-step-btn" data-step="6" aria-pressed="false"><span class="num">06</span><span><span class="ttl block">Final presentation</span><span class="dsc">Styling, photography and the runway: your work, shown.</span></span></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- 09 ADMISSION ENQUIRY CTA                                              -->
+    <!-- ===================================================================== -->
+    <section class="section bg-burgundy text-warm-ivory" aria-labelledby="cta-title">
+      <div class="atelier-container grid gap-10 lg:grid-cols-12 lg:items-end text-center lg:text-start">
+        <div class="lg:col-span-8">
+          <span class="eyebrow eyebrow--light eyebrow--center lg:[&::after]:hidden">Admissions</span>
+          <h2 id="cta-title" class="font-serif uppercase font-normal leading-[1.02] mt-6 text-[clamp(2.3rem,5.4vw,4.6rem)] text-balance">Your creative story <em class="italic" style="color:#EAD6D9">starts here.</em></h2>
+        </div>
+        <div class="lg:col-span-4 flex flex-col items-center lg:items-start gap-8">
+          <p class="font-light leading-relaxed text-warm-ivory/85 max-w-md">Tell us about your ambitions and we will help you choose the course, the intake and the next step.</p>
+          <a href="./contact.html#enquiry" class="inline-flex items-center justify-center w-full max-w-xs sm:w-auto h-12 px-8 bg-warm-ivory text-burgundy border border-warm-ivory text-xs font-semibold uppercase tracking-[0.18em] hover:bg-transparent hover:text-warm-ivory transition-colors">Enquire About Courses</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- @layout:footer:start -->
+<footer class="site-footer">
+  <div class="atelier-container">
+    <div class="site-footer__grid">
+      <!-- Brand -->
+      <div class="site-footer__brand">
+        <a href="./index.html" class="brand-lockup brand-lockup--footer" aria-label="ATELIER ÉLAN – Homepage">
+      <svg class="brand-lockup__emblem" width="64" height="77" viewBox="0 0 60 72" aria-hidden="true" focusable="false"><use href="#ae-emblem"/></svg>
+      <span class="brand-lockup__text"><span class="brand-lockup__name">ATELIER <em>ÉLAN</em></span><span class="brand-lockup__sub">Institute of Fashion &amp; Creative Arts</span></span>
+    </a>
+        <p class="site-footer__intro">A studio-led institute for fashion design, illustration and textile craft, where every student builds a signature and a portfolio worth showing.</p>
+        <ul class="site-footer__social" aria-label="Social media">
+          <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="ATELIER ÉLAN on Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a></li>
+          <li><a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" aria-label="ATELIER ÉLAN on Pinterest"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.627 0-12 5.372-12 12 0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345-.09.375-.291 1.199-.332 1.357-.053.211-.174.256-.402.154-1.498-.697-2.435-2.887-2.435-4.646 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146 1.124.347 2.317.535 3.554.535 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/></svg></a></li>
+          <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="ATELIER ÉLAN on LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a></li>
+          <li><a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="ATELIER ÉLAN on YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a></li>
+        </ul>
+      </div>
+
+      <!-- Quick navigation -->
+      <nav class="site-footer__col" aria-labelledby="footer-nav-title">
+        <h2 id="footer-nav-title" class="site-footer__title">Explore</h2>
+        <ul>
+          <li><a href="./index.html">Home 1</a></li>
+          <li><a href="./home-2.html">Home 2</a></li>
+          <li><a href="./about.html">About</a></li>
+          <li><a href="./courses.html">Courses</a></li>
+          <li><a href="./gallery.html">Gallery</a></li>
+          <li><a href="./contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Courses -->
+      <nav class="site-footer__col" aria-labelledby="footer-courses-title">
+        <h2 id="footer-courses-title" class="site-footer__title">Courses</h2>
+        <ul>
+          <li><a href="./courses.html">Diploma in Fashion Designing</a></li>
+          <li><a href="./courses.html">Advanced Fashion Designing</a></li>
+          <li><a href="./courses.html">Fashion Illustration</a></li>
+          <li><a href="./courses.html">Textile Designing</a></li>
+        </ul>
+      </nav>
+
+      <!-- Contact -->
+      <div class="site-footer__col">
+        <h2 class="site-footer__title">Visit &amp; Contact</h2>
+        <ul class="site-footer__contact">
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg><span>24 Rue du Faubourg Saint-Honoré,<br>75008 Paris, France</span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><a href="mailto:admissions@atelierelan.edu">admissions@atelierelan.edu</a></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg><a href="tel:+33142685500">+33 (0)1 42 68 55 00</a></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Mon – Fri, 08:30 – 19:00 CET</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <p>© 2026 ATELIER ÉLAN – Institute of Fashion &amp; Creative Arts. All rights reserved.</p>
+      <p class="site-footer__tag">Paris · Milan</p>
+    </div>
+  </div>
+</footer>
+<!-- @layout:footer:end -->
+
+  <button id="scroll-to-top-btn" type="button" aria-label="Scroll to top of page" class="fixed bottom-6 end-6 z-40 w-11 h-11 bg-charcoal text-warm-ivory dark:bg-warm-ivory dark:text-charcoal border border-charcoal/20 dark:border-warm-ivory/20 shadow-2xl flex items-center justify-center opacity-0 pointer-events-none translate-y-4 transition-all duration-300 hover:bg-burgundy dark:hover:bg-muted-rose">
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+  </button>
+
+  <script type="module" src="./src/js/main.js"></script>
+</body>
+</html>

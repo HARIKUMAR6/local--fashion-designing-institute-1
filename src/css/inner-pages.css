@@ -1,0 +1,161 @@
+/* ========================================================================= */
+/* INNER PAGES – shared hero system, breadcrumb, icons, form controls        */
+/* Every inner page (About, Contact, and any future page) uses .page-hero    */
+/* unchanged: same height, container, type scale, breadcrumb and image       */
+/* treatment. Only the image, label, title and intro text change per page.   */
+/* ========================================================================= */
+
+:root {
+  /* One tunable height for every inner-page hero: proportional to the viewport, bounded so it never
+     causes extra scrolling on short screens or excess empty space on tall ones. */
+  --page-hero-h: clamp(24rem, 50svh, 32rem);
+}
+
+.icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+  stroke-width: 1.6;
+}
+.icon--lg { width: 1.6rem; height: 1.6rem; }
+.icon--sm { width: 1rem; height: 1rem; }
+[dir="rtl"] .icon--flip { transform: scaleX(-1); }
+
+/* ----- Page hero ---------------------------------------------------------- */
+.page-hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  width: 100%;
+  height: var(--page-hero-h);
+  overflow: hidden;
+  background: #161514;
+  color: #FAF8F5;
+}
+.page-hero__media { position: absolute; inset: 0; z-index: -1; }
+.page-hero__media img { width: 100%; height: 100%; object-fit: cover; }
+.page-hero__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top, rgba(22, 21, 20, 0.88) 0%, rgba(22, 21, 20, 0.35) 55%, rgba(22, 21, 20, 0.55) 100%),
+    linear-gradient(to right, rgba(22, 21, 20, 0.55) 0%, rgba(22, 21, 20, 0) 70%);
+}
+[dir="rtl"] .page-hero__media::after {
+  background:
+    linear-gradient(to top, rgba(22, 21, 20, 0.88) 0%, rgba(22, 21, 20, 0.35) 55%, rgba(22, 21, 20, 0.55) 100%),
+    linear-gradient(to left, rgba(22, 21, 20, 0.55) 0%, rgba(22, 21, 20, 0) 70%);
+}
+.page-hero__inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding-block: 1.25rem 2rem;
+}
+@media (min-width: 1024px) { .page-hero__inner { padding-block: 1.75rem 3rem; } }
+
+.page-hero__copy { max-width: 44rem; }
+.page-hero__title {
+  margin: 1rem 0 0;
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 6vw, 4.6rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.005em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.page-hero__title em { font-style: italic; color: var(--accent-soft); }
+.page-hero__intro {
+  margin: 1rem 0 0;
+  max-width: 34rem;
+  font-size: clamp(0.95rem, 1.4vw, 1.05rem);
+  line-height: 1.65;
+  font-weight: 300;
+  color: rgba(250, 248, 245, 0.86);
+}
+
+/* Breadcrumb: always the first element at the top of the hero container */
+.breadcrumb ol { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; margin: 0; padding: 0; list-style: none; }
+.breadcrumb li { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(250, 248, 245, 0.75); }
+.breadcrumb li + li::before { content: ""; width: 0.35rem; height: 0.35rem; border-top: 1.5px solid currentColor; border-inline-end: 1.5px solid currentColor; transform: rotate(45deg); opacity: 0.7; margin-inline-end: 0.2rem; }
+[dir="rtl"] .breadcrumb li + li::before { transform: rotate(-135deg); }
+.breadcrumb a { color: inherit; text-decoration: none; }
+.breadcrumb a:hover { color: #FAF8F5; text-decoration: underline; text-underline-offset: 4px; }
+.breadcrumb [aria-current="page"] { color: #FAF8F5; }
+
+/* ----- Buttons used on inner pages (shared look, consistent mobile size) --- */
+.btn-solid-light, .btn-ghost-light {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  height: 3rem;
+  padding: 0 2rem;
+  width: 100%;
+  max-width: 20rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid #FAF8F5;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+.btn-solid-light { background: #FAF8F5; color: #691829; }
+.btn-solid-light:hover { background: transparent; color: #FAF8F5; }
+.btn-ghost-light { background: transparent; color: #FAF8F5; border-color: rgba(250, 248, 245, 0.7); }
+.btn-ghost-light:hover { background: #FAF8F5; color: #691829; }
+@media (min-width: 640px) { .btn-solid-light, .btn-ghost-light { width: auto; min-width: 15rem; } }
+
+/* ----- Form controls ------------------------------------------------------ */
+.field { display: grid; gap: 0.45rem; }
+.field__label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink); }
+.field__label .req { color: var(--accent); margin-inline-start: 0.2rem; }
+.field__control {
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.75rem 1rem;
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid color-mix(in srgb, var(--ink) 28%, transparent);
+  font: inherit;
+  font-size: 1rem;
+  border-radius: 0;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+textarea.field__control { min-height: 9rem; resize: vertical; line-height: 1.6; }
+select.field__control { appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7' fill='none' stroke='%23161514' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; padding-inline-end: 2.75rem; }
+.dark select.field__control { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7' fill='none' stroke='%23F7F4EE' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E"); }
+[dir="rtl"] select.field__control { background-position: left 1rem center; }
+.field__control::placeholder { color: var(--ink-muted); opacity: 0.8; }
+.field__control:hover { border-color: var(--ink); }
+.field__control:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+.field__control[aria-invalid="true"] { border-color: #B3261E; box-shadow: inset 3px 0 0 #B3261E; }
+[dir="rtl"] .field__control[aria-invalid="true"] { box-shadow: inset -3px 0 0 #B3261E; }
+.dark .field__control[aria-invalid="true"] { border-color: #F2B8B5; box-shadow: inset 3px 0 0 #F2B8B5; }
+.field__error { display: none; align-items: flex-start; gap: 0.4rem; font-size: 0.82rem; line-height: 1.4; color: #B3261E; }
+.dark .field__error { color: #F2B8B5; }
+.field__error[data-visible="true"] { display: flex; }
+
+.form-status { display: none; gap: 0.9rem; padding: 1rem 1.1rem; border: 1px solid var(--line); border-inline-start-width: 4px; background: var(--surface-alt); font-size: 0.92rem; line-height: 1.55; }
+.form-status[data-state] { display: flex; }
+.form-status[data-state="error"] { border-color: #B3261E; color: var(--ink); }
+.form-status[data-state="ready"] { border-color: var(--accent); }
+.form-status .icon { margin-top: 0.1rem; }
+.form-status[data-state="error"] .icon { color: #B3261E; }
+.dark .form-status[data-state="error"] .icon { color: #F2B8B5; }
+.form-status[data-state="ready"] .icon { color: var(--accent); }
+
+/* ----- Map ---------------------------------------------------------------- */
+.map-frame { position: relative; width: 100%; aspect-ratio: 4 / 3; background: var(--surface-alt); border: 1px solid var(--line); overflow: hidden; }
+@media (min-width: 768px) { .map-frame { aspect-ratio: 16 / 9; } }
+@media (min-width: 1024px) { .map-frame { aspect-ratio: auto; height: 28rem; } }
+.map-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+/* ----- Small helpers ------------------------------------------------------ */
+.mono-lite { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; }
+.ico-badge { display: inline-grid; place-items: center; width: 3rem; height: 3rem; border: 1px solid var(--line); border-radius: 50%; color: var(--accent); flex-shrink: 0; }
+.on-dark .ico-badge { color: var(--accent-soft); border-color: rgba(250, 248, 245, 0.25); }

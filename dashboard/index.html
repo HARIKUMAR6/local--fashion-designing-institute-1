@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- @brand:head:start -->
+  <link rel="icon" href="../assets/brand/favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#691829">
+  <!-- @brand:head:end -->
+  <title>Student Dashboard – ATELIER ÉLAN Student Portal</title>
+  <meta name="robots" content="noindex">
+
+  <!-- Apply saved theme and direction before first paint (same keys as the public site) -->
+  <script>
+    try {
+      var t = localStorage.getItem('atelier_elan_theme');
+      if (t ? t === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches) document.documentElement.classList.add('dark');
+      document.documentElement.setAttribute('dir', localStorage.getItem('atelier_elan_dir_mode') === 'rtl' ? 'rtl' : 'ltr');
+    } catch (e) {}
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../dist/output.css">
+</head>
+<body class="portal portal-app">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="i-dashboard" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></symbol>
+<symbol id="i-book" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+<symbol id="i-play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4z"/></symbol>
+<symbol id="i-clipboard" viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4M12 16h4M8 11h.01M8 16h.01"/></symbol>
+<symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+<symbol id="i-megaphone" viewBox="0 0 24 24"><path d="m3 11 18-5v12L3 14z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></symbol>
+<symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.48 12.89 17 22l-5-3-5 3 1.52-9.11"/></symbol>
+<symbol id="i-user" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
+<symbol id="i-sliders" viewBox="0 0 24 24"><path d="M21 4h-7M10 4H3M21 12h-9M8 12H3M21 20h-5M12 20H3M14 2v4M8 10v4M16 18v4"/></symbol>
+<symbol id="i-logout" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5M21 12H9"/></symbol>
+<symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 12h16M4 6h16M4 18h16"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+<symbol id="i-chev-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+<symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+<symbol id="i-eye-off" viewBox="0 0 24 24"><path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.53 13.53 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/><path d="m2 2 20 20"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+<symbol id="i-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></symbol>
+<symbol id="i-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></symbol>
+<symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+<symbol id="i-file" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v4a2 2 0 0 0 2 2h4M10 9H8M16 13H8M16 17H8"/></symbol>
+<symbol id="i-camera" viewBox="0 0 24 24"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3z"/><circle cx="12" cy="13" r="3"/></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+</defs></svg>
+
+<div class="app">
+  <div class="sb-backdrop" id="sb-backdrop" data-open="false"></div>
+
+  <aside class="sb" id="sidebar" data-open="false" aria-label="Student portal navigation">
+    <div class="sb__head">
+      <!-- @brand:lockup:start -->
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="ae-emblem" viewBox="0 0 60 72"><path d="M30 2C38 10 54 14 54 32V66Q54 70 50 70H10Q6 70 6 66V32C6 14 22 10 30 2Z" fill="var(--emblem-bg,#691829)" stroke="var(--emblem-edge,#C28E98)" stroke-width="1.3"/><path d="M30 6.4C37 13.4 50.6 17 50.6 33V65.4Q50.6 66.8 49.2 66.8H10.8Q9.4 66.8 9.4 65.4V33C9.4 17 23 13.4 30 6.4Z" fill="none" stroke="var(--emblem-ink,#FAF8F5)" stroke-width="0.7" opacity="0.55"/><path d="M30 14.2l2.2 3.1-2.2 3.1-2.2-3.1z" fill="var(--emblem-ink,#FAF8F5)"/><g fill="none" stroke="var(--emblem-ink,#FAF8F5)" stroke-linecap="butt" transform="translate(30 42) scale(1.1) translate(-30 -42)"><path d="M24 28.6L14.6 56" stroke-width="1.2"/><path d="M23.4 27.6L33.4 56" stroke-width="3.4"/><path d="M37.2 27.4V56" stroke-width="3.4"/><path d="M36 28.6H47.6" stroke-width="1.2"/><path d="M19.4 42H45" stroke-width="1.2"/><path d="M13.2 56.6H47.6" stroke-width="1.2"/></g><path d="M18.5 63.4H41.5" fill="none" stroke="var(--emblem-ink,#FAF8F5)" stroke-width="0.9" stroke-dasharray="1.7 2.4" stroke-linecap="round"/></symbol>
+  <symbol id="ae-mark" viewBox="0 0 60 72"><path d="M30 2C38 10 54 14 54 32V66Q54 70 50 70H10Q6 70 6 66V32C6 14 22 10 30 2Z" fill="var(--emblem-bg,#691829)" stroke="var(--emblem-edge,#C28E98)" stroke-width="1.3"/><g fill="none" stroke="var(--emblem-ink,#FAF8F5)" stroke-linecap="butt" transform="translate(30 42) scale(1.1) translate(-30 -42)"><path d="M24 28.6L14.6 56" stroke-width="1.2"/><path d="M23.4 27.6L33.4 56" stroke-width="3.4"/><path d="M37.2 27.4V56" stroke-width="3.4"/><path d="M36 28.6H47.6" stroke-width="1.2"/><path d="M19.4 42H45" stroke-width="1.2"/><path d="M13.2 56.6H47.6" stroke-width="1.2"/></g></symbol>
+</svg>
+    <a href="../index.html" class="brand-lockup" aria-label="ATELIER ÉLAN – Homepage">
+      <svg class="brand-lockup__emblem" width="40" height="48" viewBox="0 0 60 72" aria-hidden="true" focusable="false"><use href="#ae-emblem"/></svg>
+      <span class="brand-lockup__text"><span class="brand-lockup__name">ATELIER <em>ÉLAN</em></span><span class="brand-lockup__sub">Institute of Fashion &amp; Creative Arts</span></span>
+    </a>
+    <!-- @brand:lockup:end -->
+      <button type="button" class="sb__close" id="sb-close" aria-label="Close navigation menu"><svg class="i " aria-hidden="true" focusable="false"><use href="#i-x"/></svg></button>
+    </div>
+    <nav class="sb__nav" aria-label="Dashboard">
+      <p class="sb__label">Student portal</p>
+      <ul id="sb-links">
+        <li><a class="sb__link" href="#dashboard" data-nav="dashboard"><svg class="i " aria-hidden="true" focusable="false"><use href="#i-dashboard"/></svg><span>Dashboard</span></a></li>
+        <li><a class="sb__link" href="#courses" data-nav="courses"><svg class="i " aria-hidden="true" focusable="false"><use href="#i-book"/></svg><span>My Courses</span></a></li>
+        <li><a class="sb__link" href="#learning" data-nav="learning"><svg class="i " aria-hidden="true" focusable="false"><use href="#i-play"/></svg><span>My Learning</span></a></li>
+        <li><a class="sb__link" href="#assignments" data-nav="assignments"><svg class="i " aria-hidden="true" focusable="false"><use href="#i-clipboard"/></svg><span>Assignments</span><span class="badge" data-badge="assignments" hidden></span></a></li>
+        <li><a class="sb__link" href="#schedule" data-nav="schedule"><svg class="i " aria-hidden="true" focusable="false"><use href="#i-calendar"/></svg><span>Class Schedule</span></a></li>
+        <li><a class="sb__link" href="#announcements" data-nav="announcements"><svg class="i " aria-hidden="true" focusable="false"><use href="#i-megaphone"/></svg><span>Announcements</span><span class="badge" data-badge="announcements" hidden></span></a></li>
+        <li><a class="sb__link" href="#certificates" data-nav="certificates"><svg class="i " aria-hidden="true" focusable="false"><use href="#i-award"/></svg><span>Certificates</span></a></li>
+        <li><a class="sb__link" href="#profile" data-nav="profile"><svg class="i " aria-hidden="true" focusable="false"><use href="#i-user"/></svg><span>My Profile</span></a></li>
+        <li><a class="sb__link" href="#settings" data-nav="settings"><svg class="i " aria-hidden="true" focusable="false"><use href="#i-sliders"/></svg><span>Settings</span></a></li>
+      </ul>
+    </nav>
+    <div class="sb__ctl-slot" id="sb-ctl-slot"></div>
+    <div class="sb__foot"><a class="sb__link" href="../login.html" id="logout-link"><svg class="i i--flip" aria-hidden="true" focusable="false"><use href="#i-logout"/></svg><span>Logout</span></a></div>
+  </aside>
+
+  <div class="app__main">
+    <header class="tb">
+      <button type="button" class="pt-ctl tb__burger" id="sb-open" aria-label="Open navigation menu" aria-controls="sidebar" aria-expanded="false"><svg class="i " aria-hidden="true" focusable="false"><use href="#i-menu"/></svg></button>
+      <div class="tb__brand"><a href="../index.html" class="brand-lockup brand-lockup--compact" aria-label="ATELIER ÉLAN – Homepage"><svg class="brand-lockup__emblem" width="36" height="43" viewBox="0 0 60 72" aria-hidden="true" focusable="false"><use href="#ae-mark"/></svg><span class="brand-lockup__text"><span class="brand-lockup__name">ATELIER <em>ÉLAN</em></span></span></a></div>
+      <p class="tb__crumb">Student Portal <span aria-hidden="true">/</span> <strong id="crumb-page">Dashboard</strong></p>
+
+      <div class="tb__right">
+        <div class="tb__ctls" id="tb-ctl-slot"><div class="tb__ctls" id="ctl-group"><button id="theme-toggle-btn" type="button" class="pt-ctl " aria-label="Switch to dark mode">
+  <svg id="theme-icon-sun" class="i hidden" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+  <svg id="theme-icon-moon" class="i" aria-hidden="true" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+</button><button id="dir-toggle-btn" type="button" class="pt-ctl" aria-label="Switch to RTL">RTL</button></div></div>
+
+        <div class="dd" id="dd-notif">
+          <button type="button" class="pt-ctl" id="notif-btn" aria-label="Notifications" aria-haspopup="true" aria-expanded="false" aria-controls="notif-panel"><svg class="i " aria-hidden="true" focusable="false"><use href="#i-bell"/></svg><span class="dot" id="notif-dot" hidden></span></button>
+          <div class="dd__panel" id="notif-panel" data-open="false">
+            <div class="dd__head"><span>Notifications</span><button type="button" class="pf-link" id="notif-readall" style="font-size:0.7rem">Mark all read</button></div>
+            <div id="notif-list"></div>
+          </div>
+        </div>
+
+        <div class="dd" id="dd-user">
+          <button type="button" class="tb__user" id="user-btn" aria-haspopup="true" aria-expanded="false" aria-controls="user-panel" aria-label="Student menu"><span class="avatar" data-avatar></span><span class="tb__user-name" data-name></span><svg class="i i--sm" aria-hidden="true" focusable="false"><use href="#i-chev-down"/></svg></button>
+          <div class="dd__panel" id="user-panel" data-open="false" style="width:15rem">
+            <div class="dd__head" style="display:block"><strong data-name style="display:block;text-transform:none;letter-spacing:0;font-size:0.92rem"></strong><span class="dd__note" data-email style="text-transform:none;letter-spacing:0;font-weight:400"></span></div>
+            <a class="dd__item" href="#profile"><svg class="i " aria-hidden="true" focusable="false"><use href="#i-user"/></svg>My Profile</a>
+            <a class="dd__item" href="#settings"><svg class="i " aria-hidden="true" focusable="false"><use href="#i-sliders"/></svg>Settings</a>
+            <a class="dd__item" href="../login.html" data-logout><svg class="i i--flip" aria-hidden="true" focusable="false"><use href="#i-logout"/></svg>Logout</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="content" id="main" tabindex="-1">
+
+      <!-- ===== Dashboard ===== -->
+      <section class="view" data-view="dashboard" aria-labelledby="h-dashboard" hidden>
+        <div class="panel" style="margin-bottom:1.25rem">
+          <div class="welcome">
+            <span class="avatar avatar--xl" data-avatar></span>
+            <div>
+              <h1 class="welcome__hello view__title" id="h-dashboard" tabindex="-1">Welcome back, <em data-first></em></h1>
+              <p class="welcome__meta"><span data-programme></span> · Student ID <span data-sid></span> · <span class="sample-note" style="padding:0.1rem 0.5rem">Sample data</span></p>
+            </div>
+          </div>
+          <div class="strip" id="stat-strip">
+            <div><p class="strip__n" id="st-enrolled">0</p><p class="strip__l">Enrolled courses</p></div>
+            <div><p class="strip__n" id="st-completed">0</p><p class="strip__l">Completed</p></div>
+            <div><p class="strip__n" id="st-pending">0</p><p class="strip__l">Pending assignments</p></div>
+            <div><p class="strip__n" id="st-classes">0</p><p class="strip__l">Upcoming classes</p></div>
+          </div>
+        </div>
+        <div class="grid-12">
+          <div class="pcol-8 stack">
+            <section class="panel" aria-labelledby="p-prog"><div class="panel__head"><h2 class="panel__title" id="p-prog">Course progress</h2><a class="pf-link" href="#courses">All courses</a></div><ul class="rows" id="dash-progress"></ul></section>
+            <section class="panel" aria-labelledby="p-next"><div class="panel__head"><h2 class="panel__title" id="p-next">Upcoming classes</h2><a class="pf-link" href="#schedule">Full schedule</a></div><div id="dash-classes"></div></section>
+          </div>
+          <div class="pcol-4 stack">
+            <section class="panel" aria-labelledby="p-ring"><div class="panel__head"><h2 class="panel__title" id="p-ring">Overall progress</h2></div>
+              <div class="panel__body"><div class="donut" role="img" aria-label="Overall learning progress"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="trk" cx="60" cy="60" r="52"/><circle class="val" id="ring-val" cx="60" cy="60" r="52" stroke-dasharray="326.7" stroke-dashoffset="326.7"/></svg><div class="donut__c"><strong id="ring-pct">0%</strong><span>of lessons</span></div></div>
+              <p class="row-sub" style="text-align:center;margin-top:1rem!important">Across all enrolled courses</p></div></section>
+            <section class="panel" aria-labelledby="p-due"><div class="panel__head"><h2 class="panel__title" id="p-due">Due soon</h2><a class="pf-link" href="#assignments">All</a></div><ul class="rows" id="dash-due"></ul></section>
+            <section class="panel" aria-labelledby="p-ann"><div class="panel__head"><h2 class="panel__title" id="p-ann">Latest announcement</h2></div><div id="dash-ann"></div></section>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== My Courses ===== -->
+      <section class="view" data-view="courses" aria-labelledby="h-courses" hidden>
+        <header class="view__head"><div><h1 class="view__title" id="h-courses" tabindex="-1">My Courses</h1><p class="view__sub">The programmes you are enrolled in, with your progress in each.</p></div><span class="sample-note">Sample enrolment</span></header>
+        <div class="stack" id="course-list"></div>
+        <section class="panel" style="margin-top:1.25rem" aria-labelledby="p-explore"><div class="panel__head"><h2 class="panel__title" id="p-explore">Not enrolled yet</h2></div>
+          <div class="course" style="border:0">
+            <div class="course__img"><img src="../assets/images/process-suit-illustration.jpg" alt="Ink illustration of a man in a black suit jacket and trousers" width="900" height="600" loading="lazy"></div>
+            <div class="course__body"><h3 class="course__name">Advanced Fashion Designing</h3><p class="row-sub">Develop a signature collection with couture techniques, styling and portfolio direction. 18 Months.</p><div><a class="pf-btn pf-btn--ghost pf-btn--auto pf-btn--sm" href="../courses.html#advanced">View course details</a></div></div>
+          </div></section>
+      </section>
+
+      <!-- ===== My Learning ===== -->
+      <section class="view" data-view="learning" aria-labelledby="h-learning" hidden>
+        <header class="view__head"><div><h1 class="view__title" id="h-learning" tabindex="-1">My Learning</h1><p class="view__sub">Pick up where you left off, module by module.</p></div></header>
+        <div class="tabs" id="learn-tabs" role="group" aria-label="Choose a course" style="margin-bottom:1.25rem"></div>
+        <div class="grid-12">
+          <section class="panel pcol-7" aria-labelledby="p-mods"><div class="panel__head"><h2 class="panel__title" id="p-mods">Modules</h2><span class="sample-note">Sample modules</span></div><ul class="mods" id="learn-mods"></ul></section>
+          <div class="pcol-5 stack">
+            <section class="panel" aria-labelledby="p-cont"><div class="panel__head"><h2 class="panel__title" id="p-cont">Continue learning</h2></div>
+              <div class="panel__body" style="display:grid;gap:1rem"><div class="course__prog"><div class="course__pct"><span id="learn-name"></span><span id="learn-pct"></span></div><div class="bar" id="learn-bar"><span></span></div></div><p class="row-sub" id="learn-next"></p><button type="button" class="pf-btn" id="learn-continue">Continue learning</button></div></section>
+            <section class="panel" aria-labelledby="p-up"><div class="panel__head"><h2 class="panel__title" id="p-up">Upcoming lessons</h2></div><ul class="rows" id="learn-upcoming"></ul></section>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Assignments ===== -->
+      <section class="view" data-view="assignments" aria-labelledby="h-assignments" hidden>
+        <header class="view__head"><div><h1 class="view__title" id="h-assignments" tabindex="-1">Assignments</h1><p class="view__sub">Sample assignments with realistic due dates and statuses.</p></div></header>
+        <div class="tabs" id="assign-tabs" role="group" aria-label="Filter assignments" style="margin-bottom:1.25rem">
+          <button type="button" class="tab" data-f="all" aria-pressed="true">All</button><button type="button" class="tab" data-f="pending" aria-pressed="false">Pending</button><button type="button" class="tab" data-f="submitted" aria-pressed="false">Submitted</button>
+        </div>
+        <section class="panel" aria-label="Assignment list"><ul class="rows" id="assign-list"></ul></section>
+      </section>
+
+      <!-- ===== Schedule ===== -->
+      <section class="view" data-view="schedule" aria-labelledby="h-schedule" hidden>
+        <header class="view__head"><div><h1 class="view__title" id="h-schedule" tabindex="-1">Class Schedule</h1><p class="view__sub">Sample classes for the coming days. Select a day to filter.</p></div><button type="button" class="tab" id="sched-all" aria-pressed="true">All classes</button></header>
+        <div class="week" id="week" role="group" aria-label="Choose a day" style="margin-bottom:1.25rem"></div>
+        <section class="panel" aria-label="Classes"><div id="sched-list"></div></section>
+      </section>
+
+      <!-- ===== Announcements ===== -->
+      <section class="view" data-view="announcements" aria-labelledby="h-announcements" hidden>
+        <header class="view__head"><div><h1 class="view__title" id="h-announcements" tabindex="-1">Announcements</h1><p class="view__sub">Updates from the institute. Sample announcements for the prototype.</p></div><button type="button" class="pf-btn pf-btn--ghost pf-btn--auto pf-btn--sm" id="ann-readall">Mark all as read</button></header>
+        <section class="panel" aria-label="Announcements"><div id="ann-list"></div></section>
+      </section>
+
+      <!-- ===== Certificates ===== -->
+      <section class="view" data-view="certificates" aria-labelledby="h-certificates" hidden>
+        <header class="view__head"><div><h1 class="view__title" id="h-certificates" tabindex="-1">Certificates</h1><p class="view__sub">Completion status for each course.</p></div></header>
+        <div class="pf-alert" data-state="info" style="margin-bottom:1.25rem"><svg class="i " aria-hidden="true" focusable="false"><use href="#i-info"/></svg><p>This prototype does not generate or issue certificates. A completed course only means all sample lessons are done; any official certificate or qualification would be confirmed by the institute.</p></div>
+        <div class="grid-12" id="cert-list" style="grid-auto-rows:auto"></div>
+      </section>
+
+      <!-- ===== Profile ===== -->
+      <section class="view" data-view="profile" aria-labelledby="h-profile" hidden>
+        <header class="view__head"><div><h1 class="view__title" id="h-profile" tabindex="-1">My Profile</h1><p class="view__sub">Edit your sample profile. Changes stay in this browser only.</p></div></header>
+        <div class="grid-12">
+          <section class="panel pcol-4" aria-labelledby="p-photo"><div class="panel__head"><h2 class="panel__title" id="p-photo">Profile photo</h2></div>
+            <div class="panel__body" style="display:grid;gap:1rem;justify-items:center;text-align:center"><span class="avatar avatar--xl" data-avatar id="prof-avatar"></span><p class="row-sub" style="margin:0!important">Photo placeholder. A chosen image is previewed here only and is not uploaded or saved.</p>
+              <label class="pf-btn pf-btn--ghost pf-btn--auto pf-btn--sm" style="cursor:pointer"><svg class="i " aria-hidden="true" focusable="false"><use href="#i-camera"/></svg>Choose photo<input type="file" accept="image/*" id="photo-input" class="sr-only"></label></div></section>
+          <section class="panel pcol-8" aria-labelledby="p-details"><div class="panel__head"><h2 class="panel__title" id="p-details">Personal details</h2></div>
+            <form class="panel__body form-grid" id="form-profile" novalidate>
+              <div class="pf-field"><label class="pf-label" for="pr-name">Full name</label><input class="pf-input" id="pr-name" name="name" autocomplete="name" aria-describedby="pr-name-err" required><p class="pf-error" id="pr-name-err" data-visible="false"><svg class="i i--sm" aria-hidden="true" focusable="false"><use href="#i-alert"/></svg><span></span></p></div>
+              <div class="pf-field"><label class="pf-label" for="pr-email">Email address</label><input class="pf-input" id="pr-email" name="email" type="email" autocomplete="email" aria-describedby="pr-email-err" required><p class="pf-error" id="pr-email-err" data-visible="false"><svg class="i i--sm" aria-hidden="true" focusable="false"><use href="#i-alert"/></svg><span></span></p></div>
+              <div class="pf-field"><label class="pf-label" for="pr-phone">Phone number</label><input class="pf-input" id="pr-phone" name="phone" type="tel" autocomplete="tel" aria-describedby="pr-phone-err" required><p class="pf-error" id="pr-phone-err" data-visible="false"><svg class="i i--sm" aria-hidden="true" focusable="false"><use href="#i-alert"/></svg><span></span></p></div>
+              <div class="pf-field"><label class="pf-label" for="pr-city">City <span class="opt">(optional)</span></label><input class="pf-input" id="pr-city" name="city" autocomplete="address-level2"></div>
+              <div class="pf-field full"><label class="pf-label" for="pr-bio">About you <span class="opt">(optional)</span></label><textarea class="pf-input" id="pr-bio" name="bio" maxlength="300"></textarea></div>
+              <div class="full" style="display:flex;gap:0.6rem;flex-wrap:wrap"><button type="submit" class="pf-btn pf-btn--auto">Save changes</button><button type="button" class="pf-btn pf-btn--ghost pf-btn--auto" id="prof-reset">Discard changes</button></div>
+            </form></section>
+        </div>
+      </section>
+
+      <!-- ===== Settings ===== -->
+      <section class="view" data-view="settings" aria-labelledby="h-settings" hidden>
+        <header class="view__head"><div><h1 class="view__title" id="h-settings" tabindex="-1">Settings</h1><p class="view__sub">Appearance and preferences. Stored in this browser only.</p></div></header>
+        <div class="grid-12">
+          <section class="panel pcol-6" aria-labelledby="p-app"><div class="panel__head"><h2 class="panel__title" id="p-app">Appearance</h2></div>
+            <div class="panel__body">
+              <div class="sw"><div><p class="row-title">Theme</p><p class="row-sub">Shared with the public website.</p></div><div class="seg" role="group" aria-label="Theme"><button type="button" data-theme-set="light" aria-pressed="false">Light</button><button type="button" data-theme-set="dark" aria-pressed="false">Dark</button></div></div>
+              <div class="sw"><div><p class="row-title">Text direction</p><p class="row-sub">Switches the whole layout.</p></div><div class="seg" role="group" aria-label="Text direction"><button type="button" data-dir-set="ltr" aria-pressed="false">LTR</button><button type="button" data-dir-set="rtl" aria-pressed="false">RTL</button></div></div>
+            </div></section>
+          <section class="panel pcol-6" aria-labelledby="p-pref"><div class="panel__head"><h2 class="panel__title" id="p-pref">Preferences</h2></div>
+            <div class="panel__body">
+              <label class="sw"><span><span class="row-title" style="display:block">Class reminders</span><span class="row-sub" style="display:block">Show a reminder before each class.</span></span><input type="checkbox" data-pref="reminders"></label>
+              <label class="sw"><span><span class="row-title" style="display:block">Announcement alerts</span><span class="row-sub" style="display:block">Show unread announcements in notifications.</span></span><input type="checkbox" data-pref="alerts"></label>
+              <label class="sw"><span><span class="row-title" style="display:block">Weekly progress summary</span><span class="row-sub" style="display:block">Prototype switch only. Nothing is emailed.</span></span><input type="checkbox" data-pref="summary"></label>
+            </div></section>
+          <section class="panel col-12" style="grid-column:1/-1" aria-labelledby="p-data"><div class="panel__head"><h2 class="panel__title" id="p-data">Sample data</h2></div>
+            <div class="panel__body" style="display:flex;gap:1rem;align-items:center;justify-content:space-between;flex-wrap:wrap"><p class="row-sub" style="margin:0!important;max-width:38rem">Progress, assignment statuses, profile edits and preferences are kept in this browser's local storage so the prototype feels continuous. No passwords or account data are stored.</p><button type="button" class="pf-btn pf-btn--ghost pf-btn--auto pf-btn--sm" id="reset-data">Reset sample data</button></div></section>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<dialog class="dlg" id="assign-dlg" aria-labelledby="ad-title">
+  <div class="dlg__head"><div><h2 class="panel__title" id="ad-title"></h2><p class="row-sub" id="ad-course"></p></div><button type="button" class="pt-ctl" data-close aria-label="Close"><svg class="i " aria-hidden="true" focusable="false"><use href="#i-x"/></svg></button></div>
+  <div class="dlg__body"><p id="ad-text"></p><p><span class="chip" id="ad-status"></span> <span id="ad-due" class="row-sub"></span></p></div>
+  <div class="dlg__foot"><button type="button" class="pf-btn pf-btn--ghost pf-btn--auto pf-btn--sm" data-close>Close</button><button type="button" class="pf-btn pf-btn--auto pf-btn--sm" id="ad-submit">Mark as submitted</button></div>
+</dialog>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script type="module" src="../src/js/portal.js"></script>
+</body>
+</html>

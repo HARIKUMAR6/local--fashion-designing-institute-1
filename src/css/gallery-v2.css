@@ -1,0 +1,121 @@
+/* ========================================================================= */
+/* GALLERY v2 – balanced Archive grid, Behind the Studio journey, Showcase    */
+/* ========================================================================= */
+
+/* ----- Archive: justified rows (JS computes widths/heights; CSS is the no-JS fallback) ----- */
+.g-justified { display: flex; flex-wrap: wrap; gap: 1.25rem 0.75rem; }
+.g-justified:not(.is-justified) .g-item { flex: calc(var(--ar, 1) * 100) 1 calc(var(--ar, 1) * 11rem); min-width: 0; }
+.g-justified:not(.is-justified)::after { content: ""; flex-grow: 1000000; }
+.g-justified.is-justified { display: block; }
+.g-justified[hidden] { display: none; }
+.g-row { display: flex; gap: var(--gap, 14px); margin-bottom: 1.35rem; }
+.g-row.is-capped { justify-content: center; }
+.g-row .g-item { flex: none; min-width: 0; }
+.g-row .g-open { height: var(--h); }
+.g-row .g-open img { width: 100%; height: 100%; object-fit: cover; }
+.g-justified .g-cap { margin: 0.55rem 0 0; display: flex; align-items: baseline; justify-content: space-between; gap: 0.6rem; font-size: 0.78rem; line-height: 1.3; flex-wrap: nowrap; }
+.g-justified .g-cap > * { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.g-justified .g-cap { justify-content: flex-start; }
+.g-justified .g-cap small { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.g-justified .g-cap span { font-size: 0.8rem; color: var(--ink); }
+.g-store { display: none; }
+
+.g-empty { display: none; padding: 3.5rem 1.5rem; text-align: center; border: 1px dashed var(--line); }
+.g-empty[data-visible="true"] { display: grid; justify-items: center; gap: 1.25rem; }
+.g-empty p { margin: 0; font-family: var(--font-serif); font-style: italic; font-size: 1.5rem; color: var(--ink-muted); }
+.g-empty .link-arrow { background: none; border-top: 0; border-inline: 0; cursor: pointer; }
+
+/* Frames inside buttons are <span>s: make them block boxes so aspect-ratio applies. */
+.g-open .frame { display: block; }
+.g-open .frame > img { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; }
+
+/* ----- Behind the Studio: documented production journey ------------------- */
+.journey { list-style: none; margin: 0; padding: 0; display: grid; gap: clamp(3.5rem, 7vw, 6rem); }
+.stage__bar { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 1.5rem; }
+.stage__no { font-family: var(--font-serif); font-style: italic; font-size: clamp(2.8rem, 5.2vw, 4.2rem); line-height: 1; color: var(--accent-soft); }
+.stage__name { margin: 0; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; }
+.stage__rule { flex: 1; align-self: center; border-top: 1px dashed rgba(250, 248, 245, 0.28); }
+.stage__body { display: grid; gap: 1.75rem; }
+.stage__text p { margin: 0; max-width: 28rem; font-family: var(--font-serif); font-size: clamp(1.3rem, 2.1vw, 1.7rem); line-height: 1.35; color: rgba(250, 248, 245, 0.92); }
+.stage__media { min-width: 0; }
+.plate { margin: 0; min-width: 0; }
+.plate .g-open { background: #1f1d1b; }
+.plate__cap { display: flex; flex-direction: column; gap: 0.15rem; margin-top: 0.6rem; font-size: 0.82rem; color: rgba(250, 248, 245, 0.8); }
+.plate__cap small, .plaque small, .c-note small { font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent-soft); }
+.m { display: grid; gap: 1.25rem; grid-template-columns: 1fr; }
+@media (min-width: 640px) {
+  .m--finish { grid-template-columns: 1fr 1fr; }
+  .m--finish .m__b { margin-top: 2.5rem; }
+}
+@media (min-width: 1024px) {
+  .stage__body { grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 3rem; align-items: start; }
+  .stage__text { grid-column: span 4; position: sticky; top: calc(var(--header-h) + 2rem); }
+  .stage__media { grid-column: span 8; }
+  .stage--flip .stage__text { grid-column: 9 / span 4; grid-row: 1; }
+  .stage--flip .stage__media { grid-column: 1 / span 8; grid-row: 1; }
+  .m { grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 1.5rem; }
+  .m--concept .m__a { grid-column: 1 / span 8; }
+  .m--concept .m__b { grid-column: 5 / span 8; }
+  .m--fabric .m__a { grid-column: 1 / span 6; grid-row: 1 / span 2; }
+  .m--fabric .m__b { grid-column: 7 / span 6; }
+  .m--fabric .m__c { grid-column: 7 / span 6; }
+  .m--cut { align-items: end; }
+  .m--cut .m__a { grid-column: 1 / span 7; }
+  .m--cut .m__b { grid-column: 8 / span 5; }
+  .m--sew { align-items: end; }
+  .m--sew .m__a { grid-column: 1 / span 8; }
+  .m--sew .m__b { grid-column: 9 / span 4; }
+  .m--collab .m__a { grid-column: 1 / -1; }
+  .m--collab .m__b { grid-column: 6 / span 7; }
+  .m--finish { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+  .m--finish .m__a { grid-column: 1 / span 6; }
+  .m--finish .m__b { grid-column: 7 / span 6; margin-top: 3rem; }
+}
+
+/* ----- Fashion Showcase: exhibition rooms --------------------------------- */
+.rooms { display: grid; gap: clamp(3.5rem, 6vw, 5rem); }
+.room__head { display: grid; grid-template-columns: auto 1fr; gap: 1.25rem; align-items: start; padding-bottom: 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid var(--line); }
+.room__no { font-family: var(--font-serif); font-style: italic; font-size: clamp(2.6rem, 5vw, 3.8rem); line-height: 0.9; color: var(--accent); min-width: 2.6ch; }
+.room__title { margin: 0; font-family: var(--font-serif); font-size: clamp(1.6rem, 2.7vw, 2.3rem); font-weight: 400; line-height: 1.1; text-transform: uppercase; }
+.room__blurb { margin: 0.45rem 0 0; max-width: 34rem; font-size: 0.95rem; line-height: 1.6; font-weight: 300; color: var(--ink-muted); }
+.work { margin: 0; min-width: 0; }
+.work .g-open { background: transparent; }
+.frame.matte { border: 0.55rem solid var(--surface); outline: 1px solid var(--line); box-shadow: 0 26px 40px -30px rgba(22, 21, 20, 0.55); }
+.dark .frame.matte { border-color: #1c1a18; outline-color: rgba(247, 244, 238, 0.14); box-shadow: 0 26px 40px -30px rgba(0, 0, 0, 0.8); }
+.plaque { display: grid; gap: 0.15rem; margin-top: 0.85rem; }
+.plaque small { color: var(--accent); }
+.plaque strong { font-family: var(--font-serif); font-size: 1.2rem; font-weight: 500; line-height: 1.2; }
+.plaque span { font-size: 0.84rem; line-height: 1.5; font-weight: 300; color: var(--ink-muted); }
+.room__grid, .room__row { display: grid; gap: 1.75rem; grid-template-columns: 1fr; }
+.room__row { margin-top: 1.75rem; }
+.room__row--4, .room__row--5 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+.room__row--5 > :last-child { grid-column: 1 / -1; }
+.c-note { padding: 1.5rem; border: 1px solid var(--line); border-inline-start: 3px solid var(--accent); background: var(--surface); align-self: stretch; display: grid; align-content: center; }
+.c-note small { color: var(--accent); }
+.c-note p { margin: 0.7rem 0 0; font-family: var(--font-serif); font-size: clamp(1.25rem, 1.9vw, 1.6rem); line-height: 1.35; }
+@media (min-width: 768px) {
+  .room__row--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .room__row--5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .room__row--5 > :last-child { grid-column: auto; }
+}
+@media (min-width: 1024px) {
+  .room__grid { grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 2rem; }
+  .room__grid .work { display: flex; flex-direction: column; }
+  .room__grid .work .g-open { flex: 1; min-height: 0; }
+  .room__grid .work .frame { height: 100%; }
+  .room__grid--runway { grid-template-rows: 34rem; }
+  .room__grid--runway .w-lead { grid-column: 1 / span 8; }
+  .room__grid--runway .w-tall { grid-column: 9 / span 4; }
+  .room__grid--collections { grid-template-rows: 21rem 21rem; }
+  .room__grid--collections .c-a { grid-column: 1 / span 4; grid-row: 1 / span 2; }
+  .room__grid--collections .c-b { grid-column: 5 / span 8; }
+  .room__grid--collections .c-c { grid-column: 5 / span 4; }
+  .room__grid--collections .c-note { grid-column: 9 / span 4; }
+  .room__grid--events { grid-template-rows: 21rem 21rem; }
+  .room__grid--events .e-a { grid-column: 1 / span 7; }
+  .room__grid--events .e-b { grid-column: 8 / span 5; }
+  .room__grid--events .e-c { grid-column: 1 / span 6; }
+  .room__grid--events .e-d { grid-column: 7 / span 6; }
+}
+
+@media (prefers-reduced-motion: reduce) { .g-row .g-open img { transition: none; } }

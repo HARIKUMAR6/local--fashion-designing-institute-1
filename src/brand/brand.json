@@ -1,0 +1,5 @@
+{
+  "name": "ATELIER ÉLAN",
+  "subtitle": "Institute of Fashion & Creative Arts",
+  "status": "Working name – pending confirmation. Change it only with `node scripts/brand.mjs set \"NEW NAME\"`; the AE monogram drawing in scripts/brand.mjs must then be redrawn for the new initials."
+}

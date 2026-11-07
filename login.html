@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- @brand:head:start -->
+  <link rel="icon" href="./assets/brand/favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#691829">
+  <!-- @brand:head:end -->
+  <title>Student Login – ATELIER ÉLAN Student Portal</title>
+  <meta name="robots" content="noindex">
+
+  <!-- Apply saved theme and direction before first paint (same keys as the public site) -->
+  <script>
+    try {
+      var t = localStorage.getItem('atelier_elan_theme');
+      if (t ? t === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches) document.documentElement.classList.add('dark');
+      document.documentElement.setAttribute('dir', localStorage.getItem('atelier_elan_dir_mode') === 'rtl' ? 'rtl' : 'ltr');
+    } catch (e) {}
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./dist/output.css">
+</head>
+<body class="portal portal-login">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="i-dashboard" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></symbol>
+<symbol id="i-book" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+<symbol id="i-play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4z"/></symbol>
+<symbol id="i-clipboard" viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4M12 16h4M8 11h.01M8 16h.01"/></symbol>
+<symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+<symbol id="i-megaphone" viewBox="0 0 24 24"><path d="m3 11 18-5v12L3 14z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></symbol>
+<symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.48 12.89 17 22l-5-3-5 3 1.52-9.11"/></symbol>
+<symbol id="i-user" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
+<symbol id="i-sliders" viewBox="0 0 24 24"><path d="M21 4h-7M10 4H3M21 12h-9M8 12H3M21 20h-5M12 20H3M14 2v4M8 10v4M16 18v4"/></symbol>
+<symbol id="i-logout" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5M21 12H9"/></symbol>
+<symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 12h16M4 6h16M4 18h16"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+<symbol id="i-chev-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+<symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+<symbol id="i-eye-off" viewBox="0 0 24 24"><path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.53 13.53 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/><path d="m2 2 20 20"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+<symbol id="i-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></symbol>
+<symbol id="i-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></symbol>
+<symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+<symbol id="i-file" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v4a2 2 0 0 0 2 2h4M10 9H8M16 13H8M16 17H8"/></symbol>
+<symbol id="i-camera" viewBox="0 0 24 24"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3z"/><circle cx="12" cy="13" r="3"/></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+</defs></svg>
+
+<div class="pl">
+  <div class="pl__panel">
+    <header class="pl__top">
+      <!-- @brand:lockup:start -->
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="ae-emblem" viewBox="0 0 60 72"><path d="M30 2C38 10 54 14 54 32V66Q54 70 50 70H10Q6 70 6 66V32C6 14 22 10 30 2Z" fill="var(--emblem-bg,#691829)" stroke="var(--emblem-edge,#C28E98)" stroke-width="1.3"/><path d="M30 6.4C37 13.4 50.6 17 50.6 33V65.4Q50.6 66.8 49.2 66.8H10.8Q9.4 66.8 9.4 65.4V33C9.4 17 23 13.4 30 6.4Z" fill="none" stroke="var(--emblem-ink,#FAF8F5)" stroke-width="0.7" opacity="0.55"/><path d="M30 14.2l2.2 3.1-2.2 3.1-2.2-3.1z" fill="var(--emblem-ink,#FAF8F5)"/><g fill="none" stroke="var(--emblem-ink,#FAF8F5)" stroke-linecap="butt" transform="translate(30 42) scale(1.1) translate(-30 -42)"><path d="M24 28.6L14.6 56" stroke-width="1.2"/><path d="M23.4 27.6L33.4 56" stroke-width="3.4"/><path d="M37.2 27.4V56" stroke-width="3.4"/><path d="M36 28.6H47.6" stroke-width="1.2"/><path d="M19.4 42H45" stroke-width="1.2"/><path d="M13.2 56.6H47.6" stroke-width="1.2"/></g><path d="M18.5 63.4H41.5" fill="none" stroke="var(--emblem-ink,#FAF8F5)" stroke-width="0.9" stroke-dasharray="1.7 2.4" stroke-linecap="round"/></symbol>
+  <symbol id="ae-mark" viewBox="0 0 60 72"><path d="M30 2C38 10 54 14 54 32V66Q54 70 50 70H10Q6 70 6 66V32C6 14 22 10 30 2Z" fill="var(--emblem-bg,#691829)" stroke="var(--emblem-edge,#C28E98)" stroke-width="1.3"/><g fill="none" stroke="var(--emblem-ink,#FAF8F5)" stroke-linecap="butt" transform="translate(30 42) scale(1.1) translate(-30 -42)"><path d="M24 28.6L14.6 56" stroke-width="1.2"/><path d="M23.4 27.6L33.4 56" stroke-width="3.4"/><path d="M37.2 27.4V56" stroke-width="3.4"/><path d="M36 28.6H47.6" stroke-width="1.2"/><path d="M19.4 42H45" stroke-width="1.2"/><path d="M13.2 56.6H47.6" stroke-width="1.2"/></g></symbol>
+</svg>
+    <a href="./index.html" class="brand-lockup" aria-label="ATELIER ÉLAN – Homepage">
+      <svg class="brand-lockup__emblem" width="40" height="48" viewBox="0 0 60 72" aria-hidden="true" focusable="false"><use href="#ae-emblem"/></svg>
+      <span class="brand-lockup__text"><span class="brand-lockup__name">ATELIER <em>ÉLAN</em></span><span class="brand-lockup__sub">Institute of Fashion &amp; Creative Arts</span></span>
+    </a>
+    <!-- @brand:lockup:end -->
+      <div class="pl__ctls"><button id="theme-toggle-btn" type="button" class="pt-ctl " aria-label="Switch to dark mode">
+  <svg id="theme-icon-sun" class="i hidden" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+  <svg id="theme-icon-moon" class="i" aria-hidden="true" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+</button><button id="dir-toggle-btn" type="button" class="pt-ctl" aria-label="Switch to RTL">RTL</button></div>
+    </header>
+
+    <main class="pl__main" id="main">
+      <div class="pl__card">
+
+        <!-- ============ SIGN IN ============ -->
+        <section data-view="signin" aria-labelledby="t-signin">
+          <span class="pl__eyebrow">Student Portal</span>
+          <h1 id="t-signin" class="pl__title" tabindex="-1">Sign <em>in</em></h1>
+          <p class="pl__lede">Welcome back. Enter your details to continue to your dashboard.</p>
+          <form class="pl__form" id="form-signin" novalidate>
+            <div class="pf-alert" id="al-signin" role="status" aria-live="polite"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-info"/></svg><p></p></div>
+            <div class="pf-field"><label class="pf-label" for="si-email">Email address</label><input class="pf-input" id="si-email" name="email" type="email" autocomplete="email" placeholder="name@example.com" aria-describedby="si-email-err" required><p class="pf-error" id="si-email-err" data-visible="false"><svg class="i i--sm" aria-hidden="true" focusable="false"><use href="#i-alert"/></svg><span></span></p></div>
+            <div class="pf-field">
+  <label class="pf-label" for="si-pw">Password</label>
+  <div class="pf-wrap"><input class="pf-input pf-input--pw" id="si-pw" name="password" type="password" autocomplete="current-password" aria-describedby="si-pw-err" required>
+    <button type="button" class="pf-eye" data-toggle-pw="si-pw" aria-label="Show password" aria-pressed="false"><svg class="i " aria-hidden="true" focusable="false"><use href="#i-eye"/></svg></button></div>
+  <p class="pf-error" id="si-pw-err" data-visible="false"><svg class="i i--sm" aria-hidden="true" focusable="false"><use href="#i-alert"/></svg><span></span></p></div>
+            <div class="pl__row">
+              <label class="pf-check"><input type="checkbox" id="si-remember" name="remember"> <span>Remember me</span></label>
+              <button type="button" class="pf-link" data-go="forgot">Forgot password?</button>
+            </div>
+            <button type="submit" class="pf-btn" id="si-submit">Sign in</button>
+            <div class="pf-or" role="separator">or</div>
+            <div class="pl__social">
+              <button type="button" class="pf-btn pf-btn--social" data-social="Google"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="#4285F4" d="M23.5 12.27c0-.85-.08-1.67-.22-2.45H12v4.64h6.46a5.52 5.52 0 0 1-2.4 3.62v3h3.88c2.27-2.09 3.56-5.17 3.56-8.81z"/><path fill="#34A853" d="M12 24c3.24 0 5.96-1.07 7.94-2.91l-3.88-3c-1.07.72-2.45 1.15-4.06 1.15-3.12 0-5.77-2.11-6.71-4.95H1.28v3.1A12 12 0 0 0 12 24z"/><path fill="#FBBC05" d="M5.29 14.29a7.2 7.2 0 0 1 0-4.58v-3.1H1.28a12 12 0 0 0 0 10.78z"/><path fill="#EA4335" d="M12 4.75c1.76 0 3.34.61 4.59 1.8l3.44-3.44C17.95 1.19 15.24 0 12 0A12 12 0 0 0 1.28 6.61l4.01 3.1C6.23 6.86 8.88 4.75 12 4.75z"/></svg><span>Continue with Google</span></button>
+              <button type="button" class="pf-btn pf-btn--social" data-social="Apple"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg><span>Continue with Apple</span></button>
+            </div>
+          </form>
+          <p class="pl__switch">New to the portal? <button type="button" class="pf-link" data-go="create">Create account</button></p>
+        </section>
+
+        <!-- ============ CREATE ACCOUNT ============ -->
+        <section data-view="create" aria-labelledby="t-create" hidden>
+          <span class="pl__eyebrow">Student Portal</span>
+          <h1 id="t-create" class="pl__title" tabindex="-1">Create <em>account</em></h1>
+          <p class="pl__lede">Tell us a little about you. This is a prototype form: nothing is saved or sent.</p>
+          <form class="pl__form" id="form-create" novalidate>
+            <div class="pf-alert" id="al-create" role="status" aria-live="polite"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-info"/></svg><p></p></div>
+            <div class="pf-field"><label class="pf-label" for="ca-name">Full name</label><input class="pf-input" id="ca-name" name="name" type="text" autocomplete="name"  aria-describedby="ca-name-err" required><p class="pf-error" id="ca-name-err" data-visible="false"><svg class="i i--sm" aria-hidden="true" focusable="false"><use href="#i-alert"/></svg><span></span></p></div>
+            <div class="pl__grid2">
+              <div class="pf-field"><label class="pf-label" for="ca-email">Email address</label><input class="pf-input" id="ca-email" name="email" type="email" autocomplete="email" placeholder="name@example.com" aria-describedby="ca-email-err" required><p class="pf-error" id="ca-email-err" data-visible="false"><svg class="i i--sm" aria-hidden="true" focusable="false"><use href="#i-alert"/></svg><span></span></p></div>
+              <div class="pf-field"><label class="pf-label" for="ca-phone">Phone number</label><input class="pf-input" id="ca-phone" name="phone" type="tel" autocomplete="tel" placeholder="+33 1 23 45 67 89" aria-describedby="ca-phone-err" required><p class="pf-error" id="ca-phone-err" data-visible="false"><svg class="i i--sm" aria-hidden="true" focusable="false"><use href="#i-alert"/></svg><span></span></p></div>
+            </div>
+            <div class="pf-field">
+  <label class="pf-label" for="ca-pw">Password</label>
+  <div class="pf-wrap"><input class="pf-input pf-input--pw" id="ca-pw" name="password" type="password" autocomplete="new-password" aria-describedby="ca-rules ca-pw-err" required>
+    <button type="button" class="pf-eye" data-toggle-pw="ca-pw" aria-label="Show password" aria-pressed="false"><svg class="i " aria-hidden="true" focusable="false"><use href="#i-eye"/></svg></button></div>
+  <p class="pf-error" id="ca-pw-err" data-visible="false"><svg class="i i--sm" aria-hidden="true" focusable="false"><use href="#i-alert"/></svg><span></span></p></div>
+            <ul class="pf-rules" id="ca-rules" aria-label="Password requirements">
+              <li data-rule="len">8+ characters</li><li data-rule="up">An uppercase letter</li><li data-rule="low">A lowercase letter</li><li data-rule="num">A number</li>
+            </ul>
+            <div class="pf-field">
+  <label class="pf-label" for="ca-pw2">Confirm password</label>
+  <div class="pf-wrap"><input class="pf-input pf-input--pw" id="ca-pw2" name="confirm" type="password" autocomplete="new-password" aria-describedby="ca-pw2-err" required>
+    <button type="button" class="pf-eye" data-toggle-pw="ca-pw2" aria-label="Show password" aria-pressed="false"><svg class="i " aria-hidden="true" focusable="false"><use href="#i-eye"/></svg></button></div>
+  <p class="pf-error" id="ca-pw2-err" data-visible="false"><svg class="i i--sm" aria-hidden="true" focusable="false"><use href="#i-alert"/></svg><span></span></p></div>
+            <div class="pf-field">
+              <label class="pf-check"><input type="checkbox" id="ca-terms" name="terms" aria-describedby="ca-terms-err"> <span>I accept the <button type="button" class="pf-link" id="open-terms">Terms and Conditions</button></span></label>
+              <p class="pf-error" id="ca-terms-err" data-visible="false"><svg class="i i--sm" aria-hidden="true" focusable="false"><use href="#i-alert"/></svg><span></span></p>
+            </div>
+            <button type="submit" class="pf-btn" id="ca-submit">Create account</button>
+          </form>
+          <div id="create-done" hidden>
+            <div class="pf-alert" data-state="success" role="status"><svg class="i " aria-hidden="true" focusable="false"><use href="#i-check-circle"/></svg><p id="create-done-text"></p></div>
+          </div>
+          <p class="pl__switch">Already have an account? <button type="button" class="pf-link" data-go="signin">Return to sign in</button></p>
+        </section>
+
+        <!-- ============ FORGOT PASSWORD ============ -->
+        <section data-view="forgot" aria-labelledby="t-forgot" hidden>
+          <span class="pl__eyebrow">Student Portal</span>
+          <h1 id="t-forgot" class="pl__title" tabindex="-1">Reset <em>password</em></h1>
+          <p class="pl__lede">Enter the email address you registered with. This is a prototype: no reset email will actually be sent.</p>
+          <form class="pl__form" id="form-forgot" novalidate>
+            <div class="pf-alert" id="al-forgot" role="status" aria-live="polite"><svg class="i" aria-hidden="true" focusable="false"><use href="#i-info"/></svg><p></p></div>
+            <div class="pf-field"><label class="pf-label" for="fp-email">Email address</label><input class="pf-input" id="fp-email" name="email" type="email" autocomplete="email" placeholder="name@example.com" aria-describedby="fp-email-err" required><p class="pf-error" id="fp-email-err" data-visible="false"><svg class="i i--sm" aria-hidden="true" focusable="false"><use href="#i-alert"/></svg><span></span></p></div>
+            <button type="submit" class="pf-btn">Show reset instructions</button>
+          </form>
+          <p class="pl__switch"><button type="button" class="pf-link" data-go="signin">Return to sign in</button></p>
+        </section>
+
+      </div>
+    </main>
+
+    <footer class="pl__foot"><span>© 2026 ATELIER ÉLAN</span><span>Student portal prototype · no real sign-in</span></footer>
+  </div>
+
+  <aside class="pl__art" aria-label="Welcome">
+    <img src="./assets/images/hero-polka-dress.jpg" alt="A model in a burgundy polka-dot two-piece, skirt lifting in the wind across a golden field" width="2000" height="1333" fetchpriority="high">
+    <div class="pl__art-copy">
+      <p class="pl__art-kicker">Student Portal</p>
+      <p class="pl__art-title">Step into <em>the studio.</em></p>
+      <p class="pl__art-text">Your courses, assignments and class schedule, together in one place.</p>
+      <p class="pl__art-meta">Atelier Élan · Paris &amp; Milan</p>
+    </div>
+  </aside>
+</div>
+
+<dialog class="dlg" id="terms-dlg" aria-labelledby="terms-title">
+  <div class="dlg__head"><h2 class="panel__title" id="terms-title">Terms and Conditions</h2><button type="button" class="pt-ctl" data-close aria-label="Close"><svg class="i " aria-hidden="true" focusable="false"><use href="#i-x"/></svg></button></div>
+  <div class="dlg__body"><p>The institute's Terms and Conditions have not been published yet. This placeholder stands in for them in the prototype.</p><p>Ticking the box only completes the form check. No agreement is recorded anywhere.</p></div>
+  <div class="dlg__foot"><button type="button" class="pf-btn pf-btn--auto" data-close>Close</button></div>
+</dialog>
+
+<script type="module" src="./src/js/portal.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{
+  "name": "atelier-elan",
+  "version": "1.0.0",
+  "description": "ATELIER ÉLAN – Institute of Fashion & Creative Arts",
+  "main": "index.html",
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
+    "watch:css": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+    "dev": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+    "test": "node ./tests/validate.mjs",
+    "sync": "node ./scripts/sync-layout.mjs",
+    "build": "node ./scripts/sync-layout.mjs && tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
+    "test:browser": "node ./tests/browser-audit.mjs && node ./tests/interaction-check.mjs && node ./tests/modes-audit.mjs && node ./tests/inner-check.mjs",
+    "icons": "node ./scripts/icons.mjs"
+  },
+  "keywords": [
+    "fashion-institute",
+    "atelier-elan",
+    "design",
+    "creative-arts"
+  ],
+  "author": "Atelier Élan",
+  "license": "ISC",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.4",
+    "tailwindcss": "^4.3.4"
+  }
+}

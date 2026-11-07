@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creative Atelier – ATELIER ÉLAN | Institute of Fashion &amp; Creative Arts</title>
+  <meta name="description" content="Experience the Creative Atelier of ATELIER ÉLAN. Explore student sketchbooks, textile labs, hands-on couture craftsmanship, and academic courses.">
+  
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Compiled Tailwind CSS v4 -->
+  <link rel="stylesheet" href="./dist/output.css">
+</head>
+<body class="bg-warm-ivory text-charcoal dark:bg-[#121110] dark:text-[#F7F4EE] antialiased selection:bg-burgundy selection:text-warm-ivory min-h-screen flex flex-col transition-colors duration-300">
+
+  <!-- ========================================================================= -->
+  <!-- SHARED GLOBAL HEADER (Exact Same Shared Navigation & Brand Emblem)        -->
+  <!-- ========================================================================= -->
+  <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-warm-ivory/90 dark:bg-[#121110]/90 backdrop-blur-md border-b border-charcoal/10 dark:border-warm-ivory/10">
+    <div class="atelier-container h-20 sm:h-24 flex items-center justify-between">
+      
+      <!-- Brand Identity with Custom Emblem (Left) -->
+      <a href="./index.html" class="group flex items-center gap-3 sm:gap-3.5 focus-visible:outline-none" aria-label="ATELIER ÉLAN Homepage">
+        <div class="brand-emblem-wrapper w-10 h-10 sm:w-12 sm:h-12 shrink-0 drop-shadow-sm">
+          <img src="./assets/icons/brand-emblem.svg" alt="ATELIER ÉLAN Couture Crest" class="w-full h-full object-contain" width="48" height="48" />
+        </div>
+        <div class="flex flex-col">
+          <span class="font-serif text-xl sm:text-2xl font-light tracking-[0.22em] text-charcoal dark:text-warm-ivory transition-colors group-hover:text-burgundy dark:group-hover:text-muted-rose leading-tight">
+            ATELIER ÉLAN
+          </span>
+          <span class="text-[8px] sm:text-[8.5px] font-sans tracking-[0.28em] uppercase text-burgundy dark:text-muted-rose font-semibold -mt-0.5">
+            Institute of Fashion &amp; Creative Arts
+          </span>
+        </div>
+      </a>
+
+      <!-- Center Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-7 lg:gap-9 font-sans text-xs uppercase tracking-[0.18em] font-medium" aria-label="Main Navigation">
+        
+        <!-- Home Navigation Item with Dropdown -->
+        <div id="home-dropdown-wrapper" class="relative">
+          <button id="home-dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true" class="flex items-center gap-1.5 py-2 text-burgundy dark:text-muted-rose font-semibold hover:opacity-80 transition-colors focus-visible:outline-none">
+            <span>Home</span>
+            <svg class="w-3 h-3 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+
+          <!-- Dropdown Menu (Strictly Home 1 and Home 2 only) -->
+          <div id="home-dropdown-menu" class="absolute top-full left-0 mt-2 w-44 bg-warm-ivory dark:bg-[#1A1918] border border-charcoal/15 dark:border-warm-ivory/15 shadow-xl py-2 opacity-0 pointer-events-none translate-y-2 transition-all duration-200 z-50">
+            <a href="./index.html" class="block px-4 py-2.5 text-[11px] uppercase tracking-[0.16em] text-charcoal dark:text-warm-ivory/90 hover:text-burgundy dark:hover:text-muted-rose hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
+              Home 1
+            </a>
+            <a href="./home-2.html" class="block px-4 py-2.5 text-[11px] uppercase tracking-[0.16em] text-burgundy dark:text-muted-rose font-bold bg-burgundy/5 dark:bg-muted-rose/10 transition-colors">
+              Home 2
+            </a>
+          </div>
+        </div>
+
+        <a href="./about.html" class="text-charcoal/80 dark:text-warm-ivory/80 hover:text-burgundy dark:hover:text-muted-rose transition-colors">
+          About
+        </a>
+        <a href="./courses.html" class="text-charcoal/80 dark:text-warm-ivory/80 hover:text-burgundy dark:hover:text-muted-rose transition-colors">
+          Courses
+        </a>
+        <a href="./gallery.html" class="text-charcoal/80 dark:text-warm-ivory/80 hover:text-burgundy dark:hover:text-muted-rose transition-colors">
+          Gallery
+        </a>
+        <a href="./contact.html" class="text-charcoal/80 dark:text-warm-ivory/80 hover:text-burgundy dark:hover:text-muted-rose transition-colors">
+          Contact
+        </a>
+      </nav>
+
+      <!-- Right Utility Controls & CTA -->
+      <div class="flex items-center gap-3 sm:gap-4">
+        
+        <!-- Theme Toggle (Desktop Only, Icon-Only) -->
+        <button id="theme-toggle-btn" type="button" aria-label="Toggle theme" class="hidden lg:inline-flex items-center justify-center w-9 h-9 border border-charcoal/20 dark:border-warm-ivory/20 text-charcoal dark:text-warm-ivory hover:border-burgundy dark:hover:border-muted-rose hover:text-burgundy dark:hover:text-muted-rose transition-colors">
+          <svg id="theme-icon-sun" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+          <svg id="theme-icon-moon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+        </button>
+
+        <!-- Direction Toggle (Desktop Only, Text-Only: strictly 'RTL' or 'LTR', No Icons) -->
+        <button id="dir-toggle-btn" type="button" aria-label="Switch to RTL" class="hidden lg:inline-flex items-center justify-center px-2.5 h-9 border border-charcoal/20 dark:border-warm-ivory/20 text-[11px] font-sans font-semibold tracking-wider text-charcoal dark:text-warm-ivory hover:border-burgundy dark:hover:border-muted-rose hover:text-burgundy dark:hover:text-muted-rose transition-colors">
+          RTL
+        </button>
+
+        <!-- Student Login CTA (Desktop) -->
+        <a href="./login.html" class="hidden sm:inline-flex btn-editorial-outline text-[11px] py-2 px-5 tracking-[0.16em]">
+          Student Login
+        </a>
+
+        <!-- Mobile Navigation Hamburger Button -->
+        <button id="mobile-menu-btn" type="button" aria-label="Open mobile navigation menu" aria-expanded="false" class="md:hidden inline-flex items-center justify-center w-10 h-10 border border-charcoal/20 dark:border-warm-ivory/20 text-charcoal dark:text-warm-ivory focus:outline-none">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu Drawer & Overlay -->
+  <div id="mobile-menu-backdrop" class="fixed inset-0 bg-charcoal/60 dark:bg-black/80 z-50 opacity-0 pointer-events-none transition-opacity duration-300 md:hidden" aria-hidden="true"></div>
+  <div id="mobile-menu-drawer" class="fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-warm-ivory dark:bg-[#161514] z-50 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col p-6 shadow-2xl border-l border-charcoal/10 dark:border-warm-ivory/10">
+    <div class="flex items-center justify-between pb-6 border-b border-charcoal/10 dark:border-warm-ivory/10">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 shrink-0">
+          <img src="./assets/icons/brand-emblem.svg" alt="ATELIER ÉLAN Couture Crest" class="w-full h-full object-contain" width="36" height="36" />
+        </div>
+        <div class="flex flex-col">
+          <span class="font-serif text-lg tracking-[0.2em] font-light">ATELIER ÉLAN</span>
+          <span class="text-[8px] tracking-[0.25em] uppercase text-burgundy dark:text-muted-rose font-medium">Paris • Milan</span>
+        </div>
+      </div>
+      <button id="mobile-menu-close-btn" type="button" aria-label="Close mobile navigation menu" class="w-8 h-8 flex items-center justify-center border border-charcoal/20 dark:border-warm-ivory/20 text-charcoal dark:text-warm-ivory">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <nav class="flex-1 py-8 flex flex-col space-y-5 text-sm uppercase tracking-[0.2em] font-medium overflow-y-auto">
+      <div class="space-y-2">
+        <span class="text-[10px] text-charcoal-muted dark:text-warm-ivory/50 tracking-[0.25em] font-bold">Homepage</span>
+        <div class="pl-3 border-l-2 border-burgundy dark:border-muted-rose flex flex-col space-y-2">
+          <a href="./index.html" class="text-charcoal/70 dark:text-warm-ivory/70 hover:text-burgundy dark:hover:text-muted-rose py-1">Home 1 (Runway)</a>
+          <a href="./home-2.html" class="text-burgundy dark:text-muted-rose font-semibold py-1">Home 2 (Creative Atelier)</a>
+        </div>
+      </div>
+      
+      <a href="./about.html" class="text-charcoal dark:text-warm-ivory hover:text-burgundy dark:hover:text-muted-rose py-2 border-b border-charcoal/5 dark:border-warm-ivory/5">About Institute</a>
+      <a href="./courses.html" class="text-charcoal dark:text-warm-ivory hover:text-burgundy dark:hover:text-muted-rose py-2 border-b border-charcoal/5 dark:border-warm-ivory/5">Courses</a>
+      <a href="./gallery.html" class="text-charcoal dark:text-warm-ivory hover:text-burgundy dark:hover:text-muted-rose py-2 border-b border-charcoal/5 dark:border-warm-ivory/5">Gallery &amp; Runway</a>
+      <a href="./contact.html" class="text-charcoal dark:text-warm-ivory hover:text-burgundy dark:hover:text-muted-rose py-2 border-b border-charcoal/5 dark:border-warm-ivory/5">Contact</a>
+      <a href="./login.html" class="text-charcoal dark:text-warm-ivory hover:text-burgundy dark:hover:text-muted-rose py-2">Student Portal</a>
+    </nav>
+
+    <div class="pt-6 border-t border-charcoal/10 dark:border-warm-ivory/10 space-y-3">
+      <a href="./login.html" class="btn-editorial-primary w-full text-center text-xs py-3">Student Login</a>
+      <p class="text-[10px] text-center text-charcoal-muted dark:text-warm-ivory/50 uppercase tracking-widest">Atelier Élan © 2026</p>
+    </div>
+  </div>
+
+
+  <!-- ========================================================================= -->
+  <!-- MAIN CONTENT (HOME 2 – CREATIVE ATELIER JOURNAL)                          -->
+  <!-- ========================================================================= -->
+  <main class="flex-grow pt-20 sm:pt-24">
+
+    <!-- ======================================================================= -->
+    <!-- SECTION 1 – CREATIVE ATELIER HERO                                       -->
+    <!-- Asymmetric fashion designer workspace editorial spread                  -->
+    <!-- ======================================================================= -->
+    <section class="hero-viewport-section bg-warm-ivory dark:bg-[#121110] border-b border-charcoal/10 dark:border-warm-ivory/10 overflow-hidden">
+      <div class="atelier-container py-8 sm:py-12 lg:py-16 w-full">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-center">
+          
+          <!-- Left Column: Editorial Manifesto & CTAs (5 cols) -->
+          <div class="lg:col-span-5 flex flex-col justify-center">
+            
+            <!-- Small Label -->
+            <div class="flex items-center gap-3 mb-4 sm:mb-5">
+              <span class="w-8 h-[1px] bg-burgundy dark:bg-muted-rose"></span>
+              <span class="text-[10px] sm:text-xs font-sans uppercase tracking-[0.3em] text-burgundy dark:text-muted-rose font-bold">
+                THE ART OF CREATION
+              </span>
+            </div>
+
+            <!-- Main Heading -->
+            <h1 class="editorial-heading font-serif text-3xl sm:text-5xl lg:text-6xl font-light text-charcoal dark:text-warm-ivory tracking-tight leading-[1.04] mb-4 sm:mb-6">
+              IMAGINE IT.<br>
+              <span class="italic font-normal text-burgundy dark:text-muted-rose">SKETCH IT.</span><br>
+              WEAR IT.
+            </h1>
+
+            <!-- Description -->
+            <p class="text-charcoal-muted dark:text-warm-ivory/80 text-sm sm:text-base font-light leading-relaxed mb-6 sm:mb-8 font-sans max-w-xl">
+              Every masterpiece begins with an idea. Explore the art of fashion through creativity, craftsmanship and individuality.
+            </p>
+
+            <!-- Action CTAs -->
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-6 sm:mb-10">
+              <a href="./courses.html" class="btn-editorial-primary text-xs py-3.5 px-6 sm:px-8 text-center tracking-[0.2em] shadow-md">
+                EXPLORE OUR COURSES
+              </a>
+              <a href="./gallery.html" class="btn-editorial-outline text-xs py-3.5 px-6 sm:px-8 text-center tracking-[0.2em]">
+                DISCOVER STUDENT WORK
+              </a>
+            </div>
+
+            <!-- Editorial Journal Footnote Stamp -->
+            <div class="pt-4 sm:pt-6 border-t border-charcoal/10 dark:border-warm-ivory/10 flex items-center justify-between text-[10px] font-mono uppercase tracking-widest text-charcoal-muted dark:text-warm-ivory/60">
+              <span>ATELIER ÉLAN JOURNAL</span>
+              <span class="text-burgundy dark:text-muted-rose font-semibold">• ISSUE 02</span>
+              <span>PARIS &amp; MILAN</span>
+            </div>
+
+          </div>
+
+          <!-- Right Column: Asymmetric Atelier Moodboard Composition (7 cols) -->
+          <div class="lg:col-span-7 relative">
+            <div class="grid grid-cols-12 gap-3 sm:gap-5 items-start">
+              
+              <!-- Card 1: Large Finished Fashion Creation (7 cols) -->
+              <div class="col-span-7 relative">
+                <div class="editorial-zoom-container shadow-xl border border-charcoal/10 dark:border-warm-ivory/15 bg-soft-beige dark:bg-[#1E1C1A]">
+                  <img 
+                    src="https://images.unsplash.com/photo-1581044777550-4cfa60707c03?auto=format&fit=crop&w=1000&q=85" 
+                    alt="Finished avant-garde atelier garment on model" 
+                    class="w-full h-[220px] sm:h-[320px] md:h-[380px] lg:h-[420px] object-cover editorial-zoom-img"
+                    loading="eager"
+                  >
+                </div>
+                <div class="mt-2 flex items-baseline justify-between text-[10px] font-mono text-charcoal-muted dark:text-warm-ivory/60">
+                  <span class="uppercase tracking-wider font-semibold text-charcoal dark:text-warm-ivory">FIG. 01 — SILHOUETTE</span>
+                  <span>A/W</span>
+                </div>
+              </div>
+
+              <!-- Card 2 & 3: Staggered Right Visuals (5 cols) -->
+              <div class="col-span-5 space-y-3 sm:space-y-4 pt-1 sm:pt-4">
+                
+                <!-- Fashion Design Sketch (Croquis with Journal Tape Aesthetic) -->
+                <div class="relative bg-warm-ivory dark:bg-[#1E1C1A] p-2 sm:p-2.5 border border-charcoal/15 dark:border-warm-ivory/20 shadow-md">
+                  <div class="editorial-zoom-container aspect-[4/5] overflow-hidden bg-charcoal/5">
+                    <img 
+                      src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=85" 
+                      alt="Fashion design croquis illustration sketchbook" 
+                      class="w-full h-full object-cover editorial-zoom-img"
+                      loading="eager"
+                    >
+                  </div>
+                  <div class="pt-1.5 flex items-center justify-between text-[9px] font-mono uppercase tracking-wider text-charcoal-muted dark:text-warm-ivory/60">
+                    <span class="text-burgundy dark:text-muted-rose font-bold">SKETCH N° 08</span>
+                    <span>CROQUIS</span>
+                  </div>
+                </div>
+
+                <!-- Fabric Texture & Tailoring Swatch -->
+                <div class="hidden sm:block relative bg-soft-beige dark:bg-[#1E1C1A] p-2 sm:p-2.5 border border-charcoal/15 dark:border-warm-ivory/20 shadow-sm">
+                  <div class="editorial-zoom-container aspect-[3/2] overflow-hidden bg-charcoal/5">
+                    <img 
+                      src="https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=800&q=85" 
+                      alt="Tailoring shears, chalk, and textile drape swatches" 
+                      class="w-full h-full object-cover editorial-zoom-img"
+                      loading="lazy"
+                    >
+                  </div>
+                  <div class="pt-1.5 flex items-center justify-between text-[9px] font-mono uppercase tracking-wider text-charcoal-muted dark:text-warm-ivory/60">
+                    <span class="font-semibold text-charcoal dark:text-warm-ivory">SWATCH</span>
+                    <span>RAW SILK</span>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+            <!-- Overlapping Atelier Stamp Badge -->
+            <div class="hidden sm:flex absolute -bottom-4 left-1/3 bg-burgundy text-warm-ivory py-2 px-4 shadow-xl items-center gap-3 border border-warm-ivory/20">
+              <span class="text-xs font-serif italic">Atelier de Création</span>
+              <span class="w-1.5 h-1.5 rounded-full bg-muted-rose"></span>
+              <span class="text-[9px] font-mono tracking-widest uppercase">75008 PARIS</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ======================================================================= -->
+    <!-- SECTION 2 – CREATIVE PHILOSOPHY                                         -->
+    <!-- Magazine spread layout with 3 creative principles                       -->
+    <!-- ======================================================================= -->
+    <section class="py-24 sm:py-32 bg-soft-beige dark:bg-[#161514] border-b border-charcoal/10 dark:border-warm-ivory/10">
+      <div class="atelier-container">
+        
+        <!-- Header Split -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-end mb-16 pb-10 border-b border-charcoal/10 dark:border-warm-ivory/10">
+          <div class="lg:col-span-7">
+            <span class="text-[10px] sm:text-xs font-sans uppercase tracking-[0.3em] text-burgundy dark:text-muted-rose font-bold block mb-3">
+              OUR CREATIVE PHILOSOPHY
+            </span>
+            <h2 class="editorial-heading font-serif text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight text-charcoal dark:text-warm-ivory leading-[1.08]">
+              FASHION IS NOT JUST WHAT YOU WEAR.<br>
+              <span class="italic font-normal text-burgundy dark:text-muted-rose">IT IS WHAT YOU EXPRESS.</span>
+            </h2>
+          </div>
+          <div class="lg:col-span-5 flex flex-col justify-end space-y-6">
+            <p class="text-charcoal-muted dark:text-warm-ivory/80 text-base sm:text-lg font-light leading-relaxed font-sans">
+              Fashion is more than clothing. It is an expression of imagination, individuality and craftsmanship. At ATELIER ÉLAN, we encourage every student to discover their creative voice and transform ideas into meaningful designs.
+            </p>
+            <div>
+              <a href="./about.html" class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-burgundy dark:text-muted-rose hover:underline">
+                <span>DISCOVER OUR STORY</span>
+                <svg class="w-4 h-4 rtl-flip" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Editorial Studio Spread (Image + Asymmetrical Principles) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          
+          <!-- Large Fashion Studio Photograph (5 cols) -->
+          <div class="lg:col-span-5">
+            <div class="editorial-zoom-container shadow-xl border border-charcoal/10 dark:border-warm-ivory/15 aspect-[4/5] bg-charcoal/5">
+              <img 
+                src="https://images.unsplash.com/photo-1508296695146-257a814070b4?auto=format&fit=crop&w=1200&q=85" 
+                alt="Atelier Élan fashion studio interior with drafting tables and moodboards" 
+                class="w-full h-full object-cover editorial-zoom-img"
+                loading="lazy"
+              >
+            </div>
+            <div class="pt-3 flex items-center justify-between text-[10px] font-mono text-charcoal-muted dark:text-warm-ivory/60 uppercase tracking-widest">
+              <span>MAIN STUDIO ATELIER</span>
+              <span>PARIS CAMPUS</span>
+            </div>
+          </div>
+
+          <!-- Three Creative Principles in a Refined Horizontal Layout (7 cols) -->
+          <div class="lg:col-span-7 space-y-8">
+            
+            <!-- Principle 1: IMAGINATION -->
+            <div class="border-b border-charcoal/10 dark:border-warm-ivory/10 pb-8 group">
+              <div class="flex items-start gap-6">
+                <span class="font-serif text-3xl sm:text-4xl font-light text-burgundy dark:text-muted-rose shrink-0">01</span>
+                <div class="space-y-2">
+                  <h3 class="editorial-heading font-serif text-2xl sm:text-3xl font-light text-charcoal dark:text-warm-ivory group-hover:text-burgundy dark:group-hover:text-muted-rose transition-colors">
+                    IMAGINATION
+                  </h3>
+                  <p class="text-charcoal-muted dark:text-warm-ivory/70 text-sm sm:text-base font-light leading-relaxed font-sans">
+                    Turn ideas into visual concepts. We empower students to break beyond commercial convention and explore abstract silhouette geometries, sensory inspirations, and radical conceptual narratives.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Principle 2: CRAFTSMANSHIP -->
+            <div class="border-b border-charcoal/10 dark:border-warm-ivory/10 pb-8 group">
+              <div class="flex items-start gap-6">
+                <span class="font-serif text-3xl sm:text-4xl font-light text-burgundy dark:text-muted-rose shrink-0">02</span>
+                <div class="space-y-2">
+                  <h3 class="editorial-heading font-serif text-2xl sm:text-3xl font-light text-charcoal dark:text-warm-ivory group-hover:text-burgundy dark:group-hover:text-muted-rose transition-colors">
+                    CRAFTSMANSHIP
+                  </h3>
+                  <p class="text-charcoal-muted dark:text-warm-ivory/70 text-sm sm:text-base font-light leading-relaxed font-sans">
+                    Learn through hands-on creation. True design innovation requires physical mastery—cutting, hand-finishing, bias draping, and garment engineering executed with couturier precision.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Principle 3: INDIVIDUALITY -->
+            <div class="group">
+              <div class="flex items-start gap-6">
+                <span class="font-serif text-3xl sm:text-4xl font-light text-burgundy dark:text-muted-rose shrink-0">03</span>
+                <div class="space-y-2">
+                  <h3 class="editorial-heading font-serif text-2xl sm:text-3xl font-light text-charcoal dark:text-warm-ivory group-hover:text-burgundy dark:group-hover:text-muted-rose transition-colors">
+                    INDIVIDUALITY
+                  </h3>
+                  <p class="text-charcoal-muted dark:text-warm-ivory/70 text-sm sm:text-base font-light leading-relaxed font-sans">
+                    Develop your own design identity. We do not mass-produce designers; we mentor unique creative voices to challenge international runways and author their own signature heritage.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ======================================================================= -->
+    <!-- SECTION 3 – EXPLORE OUR COURSES                                         -->
+    <!-- One large featured course + three supporting courses                    -->
+    <!-- ======================================================================= -->
+    <section class="py-24 sm:py-32 bg-warm-ivory dark:bg-[#121110] border-b border-charcoal/10 dark:border-warm-ivory/10">
+      <div class="atelier-container">
+        
+        <!-- Section Header -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-charcoal/10 dark:border-warm-ivory/10">
+          <div>
+            <span class="text-[10px] sm:text-xs font-sans uppercase tracking-[0.3em] text-burgundy dark:text-muted-rose font-bold block mb-3">
+              FIND YOUR CREATIVE PATH
+            </span>
+            <h2 class="editorial-heading font-serif text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight text-charcoal dark:text-warm-ivory">
+              LEARN THE ART. MASTER THE CRAFT.
+            </h2>
+          </div>
+          <div class="mt-6 md:mt-0 flex flex-col items-start md:items-end">
+            <p class="text-charcoal-muted dark:text-warm-ivory/70 text-sm font-light max-w-sm mb-3 md:text-right">
+              Discover courses that transform creative ideas into professional fashion skills.
+            </p>
+            <a href="./courses.html" class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-burgundy dark:text-muted-rose hover:underline">
+              <span>VIEW ALL COURSES</span>
+              <svg class="w-4 h-4 rtl-flip" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Course 1: Large Featured Horizontal Course Composition -->
+        <article class="bg-soft-beige dark:bg-[#1E1C1A] border border-charcoal/10 dark:border-warm-ivory/10 p-6 sm:p-10 mb-10 group shadow-lg transition-all duration-300 hover:shadow-xl">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            
+            <div class="lg:col-span-7 relative">
+              <div class="editorial-zoom-container aspect-[16/10] overflow-hidden bg-charcoal/5 shadow-md">
+                <img 
+                  src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=1200&q=85" 
+                  alt="Contemporary avant-garde draped couture garment from Diploma Course" 
+                  class="w-full h-full object-cover editorial-zoom-img"
+                  loading="lazy"
+                >
+              </div>
+              <div class="absolute top-4 left-4 bg-burgundy text-warm-ivory text-[10px] uppercase font-sans tracking-[0.2em] font-semibold py-1.5 px-3.5">
+                FLAGSHIP DIPLOMA
+              </div>
+            </div>
+
+            <div class="lg:col-span-5 flex flex-col justify-between space-y-6">
+              <div>
+                <div class="flex items-center justify-between text-xs font-mono text-charcoal-muted dark:text-warm-ivory/60 mb-2">
+                  <span>PROGRAM 01</span>
+                  <span>PARIS &amp; MILAN</span>
+                </div>
+                <h3 class="editorial-heading font-serif text-3xl sm:text-4xl font-light text-charcoal dark:text-warm-ivory mb-4 group-hover:text-burgundy dark:group-hover:text-muted-rose transition-colors">
+                  DIPLOMA IN FASHION DESIGNING
+                </h3>
+                <p class="text-charcoal-muted dark:text-warm-ivory/70 text-sm sm:text-base font-light leading-relaxed font-sans mb-6">
+                  Fashion fundamentals, garment construction and design development. An intensive foundation program taking aspiring creators through live draping, industrial pattern cutting, and collection fabrication.
+                </p>
+                <div class="flex items-center gap-6 py-4 border-t border-b border-charcoal/10 dark:border-warm-ivory/10 text-xs">
+                  <div>
+                    <span class="text-[10px] uppercase tracking-wider text-charcoal-muted dark:text-warm-ivory/50 block font-mono">Duration</span>
+                    <span class="font-semibold text-burgundy dark:text-muted-rose">1 Year Full-Time</span>
+                  </div>
+                  <div>
+                    <span class="text-[10px] uppercase tracking-wider text-charcoal-muted dark:text-warm-ivory/50 block font-mono">Studio Hours</span>
+                    <span class="font-semibold text-charcoal dark:text-warm-ivory">850+ Studio Hours</span>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <a href="./courses.html" class="btn-editorial-primary text-xs py-3.5 px-8 inline-flex items-center gap-2 tracking-[0.18em]">
+                  <span>EXPLORE COURSE</span>
+                  <svg class="w-3.5 h-3.5 rtl-flip" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </article>
+
+        <!-- Courses 2, 3, 4: Three Supporting Showcases with Distinct Proportions -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <!-- Course 02: Advanced Fashion Designing (Vertical Portrait) -->
+          <article class="bg-soft-beige dark:bg-[#1E1C1A] border border-charcoal/10 dark:border-warm-ivory/10 p-6 flex flex-col justify-between group shadow-sm hover:shadow-lg transition-all">
+            <div>
+              <div class="editorial-zoom-container aspect-[3/4] mb-5 overflow-hidden bg-charcoal/5 relative">
+                <img 
+                  src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=800&q=85" 
+                  alt="Haute couture editorial model for Advanced Fashion Designing" 
+                  class="w-full h-full object-cover editorial-zoom-img"
+                  loading="lazy"
+                >
+                <div class="absolute top-3 left-3 bg-charcoal/80 text-warm-ivory text-[9px] uppercase font-mono tracking-wider py-1 px-2.5">
+                  2 Years Advanced
+                </div>
+              </div>
+              <span class="text-[10px] font-mono text-charcoal-muted dark:text-warm-ivory/60 block mb-1 uppercase tracking-wider">PROGRAM 02</span>
+              <h3 class="editorial-heading font-serif text-2xl font-light text-charcoal dark:text-warm-ivory mb-2 group-hover:text-burgundy dark:group-hover:text-muted-rose transition-colors">
+                ADVANCED FASHION DESIGNING
+              </h3>
+              <p class="text-charcoal-muted dark:text-warm-ivory/70 text-xs sm:text-sm font-light leading-relaxed font-sans mb-6">
+                Advanced techniques, collection development and professional practice. Direct mentorship under guest couture directors culminating in graduate runway production.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-charcoal/10 dark:border-warm-ivory/10 flex items-center justify-between">
+              <span class="text-xs font-mono text-burgundy dark:text-muted-rose font-semibold">24 Months</span>
+              <a href="./courses.html" class="text-xs uppercase tracking-[0.15em] font-semibold text-charcoal dark:text-warm-ivory hover:text-burgundy dark:hover:text-muted-rose inline-flex items-center gap-1">
+                <span>EXPLORE COURSE</span>
+                <svg class="w-3 h-3 rtl-flip" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Course 03: Fashion Illustration (Atelier Studio Focus) -->
+          <article class="bg-soft-beige dark:bg-[#1E1C1A] border border-charcoal/10 dark:border-warm-ivory/10 p-6 flex flex-col justify-between group shadow-sm hover:shadow-lg transition-all">
+            <div>
+              <div class="editorial-zoom-container aspect-[3/4] mb-5 overflow-hidden bg-charcoal/5 relative">
+                <img 
+                  src="https://images.unsplash.com/photo-1544717302-de2939b7ef71?auto=format&fit=crop&w=800&q=85" 
+                  alt="Expressive croquis figure drawing and watercolor painting" 
+                  class="w-full h-full object-cover editorial-zoom-img"
+                  loading="lazy"
+                >
+                <div class="absolute top-3 left-3 bg-charcoal/80 text-warm-ivory text-[9px] uppercase font-mono tracking-wider py-1 px-2.5">
+                  6 Months Studio
+                </div>
+              </div>
+              <span class="text-[10px] font-mono text-charcoal-muted dark:text-warm-ivory/60 block mb-1 uppercase tracking-wider">PROGRAM 03</span>
+              <h3 class="editorial-heading font-serif text-2xl font-light text-charcoal dark:text-warm-ivory mb-2 group-hover:text-burgundy dark:group-hover:text-muted-rose transition-colors">
+                FASHION ILLUSTRATION
+              </h3>
+              <p class="text-charcoal-muted dark:text-warm-ivory/70 text-xs sm:text-sm font-light leading-relaxed font-sans mb-6">
+                Sketching, figure drawing and visual storytelling. Master anatomical croquis, dynamic fabric drapery rendering, and digital couture lookbook design.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-charcoal/10 dark:border-warm-ivory/10 flex items-center justify-between">
+              <span class="text-xs font-mono text-burgundy dark:text-muted-rose font-semibold">6 Months</span>
+              <a href="./courses.html" class="text-xs uppercase tracking-[0.15em] font-semibold text-charcoal dark:text-warm-ivory hover:text-burgundy dark:hover:text-muted-rose inline-flex items-center gap-1">
+                <span>EXPLORE COURSE</span>
+                <svg class="w-3 h-3 rtl-flip" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Course 04: Textile Designing (Tactile Weave & Fabric) -->
+          <article class="bg-soft-beige dark:bg-[#1E1C1A] border border-charcoal/10 dark:border-warm-ivory/10 p-6 flex flex-col justify-between group shadow-sm hover:shadow-lg transition-all">
+            <div>
+              <div class="editorial-zoom-container aspect-[3/4] mb-5 overflow-hidden bg-charcoal/5 relative">
+                <img 
+                  src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&q=85" 
+                  alt="Woven textiles, thread exploration, and tactile surface manipulation" 
+                  class="w-full h-full object-cover editorial-zoom-img"
+                  loading="lazy"
+                >
+                <div class="absolute top-3 left-3 bg-charcoal/80 text-warm-ivory text-[9px] uppercase font-mono tracking-wider py-1 px-2.5">
+                  9 Months Lab
+                </div>
+              </div>
+              <span class="text-[10px] font-mono text-charcoal-muted dark:text-warm-ivory/60 block mb-1 uppercase tracking-wider">PROGRAM 04</span>
+              <h3 class="editorial-heading font-serif text-2xl font-light text-charcoal dark:text-warm-ivory mb-2 group-hover:text-burgundy dark:group-hover:text-muted-rose transition-colors">
+                TEXTILE DESIGNING
+              </h3>
+              <p class="text-charcoal-muted dark:text-warm-ivory/70 text-xs sm:text-sm font-light leading-relaxed font-sans mb-6">
+                Fabric exploration, surface patterns and textile creativity. Hands-on exploration of botanical dyeing, jacquard loom weaving, and bespoke surface embellishments.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-charcoal/10 dark:border-warm-ivory/10 flex items-center justify-between">
+              <span class="text-xs font-mono text-burgundy dark:text-muted-rose font-semibold">9 Months</span>
+              <a href="./courses.html" class="text-xs uppercase tracking-[0.15em] font-semibold text-charcoal dark:text-warm-ivory hover:text-burgundy dark:hover:text-muted-rose inline-flex items-center gap-1">
+                <span>EXPLORE COURSE</span>
+                <svg class="w-3 h-3 rtl-flip" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+              </a>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ======================================================================= -->
+    <!-- SECTION 4 – STUDENT CREATIONS                                           -->
+    <!-- Asymmetrical masonry-style editorial gallery                            -->
+    <!-- ======================================================================= -->
+    <section class="py-24 sm:py-32 bg-soft-beige dark:bg-[#161514] border-b border-charcoal/10 dark:border-warm-ivory/10">
+      <div class="atelier-container">
+        
+        <!-- Header -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-charcoal/10 dark:border-warm-ivory/10">
+          <div>
+            <span class="text-[10px] sm:text-xs font-sans uppercase tracking-[0.3em] text-burgundy dark:text-muted-rose font-bold block mb-3">
+              THE STUDENT CREATIVE ARCHIVE
+            </span>
+            <h2 class="editorial-heading font-serif text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight text-charcoal dark:text-warm-ivory">
+              A CANVAS OF IDEAS.<br>
+              <span class="italic font-normal text-burgundy dark:text-muted-rose">A WORLD OF POSSIBILITIES.</span>
+            </h2>
+          </div>
+          <div class="mt-6 md:mt-0 flex flex-col items-start md:items-end">
+            <p class="text-charcoal-muted dark:text-warm-ivory/70 text-sm font-light max-w-sm mb-3 md:text-right">
+              A showcase of imagination, experimentation and craftsmanship created by our emerging designers.
+            </p>
+            <a href="./gallery.html" class="btn-editorial-primary text-xs py-3 px-6 tracking-[0.2em]">
+              EXPLORE THE GALLERY
+            </a>
+          </div>
+        </div>
+
+        <!-- Asymmetrical Masonry Editorial Layout -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+          
+          <!-- Large Oversized Featured Creation (7 cols) -->
+          <div class="md:col-span-7 flex flex-col justify-between group">
+            <div class="editorial-zoom-container aspect-[4/5] bg-charcoal/5 relative overflow-hidden border border-charcoal/10 dark:border-warm-ivory/10 shadow-xl">
+              <img 
+                src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1200&q=85" 
+                alt="Architectural wool outerwear from graduate student collection" 
+                class="w-full h-full object-cover editorial-zoom-img"
+                loading="lazy"
+              >
+              <div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-8 flex flex-col justify-end text-warm-ivory">
+                <span class="text-xs uppercase tracking-widest text-muted-rose font-mono">Student Collections</span>
+                <h4 class="font-serif text-2xl font-light text-warm-ivory mt-1">Architectural Wool Overcoat &amp; Muslin Form</h4>
+                <p class="text-xs text-warm-ivory/80 font-light mt-1">By Clara Vane • Advanced Fashion Designing</p>
+              </div>
+            </div>
+            <div class="pt-4 flex items-baseline justify-between border-b border-charcoal/10 dark:border-warm-ivory/10 pb-4">
+              <div>
+                <h3 class="font-serif text-2xl font-light text-charcoal dark:text-warm-ivory group-hover:text-burgundy dark:group-hover:text-muted-rose transition-colors">
+                  Architectural Wool Overcoat
+                </h3>
+                <span class="text-xs uppercase tracking-wider text-burgundy dark:text-muted-rose font-mono">Category: Student Collections</span>
+              </div>
+              <span class="text-xs font-mono text-charcoal-muted dark:text-warm-ivory/60">Clara Vane</span>
+            </div>
+          </div>
+
+          <!-- Right Column: 2 Staggered Visual Creations (5 cols) -->
+          <div class="md:col-span-5 space-y-8">
+            
+            <!-- Creation 2: Fashion Illustration -->
+            <div class="group">
+              <div class="editorial-zoom-container aspect-[4/3] bg-charcoal/5 relative overflow-hidden border border-charcoal/10 dark:border-warm-ivory/10 shadow-md">
+                <img 
+                  src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=85" 
+                  alt="Figurative ink and watercolor croquis illustration" 
+                  class="w-full h-full object-cover editorial-zoom-img"
+                  loading="lazy"
+                >
+                <div class="absolute inset-0 bg-charcoal/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6 text-warm-ivory">
+                  <span class="text-xs uppercase tracking-widest font-mono">By Julian Moreau</span>
+                </div>
+              </div>
+              <div class="pt-3 flex items-baseline justify-between">
+                <div>
+                  <h4 class="font-serif text-lg font-light text-charcoal dark:text-warm-ivory group-hover:text-burgundy dark:group-hover:text-muted-rose transition-colors">
+                    Fluid Ink &amp; Watercolor Croquis
+                  </h4>
+                  <span class="text-[11px] uppercase tracking-wider text-burgundy dark:text-muted-rose font-mono">Category: Fashion Illustrations</span>
+                </div>
+                <span class="text-[11px] font-mono text-charcoal-muted dark:text-warm-ivory/60">Julian Moreau</span>
+              </div>
+            </div>
+
+            <!-- Creation 3: Textile & Fabric Art -->
+            <div class="group">
+              <div class="editorial-zoom-container aspect-[4/3] bg-charcoal/5 relative overflow-hidden border border-charcoal/10 dark:border-warm-ivory/10 shadow-md">
+                <img 
+                  src="https://images.unsplash.com/photo-1576995853123-5a10305d93c0?auto=format&fit=crop&w=800&q=85" 
+                  alt="Deconstructed raw silk weave and fabric manipulation" 
+                  class="w-full h-full object-cover editorial-zoom-img"
+                  loading="lazy"
+                >
+                <div class="absolute inset-0 bg-charcoal/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6 text-warm-ivory">
+                  <span class="text-xs uppercase tracking-widest font-mono">By Maya Takahashi</span>
+                </div>
+              </div>
+              <div class="pt-3 flex items-baseline justify-between">
+                <div>
+                  <h4 class="font-serif text-lg font-light text-charcoal dark:text-warm-ivory group-hover:text-burgundy dark:group-hover:text-muted-rose transition-colors">
+                    Deconstructed Shibori Raw Silk
+                  </h4>
+                  <span class="text-[11px] uppercase tracking-wider text-burgundy dark:text-muted-rose font-mono">Category: Textile &amp; Fabric Art</span>
+                </div>
+                <span class="text-[11px] font-mono text-charcoal-muted dark:text-warm-ivory/60">Maya Takahashi</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Bottom Row: 2 Complementary Creations (6 cols each) -->
+          <div class="md:col-span-6 group">
+            <div class="editorial-zoom-container aspect-[16/10] bg-charcoal/5 relative overflow-hidden border border-charcoal/10 dark:border-warm-ivory/10 shadow-md">
+              <img 
+                src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1000&q=85" 
+                alt="Student luxury fashion editorial collection runway look" 
+                class="w-full h-full object-cover editorial-zoom-img"
+                loading="lazy"
+              >
+            </div>
+            <div class="pt-3 flex items-baseline justify-between border-b border-charcoal/10 dark:border-warm-ivory/10 pb-3">
+              <div>
+                <h4 class="font-serif text-xl font-light text-charcoal dark:text-warm-ivory group-hover:text-burgundy dark:group-hover:text-muted-rose transition-colors">
+                  Zero-Waste Modular Evening Corsetry
+                </h4>
+                <span class="text-[11px] uppercase tracking-wider text-burgundy dark:text-muted-rose font-mono">Category: Student Collections</span>
+              </div>
+              <span class="text-[11px] font-mono text-charcoal-muted dark:text-warm-ivory/60">Noah Adler</span>
+            </div>
+          </div>
+
+          <div class="md:col-span-6 group">
+            <div class="editorial-zoom-container aspect-[16/10] bg-charcoal/5 relative overflow-hidden border border-charcoal/10 dark:border-warm-ivory/10 shadow-md">
+              <img 
+                src="https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?auto=format&fit=crop&w=1000&q=85" 
+                alt="Creative accessory styling and artisanal sculpture pieces" 
+                class="w-full h-full object-cover editorial-zoom-img"
+                loading="lazy"
+              >
+            </div>
+            <div class="pt-3 flex items-baseline justify-between border-b border-charcoal/10 dark:border-warm-ivory/10 pb-3">
+              <div>
+                <h4 class="font-serif text-xl font-light text-charcoal dark:text-warm-ivory group-hover:text-burgundy dark:group-hover:text-muted-rose transition-colors">
+                  Artisanal Brass &amp; Leather Sculpture Bag
+                </h4>
+                <span class="text-[11px] uppercase tracking-wider text-burgundy dark:text-muted-rose font-mono">Category: Creative Projects</span>
+              </div>
+              <span class="text-[11px] font-mono text-charcoal-muted dark:text-warm-ivory/60">Elena Rostova</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ======================================================================= -->
+    <!-- SECTION 5 – BEHIND THE CREATIVITY                                       -->
+    <!-- Horizontal editorial creative-process timeline                          -->
+    <!-- ======================================================================= -->
+    <section class="py-24 sm:py-32 bg-warm-ivory dark:bg-[#121110] border-b border-charcoal/10 dark:border-warm-ivory/10 overflow-hidden">
+      <div class="atelier-container">
+        
+        <!-- Section Header -->
+        <div class="max-w-3xl mb-16">
+          <span class="text-[10px] sm:text-xs font-sans uppercase tracking-[0.3em] text-burgundy dark:text-muted-rose font-bold block mb-3">
+            THE CREATIVE PROCESS
+          </span>
+          <h2 class="editorial-heading font-serif text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight text-charcoal dark:text-warm-ivory">
+            EVERY GREAT DESIGN BEGINS WITH AN IDEA.
+          </h2>
+          <p class="text-charcoal-muted dark:text-warm-ivory/80 text-base sm:text-lg font-light leading-relaxed mt-4 font-sans">
+            Discover how imagination transforms into original fashion through experimentation, technical skills and craftsmanship.
+          </p>
+        </div>
+
+        <!-- Sequential Timeline: 4 Stages Connected with Editorial Precision -->
+        <div class="relative">
+          
+          <!-- Desktop Connecting Horizontal Line -->
+          <div class="hidden lg:block absolute top-[138px] left-0 right-0 h-[1px] bg-charcoal/20 dark:bg-warm-ivory/20 z-0"></div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 relative z-10">
+            
+            <!-- Stage 01: THE IDEA -->
+            <div class="flex flex-col space-y-5">
+              <div class="flex items-center gap-3">
+                <span class="w-10 h-10 rounded-full bg-burgundy text-warm-ivory flex items-center justify-center font-mono text-xs font-bold shrink-0">
+                  01
+                </span>
+                <span class="text-xs uppercase tracking-[0.2em] font-mono font-bold text-burgundy dark:text-muted-rose">
+                  STAGE 01
+                </span>
+              </div>
+              
+              <div class="editorial-zoom-container aspect-[4/5] bg-charcoal/5 border border-charcoal/10 dark:border-warm-ivory/10 shadow-md">
+                <img 
+                  src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=600&q=85" 
+                  alt="Stage 1: Concept development and inspiration research" 
+                  class="w-full h-full object-cover editorial-zoom-img"
+                  loading="lazy"
+                >
+              </div>
+
+              <div>
+                <h3 class="editorial-heading font-serif text-2xl font-light text-charcoal dark:text-warm-ivory mb-2">
+                  THE IDEA
+                </h3>
+                <p class="text-charcoal-muted dark:text-warm-ivory/70 text-xs sm:text-sm font-light leading-relaxed font-sans">
+                  Concept development and inspiration. Archival research, cultural philosophy, sensory moodboarding, and initial design thesis.
+                </p>
+              </div>
+            </div>
+
+            <!-- Stage 02: THE SKETCH -->
+            <div class="flex flex-col space-y-5">
+              <div class="flex items-center gap-3">
+                <span class="w-10 h-10 rounded-full bg-burgundy text-warm-ivory flex items-center justify-center font-mono text-xs font-bold shrink-0">
+                  02
+                </span>
+                <span class="text-xs uppercase tracking-[0.2em] font-mono font-bold text-burgundy dark:text-muted-rose">
+                  STAGE 02
+                </span>
+              </div>
+              
+              <div class="editorial-zoom-container aspect-[4/5] bg-charcoal/5 border border-charcoal/10 dark:border-warm-ivory/10 shadow-md">
+                <img 
+                  src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=85" 
+                  alt="Stage 2: Fashion illustration and design exploration" 
+                  class="w-full h-full object-cover editorial-zoom-img"
+                  loading="lazy"
+                >
+              </div>
+
+              <div>
+                <h3 class="editorial-heading font-serif text-2xl font-light text-charcoal dark:text-warm-ivory mb-2">
+                  THE SKETCH
+                </h3>
+                <p class="text-charcoal-muted dark:text-warm-ivory/70 text-xs sm:text-sm font-light leading-relaxed font-sans">
+                  Fashion illustration and design exploration. Fluid croquis gestures, anatomical proportion testing, technical flats, and color studies.
+                </p>
+              </div>
+            </div>
+
+            <!-- Stage 03: THE CRAFT -->
+            <div class="flex flex-col space-y-5">
+              <div class="flex items-center gap-3">
+                <span class="w-10 h-10 rounded-full bg-burgundy text-warm-ivory flex items-center justify-center font-mono text-xs font-bold shrink-0">
+                  03
+                </span>
+                <span class="text-xs uppercase tracking-[0.2em] font-mono font-bold text-burgundy dark:text-muted-rose">
+                  STAGE 03
+                </span>
+              </div>
+              
+              <div class="editorial-zoom-container aspect-[4/5] bg-charcoal/5 border border-charcoal/10 dark:border-warm-ivory/10 shadow-md">
+                <img 
+                  src="https://images.unsplash.com/photo-1520006403909-838d6b92c22e?auto=format&fit=crop&w=600&q=85" 
+                  alt="Stage 3: Fabric selection, pattern making and garment construction" 
+                  class="w-full h-full object-cover editorial-zoom-img"
+                  loading="lazy"
+                >
+              </div>
+
+              <div>
+                <h3 class="editorial-heading font-serif text-2xl font-light text-charcoal dark:text-warm-ivory mb-2">
+                  THE CRAFT
+                </h3>
+                <p class="text-charcoal-muted dark:text-warm-ivory/70 text-xs sm:text-sm font-light leading-relaxed font-sans">
+                  Fabric selection, pattern making and garment construction. 3D muslin toile sculpting, dart manipulation, and bespoke tailoring.
+                </p>
+              </div>
+            </div>
+
+            <!-- Stage 04: THE CREATION -->
+            <div class="flex flex-col space-y-5">
+              <div class="flex items-center gap-3">
+                <span class="w-10 h-10 rounded-full bg-burgundy text-warm-ivory flex items-center justify-center font-mono text-xs font-bold shrink-0">
+                  04
+                </span>
+                <span class="text-xs uppercase tracking-[0.2em] font-mono font-bold text-burgundy dark:text-muted-rose">
+                  STAGE 04
+                </span>
+              </div>
+              
+              <div class="editorial-zoom-container aspect-[4/5] bg-charcoal/5 border border-charcoal/10 dark:border-warm-ivory/10 shadow-md">
+                <img 
+                  src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=600&q=85" 
+                  alt="Stage 4: Bringing the final design to life on model" 
+                  class="w-full h-full object-cover editorial-zoom-img"
+                  loading="lazy"
+                >
+              </div>
+
+              <div>
+                <h3 class="editorial-heading font-serif text-2xl font-light text-charcoal dark:text-warm-ivory mb-2">
+                  THE CREATION
+                </h3>
+                <p class="text-charcoal-muted dark:text-warm-ivory/70 text-xs sm:text-sm font-light leading-relaxed font-sans">
+                  Bringing the final design to life. Hand-finished couture hems, model fitting adjustments, lookbook photography, and runway debut.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ======================================================================= -->
+    <!-- SECTION 6 – FASHION EVENTS                                              -->
+    <!-- One large featured runway event image + two smaller event highlights    -->
+    <!-- ======================================================================= -->
+    <section class="py-24 sm:py-32 bg-soft-beige dark:bg-[#161514] border-b border-charcoal/10 dark:border-warm-ivory/10">
+      <div class="atelier-container">
+        
+        <!-- Header -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-charcoal/10 dark:border-warm-ivory/10">
+          <div>
+            <span class="text-[10px] sm:text-xs font-sans uppercase tracking-[0.3em] text-burgundy dark:text-muted-rose font-bold block mb-3">
+              BEYOND THE CLASSROOM
+            </span>
+            <h2 class="editorial-heading font-serif text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight text-charcoal dark:text-warm-ivory">
+              CREATIVITY DESERVES A STAGE.
+            </h2>
+          </div>
+          <div class="mt-6 md:mt-0 flex flex-col items-start md:items-end">
+            <p class="text-charcoal-muted dark:text-warm-ivory/70 text-sm font-light max-w-sm mb-3 md:text-right">
+              From student runway showcases to creative exhibitions, every event celebrates imagination, talent and individuality.
+            </p>
+            <a href="./gallery.html" class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-burgundy dark:text-muted-rose hover:underline">
+              <span>VIEW ALL EVENTS</span>
+              <svg class="w-4 h-4 rtl-flip" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Featured Event Composition (One Large Featured Event) -->
+        <article class="bg-warm-ivory dark:bg-[#1E1C1A] border border-charcoal/10 dark:border-warm-ivory/10 p-6 sm:p-10 mb-8 shadow-lg group">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            
+            <!-- Large Featured Runway Event Image (7 cols) -->
+            <div class="lg:col-span-7">
+              <div class="editorial-zoom-container aspect-[16/10] bg-charcoal/5 overflow-hidden shadow-md">
+                <img 
+                  src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1200&q=85" 
+                  alt="Annual student fashion show spotlight runway stage" 
+                  class="w-full h-full object-cover editorial-zoom-img"
+                  loading="lazy"
+                >
+              </div>
+            </div>
+
+            <!-- Event Details (5 cols) -->
+            <div class="lg:col-span-5 flex flex-col justify-between space-y-5">
+              <div>
+                <div class="flex items-center gap-3 text-xs font-mono uppercase tracking-wider text-burgundy dark:text-muted-rose font-bold mb-2">
+                  <span class="inline-block w-2 h-2 rounded-full bg-burgundy dark:bg-muted-rose"></span>
+                  <span>FLAGSHIP EVENT • RUNWAY</span>
+                </div>
+                <h3 class="editorial-heading font-serif text-3xl sm:text-4xl font-light text-charcoal dark:text-warm-ivory mb-3 group-hover:text-burgundy dark:group-hover:text-muted-rose transition-colors">
+                  ANNUAL STUDENT FASHION SHOW
+                </h3>
+                <p class="text-charcoal-muted dark:text-warm-ivory/70 text-sm sm:text-base font-light leading-relaxed font-sans mb-6">
+                  Student-designed collections presented on the runway. An internationally broadcast fashion presentation gathering press editors, agency scouts, and luxury couturiers.
+                </p>
+                <div class="py-4 border-t border-b border-charcoal/10 dark:border-warm-ivory/10 space-y-2 text-xs font-mono text-charcoal-muted dark:text-warm-ivory/70">
+                  <div class="flex items-center justify-between">
+                    <span class="uppercase tracking-wider">Date:</span>
+                    <span class="font-bold text-charcoal dark:text-warm-ivory">October 24, 2026</span>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <span class="uppercase tracking-wider">Location:</span>
+                    <span class="text-charcoal dark:text-warm-ivory">Grand Palais Éphémère, Paris</span>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <a href="./gallery.html" class="btn-editorial-primary text-xs py-3.5 px-8 inline-flex items-center gap-2">
+                  <span>VIEW RUNWAY ARCHIVE</span>
+                  <svg class="w-3.5 h-3.5 rtl-flip" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </article>
+
+        <!-- Two Smaller Event Highlights Below -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          
+          <!-- Event 02: CREATIVE DESIGN EXHIBITION -->
+          <article class="bg-warm-ivory dark:bg-[#1E1C1A] border border-charcoal/10 dark:border-warm-ivory/10 p-6 flex flex-col justify-between group shadow-sm hover:shadow-md transition-all">
+            <div>
+              <div class="editorial-zoom-container aspect-[16/9] mb-5 overflow-hidden bg-charcoal/5">
+                <img 
+                  src="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=800&q=85" 
+                  alt="Creative design exhibition gallery space with curated student artwork" 
+                  class="w-full h-full object-cover editorial-zoom-img"
+                  loading="lazy"
+                >
+              </div>
+              <div class="flex items-center justify-between text-xs font-mono text-burgundy dark:text-muted-rose font-bold mb-1">
+                <span>EXHIBITION</span>
+                <span>NOVEMBER 12–18, 2026</span>
+              </div>
+              <h3 class="editorial-heading font-serif text-2xl font-light text-charcoal dark:text-warm-ivory mb-2 group-hover:text-burgundy dark:group-hover:text-muted-rose transition-colors">
+                CREATIVE DESIGN EXHIBITION
+              </h3>
+              <p class="text-charcoal-muted dark:text-warm-ivory/70 text-xs sm:text-sm font-light leading-relaxed font-sans mb-4">
+                Fashion illustrations, textile artwork and student portfolios.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-charcoal/10 dark:border-warm-ivory/10 flex items-center justify-between text-xs font-mono">
+              <span class="text-charcoal-muted dark:text-warm-ivory/60">Milan Campus Gallery</span>
+              <a href="./gallery.html" class="text-burgundy dark:text-muted-rose font-bold uppercase tracking-wider hover:underline">Event Details →</a>
+            </div>
+          </article>
+
+          <!-- Event 03: FASHION WORKSHOP & MASTERCLASS -->
+          <article class="bg-warm-ivory dark:bg-[#1E1C1A] border border-charcoal/10 dark:border-warm-ivory/10 p-6 flex flex-col justify-between group shadow-sm hover:shadow-md transition-all">
+            <div>
+              <div class="editorial-zoom-container aspect-[16/9] mb-5 overflow-hidden bg-charcoal/5">
+                <img 
+                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=85" 
+                  alt="Fashion workshop and masterclass studio environment" 
+                  class="w-full h-full object-cover editorial-zoom-img"
+                  loading="lazy"
+                >
+              </div>
+              <div class="flex items-center justify-between text-xs font-mono text-burgundy dark:text-muted-rose font-bold mb-1">
+                <span>MASTERCLASS</span>
+                <span>DECEMBER 05, 2026</span>
+              </div>
+              <h3 class="editorial-heading font-serif text-2xl font-light text-charcoal dark:text-warm-ivory mb-2 group-hover:text-burgundy dark:group-hover:text-muted-rose transition-colors">
+                FASHION WORKSHOP &amp; MASTERCLASS
+              </h3>
+              <p class="text-charcoal-muted dark:text-warm-ivory/70 text-xs sm:text-sm font-light leading-relaxed font-sans mb-4">
+                Hands-on creative sessions and industry-inspired learning.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-charcoal/10 dark:border-warm-ivory/10 flex items-center justify-between text-xs font-mono">
+              <span class="text-charcoal-muted dark:text-warm-ivory/60">Paris Studio Lab</span>
+              <a href="./gallery.html" class="text-burgundy dark:text-muted-rose font-bold uppercase tracking-wider hover:underline">Event Details →</a>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ======================================================================= -->
+    <!-- SECTION 7 – STUDENT STORIES                                             -->
+    <!-- Fashion magazine interview-inspired composition                         -->
+    <!-- ======================================================================= -->
+    <section class="py-24 sm:py-32 bg-warm-ivory dark:bg-[#121110] border-b border-charcoal/10 dark:border-warm-ivory/10">
+      <div class="atelier-container">
+        
+        <!-- Header -->
+        <div class="max-w-3xl mb-16">
+          <span class="text-[10px] sm:text-xs font-sans uppercase tracking-[0.3em] text-burgundy dark:text-muted-rose font-bold block mb-3">
+            THE PEOPLE BEHIND THE CREATIVITY
+          </span>
+          <h2 class="editorial-heading font-serif text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight text-charcoal dark:text-warm-ivory">
+            EVERY DESIGNER HAS A STORY TO TELL.
+          </h2>
+          <p class="text-charcoal-muted dark:text-warm-ivory/80 text-base sm:text-lg font-light leading-relaxed mt-4 font-sans">
+            Discover the journeys, experiences and creative growth of our students.
+          </p>
+        </div>
+
+        <!-- Magazine Interview Composition -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+          
+          <!-- Large Featured Student Story Profile (7 cols) -->
+          <article class="lg:col-span-7 bg-soft-beige dark:bg-[#1E1C1A] border border-charcoal/10 dark:border-warm-ivory/10 p-8 sm:p-12 shadow-lg">
+            <div class="flex flex-col sm:flex-row gap-8 items-start mb-8">
+              <div class="w-36 h-36 sm:w-44 sm:h-44 shrink-0 overflow-hidden shadow-md border border-charcoal/15 dark:border-warm-ivory/15 bg-charcoal/5">
+                <img 
+                  src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=85" 
+                  alt="Sébastien Laurent, graduate designer profile portrait" 
+                  class="w-full h-full object-cover filter contrast-[1.05]"
+                  loading="lazy"
+                >
+              </div>
+              <div class="flex-1">
+                <span class="text-[10px] font-mono uppercase tracking-widest text-burgundy dark:text-muted-rose font-bold block mb-1">
+                  ATELIER SPOTLIGHT • INTERVIEW
+                </span>
+                <h3 class="editorial-heading font-serif text-2xl sm:text-3xl font-light text-charcoal dark:text-warm-ivory mb-1">
+                  Sébastien Laurent
+                </h3>
+                <p class="text-xs uppercase tracking-wider text-charcoal-muted dark:text-warm-ivory/60 font-mono mb-4">
+                  Advanced Fashion Designing • Class of 2025
+                </p>
+                <div class="w-12 h-[1px] bg-burgundy dark:bg-muted-rose"></div>
+              </div>
+            </div>
+
+            <!-- Featured Pull Quote & Story -->
+            <div class="space-y-4">
+              <blockquote class="font-serif text-xl sm:text-2xl font-light italic text-charcoal dark:text-warm-ivory leading-snug">
+                “The atelier gave me the freedom to fail boldly and iterate rapidly. Here, mistakes aren't errors—they are the birth of new silhouettes.”
+              </blockquote>
+              <p class="text-charcoal-muted dark:text-warm-ivory/70 text-sm sm:text-base font-light leading-relaxed font-sans pt-2">
+                Coming from an architectural background, Sébastien transitioned into high fashion to explore how structural forms interact with human movement. Under the guidance of master drafters at Atelier Élan, his graduate collection was selected for presentation at Paris Fashion Week.
+              </p>
+            </div>
+          </article>
+
+          <!-- Two Supporting Student Stories (5 cols) -->
+          <div class="lg:col-span-5 space-y-8">
+            
+            <!-- Story 2: Amina Khelil -->
+            <article class="bg-soft-beige dark:bg-[#1E1C1A] border border-charcoal/10 dark:border-warm-ivory/10 p-6 sm:p-8 shadow-sm hover:shadow-md transition-all">
+              <div class="flex items-center gap-4 mb-4">
+                <div class="w-16 h-16 rounded-full overflow-hidden shrink-0 border border-charcoal/15 dark:border-warm-ivory/15">
+                  <img 
+                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=85" 
+                    alt="Amina Khelil student portrait" 
+                    class="w-full h-full object-cover filter contrast-[1.05]"
+                    loading="lazy"
+                  >
+                </div>
+                <div>
+                  <h4 class="editorial-heading font-serif text-xl font-normal text-charcoal dark:text-warm-ivory">
+                    Amina Khelil
+                  </h4>
+                  <p class="text-[11px] uppercase tracking-wider text-burgundy dark:text-muted-rose font-mono">
+                    Fashion Illustration • Class of 2026
+                  </p>
+                </div>
+              </div>
+              <blockquote class="font-serif text-base font-light italic text-charcoal dark:text-warm-ivory leading-relaxed mb-3">
+                “Learning to translate fabric weight through fluid ink strokes unlocked a completely new dimension in my design thinking.”
+              </blockquote>
+              <p class="text-charcoal-muted dark:text-warm-ivory/70 text-xs font-light leading-relaxed font-sans">
+                Amina's croquis studies have been featured in international fashion illustration anthologies, leading to design commissions for European couture lookbooks.
+              </p>
+            </article>
+
+            <!-- Story 3: Kasper Lind -->
+            <article class="bg-soft-beige dark:bg-[#1E1C1A] border border-charcoal/10 dark:border-warm-ivory/10 p-6 sm:p-8 shadow-sm hover:shadow-md transition-all">
+              <div class="flex items-center gap-4 mb-4">
+                <div class="w-16 h-16 rounded-full overflow-hidden shrink-0 border border-charcoal/15 dark:border-warm-ivory/15">
+                  <img 
+                    src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=400&q=85" 
+                    alt="Kasper Lind student portrait" 
+                    class="w-full h-full object-cover filter contrast-[1.05]"
+                    loading="lazy"
+                  >
+                </div>
+                <div>
+                  <h4 class="editorial-heading font-serif text-xl font-normal text-charcoal dark:text-warm-ivory">
+                    Kasper Lind
+                  </h4>
+                  <p class="text-[11px] uppercase tracking-wider text-burgundy dark:text-muted-rose font-mono">
+                    Textile &amp; Surface Design • Class of 2025
+                  </p>
+                </div>
+              </div>
+              <blockquote class="font-serif text-base font-light italic text-charcoal dark:text-warm-ivory leading-relaxed mb-3">
+                “Working directly on jacquard looms and with natural indigo vat dyeing gave my collection an authentic tactile soul.”
+              </blockquote>
+              <p class="text-charcoal-muted dark:text-warm-ivory/70 text-xs font-light leading-relaxed font-sans">
+                Kasper is currently completing an artisanal textile residency in Como, Italy, developing sustainable fiber alternatives for high-end fashion houses.
+              </p>
+            </article>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ======================================================================= -->
+    <!-- SECTION 8 – ADMISSION CTA                                               -->
+    <!-- Full-width burgundy background aligned to global container              -->
+    <!-- ======================================================================= -->
+    <section class="py-24 sm:py-32 bg-burgundy text-warm-ivory relative overflow-hidden">
+      <!-- Atmospheric Backdrop Image with Deep Burgundy Tone -->
+      <div class="absolute inset-0 z-0">
+        <img 
+          src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1600&q=85" 
+          alt="Haute couture silhouette backdrop" 
+          class="w-full h-full object-cover filter brightness-[0.25] contrast-[1.2] mix-blend-luminosity"
+          loading="lazy"
+        >
+        <div class="absolute inset-0 bg-gradient-to-r from-burgundy-dark/95 via-burgundy/90 to-burgundy-dark/95"></div>
+      </div>
+
+      <div class="atelier-container relative z-10 text-center flex flex-col items-center">
+        <div class="max-w-3xl mx-auto flex flex-col items-center">
+          
+          <!-- Small Label -->
+          <div class="inline-flex items-center gap-3 mb-6">
+            <span class="w-8 h-[1px] bg-muted-rose"></span>
+            <span class="text-xs font-sans uppercase tracking-[0.3em] text-muted-rose font-semibold">
+              YOUR NEXT CHAPTER
+            </span>
+            <span class="w-8 h-[1px] bg-muted-rose"></span>
+          </div>
+
+          <!-- Main Heading -->
+          <h2 class="editorial-heading-center font-serif text-4xl sm:text-6xl md:text-7xl font-light tracking-tight leading-[1.05] mb-8 text-warm-ivory">
+            TURN YOUR CREATIVE VISION<br>
+            <span class="italic font-normal text-muted-rose">INTO YOUR FUTURE.</span>
+          </h2>
+
+          <!-- Description -->
+          <p class="max-w-xl text-base sm:text-lg text-warm-ivory/85 font-light leading-relaxed mb-10 tracking-wide font-sans">
+            Take the first step towards a world of fashion, creativity and endless possibilities.
+          </p>
+
+          <!-- Dual CTAs -->
+          <div class="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 w-full sm:w-auto">
+            <a href="./contact.html" class="btn-editorial-white-outline text-xs sm:text-sm py-4 px-8 tracking-[0.2em] shadow-xl hover:bg-warm-ivory hover:text-burgundy transition-all w-full sm:w-auto">
+              ENQUIRE ABOUT ADMISSIONS
+            </a>
+            <a href="./courses.html" class="btn-editorial-primary text-xs sm:text-sm py-4 px-8 tracking-[0.2em] shadow-xl border border-muted-rose bg-burgundy-dark hover:bg-burgundy transition-all w-full sm:w-auto">
+              EXPLORE OUR COURSES
+            </a>
+          </div>
+
+          <!-- Admissions Footnote -->
+          <div class="mt-8 flex items-center gap-2 text-[11px] font-mono tracking-wider text-warm-ivory/60">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <span>Applications for upcoming studio cohorts are evaluated continuously.</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ========================================================================= -->
+  <!-- SHARED FOOTER (Identical Shared Design, Container & Emblem)               -->
+  <!-- ========================================================================= -->
+  <footer class="bg-charcoal text-warm-ivory pt-20 pb-12 border-t border-charcoal/20 dark:border-warm-ivory/10">
+    <div class="atelier-container">
+      
+      <!-- Multi-Column Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 pb-16 border-b border-warm-ivory/10">
+        
+        <!-- Column 1: Institute Branding with Custom Emblem & Description (5 cols) -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="flex items-center gap-4">
+            <!-- Exact Same Custom Brand Emblem in Footer -->
+            <div class="w-13 h-13 sm:w-15 sm:h-15 shrink-0">
+              <img src="./assets/icons/brand-emblem.svg" alt="ATELIER ÉLAN Couture Crest" class="w-full h-full object-contain" width="60" height="60" />
+            </div>
+            <div class="flex flex-col">
+              <span class="font-serif text-2xl sm:text-3xl font-light tracking-[0.22em] text-warm-ivory">
+                ATELIER ÉLAN
+              </span>
+              <span class="text-[9px] font-sans tracking-[0.3em] uppercase text-muted-rose font-semibold mt-1">
+                Institute of Fashion &amp; Creative Arts
+              </span>
+            </div>
+          </div>
+          <p class="text-sm font-light text-warm-ivory/70 leading-relaxed max-w-sm font-sans">
+            An internationally accredited higher academy dedicated to couture craftsmanship, radical silhouette innovation, and sustainable luxury design pedagogy across Paris and Milan.
+          </p>
+
+          <!-- Exactly Four Relevant Social Media Links -->
+          <div class="flex items-center gap-3 pt-2">
+            <!-- Instagram -->
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Follow Atelier Élan on Instagram" class="w-9 h-9 border border-warm-ivory/20 flex items-center justify-center text-warm-ivory/80 hover:text-warm-ivory hover:border-muted-rose transition-colors">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+            </a>
+            <!-- Pinterest -->
+            <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" aria-label="Explore Atelier Élan on Pinterest" class="w-9 h-9 border border-warm-ivory/20 flex items-center justify-center text-warm-ivory/80 hover:text-warm-ivory hover:border-muted-rose transition-colors">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 0c-6.627 0-12 5.372-12 12 0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345-.09.375-.291 1.199-.332 1.357-.053.211-.174.256-.402.154-1.498-.697-2.435-2.887-2.435-4.646 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146 1.124.347 2.317.535 3.554.535 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z" />
+              </svg>
+            </a>
+            <!-- LinkedIn -->
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="Connect with Atelier Élan on LinkedIn" class="w-9 h-9 border border-warm-ivory/20 flex items-center justify-center text-warm-ivory/80 hover:text-warm-ivory hover:border-muted-rose transition-colors">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
+            </a>
+            <!-- YouTube -->
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="Watch Atelier Élan Runway on YouTube" class="w-9 h-9 border border-warm-ivory/20 flex items-center justify-center text-warm-ivory/80 hover:text-warm-ivory hover:border-muted-rose transition-colors">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 2: Quick Navigation (2 cols) -->
+        <div class="lg:col-span-2 space-y-4">
+          <span class="text-xs uppercase tracking-[0.25em] text-muted-rose font-semibold block">
+            Navigation
+          </span>
+          <ul class="space-y-2.5 text-xs font-sans uppercase tracking-[0.15em] text-warm-ivory/70 font-light">
+            <li><a href="./index.html" class="hover:text-warm-ivory transition-colors">Home 1</a></li>
+            <li><a href="./home-2.html" class="hover:text-warm-ivory transition-colors">Home 2</a></li>
+            <li><a href="./about.html" class="hover:text-warm-ivory transition-colors">About</a></li>
+            <li><a href="./courses.html" class="hover:text-warm-ivory transition-colors">Courses</a></li>
+            <li><a href="./gallery.html" class="hover:text-warm-ivory transition-colors">Gallery</a></li>
+            <li><a href="./contact.html" class="hover:text-warm-ivory transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Course Links (2 cols) -->
+        <div class="lg:col-span-2 space-y-4">
+          <span class="text-xs uppercase tracking-[0.25em] text-muted-rose font-semibold block">
+            Academic Courses
+          </span>
+          <ul class="space-y-2.5 text-xs font-sans tracking-wider text-warm-ivory/70 font-light">
+            <li><a href="./courses.html" class="hover:text-warm-ivory transition-colors">Diploma in Fashion Designing</a></li>
+            <li><a href="./courses.html" class="hover:text-warm-ivory transition-colors">Advanced Fashion Designing</a></li>
+            <li><a href="./courses.html" class="hover:text-warm-ivory transition-colors">Fashion Illustration</a></li>
+            <li><a href="./courses.html" class="hover:text-warm-ivory transition-colors">Textile Designing</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Contact Information (3 cols) -->
+        <div class="lg:col-span-3 space-y-4">
+          <span class="text-xs uppercase tracking-[0.25em] text-muted-rose font-semibold block">
+            Atelier Contact
+          </span>
+          <ul class="space-y-3 text-xs font-sans text-warm-ivory/70 font-light">
+            <li class="flex items-start gap-3">
+              <svg class="w-4 h-4 text-muted-rose shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+              <span>24 Rue du Faubourg Saint-Honoré, 75008 Paris, France</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <svg class="w-4 h-4 text-muted-rose shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+              <a href="mailto:admissions@atelierelan.edu" class="hover:text-warm-ivory transition-colors">admissions@atelierelan.edu</a>
+            </li>
+            <li class="flex items-center gap-3">
+              <svg class="w-4 h-4 text-muted-rose shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+              <span>+33 (0)1 42 68 55 00</span>
+            </li>
+            <li class="flex items-center gap-3 text-warm-ivory/50">
+              <svg class="w-4 h-4 text-muted-rose shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              <span>Mon – Fri: 08:30 – 19:00 CET</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Copyright Bar -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-warm-ivory/50 font-light gap-4">
+        <p>© 2026 ATELIER ÉLAN. Institute of Fashion &amp; Creative Arts. All rights reserved.</p>
+        <p class="font-mono text-[11px] uppercase tracking-wider text-warm-ivory/40">Paris • Milan • Creative Arts Academy</p>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- ========================================================================= -->
+  <!-- SCROLL TO TOP BUTTON                                                      -->
+  <!-- ========================================================================= -->
+  <button 
+    id="scroll-to-top-btn" 
+    type="button" 
+    aria-label="Scroll to top of page" 
+    class="fixed bottom-6 right-6 z-40 w-11 h-11 bg-charcoal text-warm-ivory dark:bg-warm-ivory dark:text-charcoal border border-charcoal/20 dark:border-warm-ivory/20 shadow-2xl flex items-center justify-center opacity-0 pointer-events-none translate-y-4 transition-all duration-300 hover:bg-burgundy dark:hover:bg-muted-rose dark:hover:text-warm-ivory"
+  >
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+    </svg>
+  </button>
+
+
+  <!-- ========================================================================= -->
+  <!-- ES6 MODULE SCRIPTS                                                        -->
+  <!-- ========================================================================= -->
+  <script type="module" src="./src/js/main.js"></script>
+
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const articles = document.querySelectorAll('main > section:nth-of-type(3) article');
+      console.log('--- SECTION 3 AUDIT ---');
+      articles.forEach((art, idx) => {
+        const title = art.querySelector('h3');
+        const desc = art.querySelector('p');
+        const cta = art.querySelector('a[href*="courses.html"]');
+        const artRect = art.getBoundingClientRect();
+        const titleRect = title ? title.getBoundingClientRect() : {};
+        const descRect = desc ? desc.getBoundingClientRect() : {};
+        const ctaRect = cta ? cta.getBoundingClientRect() : {};
+        console.log(`CARD ${idx+1}:
+  Title text: "${title?.innerText.trim()}"
+  Title top relative to card: ${titleRect.top - artRect.top}px, height: ${titleRect.height}px, left: ${titleRect.left}px
+  Desc top relative to card: ${descRect.top - artRect.top}px, height: ${descRect.height}px, left: ${descRect.left}px
+  CTA top relative to card: ${ctaRect.top - artRect.top}px, left: ${ctaRect.left}px`);
+      });
+    });
+  </script></body>
+</html>

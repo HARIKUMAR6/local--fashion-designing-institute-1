@@ -1,0 +1,247 @@
+@import "tailwindcss";
+@import "./css/layout.css";
+@import "./css/home-1.css";
+@import "./css/home-2.css";
+@import "./css/inner-pages.css";
+@import "./css/courses-gallery.css";
+@import "./css/gallery-v2.css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-warm-ivory: #FAF8F5;
+  --color-warm-ivory-light: #FFFDFB;
+  --color-charcoal: #161514;
+  --color-charcoal-light: #242220;
+  --color-charcoal-card: #1E1C1A;
+  --color-charcoal-muted: #64605B;
+  --color-burgundy: #691829;
+  --color-burgundy-dark: #4F121E;
+  --color-burgundy-light: #852238;
+  --color-muted-rose: #C28E98;
+  --color-muted-rose-light: #EAD6D9;
+  --color-soft-beige: #F2EDE4;
+  --color-soft-beige-dark: #E5DED1;
+
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+}
+
+@theme inline {
+  --color-surface: var(--surface);
+  --color-surface-alt: var(--surface-alt);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-line: var(--line);
+}
+
+/* Base custom styles & design tokens */
+:root {
+  --color-bg-main: #FAF8F5;
+  --color-text-main: #161514;
+  --container-max-width: 1320px;
+}
+
+.dark {
+  --color-bg-main: #121110;
+  --color-text-main: #F7F4EE;
+}
+
+/* ========================================================================= */
+/* GLOBAL CONTAINER SYSTEM                                                  */
+/* Consistent 1320px maximum width with balanced responsive padding         */
+/* ========================================================================= */
+.atelier-container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem; /* 20px mobile */
+  padding-right: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .atelier-container {
+    padding-left: 2rem; /* 32px tablet */
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .atelier-container {
+    padding-left: 2.5rem; /* 40px desktop */
+    padding-right: 2.5rem;
+  }
+}
+
+/* ========================================================================= */
+/* UNIFIED HERO VIEWPORT HEIGHT                                              */
+/* Guarantees identical visual hero height across Home 1 and Home 2           */
+/* Accounts for fixed header: 80px (5rem) on mobile, 96px (6rem) on desktop  */
+/* ========================================================================= */
+.hero-viewport-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: calc(100svh - 5rem); /* Mobile: 100svh - 80px header */
+  box-sizing: border-box;
+}
+
+@media (min-width: 640px) {
+  .hero-viewport-section {
+    min-height: calc(100svh - 6rem); /* Tablet: 100svh - 96px header */
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-viewport-section {
+    min-height: calc(100vh - 6rem); /* Desktop: 100vh - 96px header */
+    max-height: 900px;
+  }
+}
+
+/* Global scroll & box sizing */
+html {
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg-main);
+  color: var(--color-text-main);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* RTL Specific Rules */
+/* STRICT REQUIREMENT: Keep headings left-aligned or center-aligned, never right-aligned */
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4,
+[dir="rtl"] h5,
+[dir="rtl"] h6,
+[dir="rtl"] .editorial-heading {
+  text-align: left !important;
+}
+
+[dir="rtl"] .editorial-heading-center,
+[dir="rtl"] .text-center {
+  text-align: center !important;
+}
+
+/* Subtle image zoom on hover for editorial feel */
+.editorial-zoom-container {
+  overflow: hidden;
+}
+
+.editorial-zoom-img {
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.editorial-zoom-container:hover .editorial-zoom-img {
+  transform: scale(1.04);
+}
+
+/* Luxury button styling */
+.btn-editorial-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  background-color: #691829;
+  color: #FAF8F5;
+  border: 1px solid #691829;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+.btn-editorial-primary:hover {
+  background-color: #4F121E;
+  border-color: #4F121E;
+  color: #FAF8F5;
+}
+
+.btn-editorial-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  background-color: transparent;
+  color: #161514;
+  border: 1px solid #161514;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+.btn-editorial-outline:hover {
+  background-color: #161514;
+  color: #FAF8F5;
+}
+
+.dark .btn-editorial-outline {
+  color: #FAF8F5;
+  border-color: #FAF8F5;
+}
+
+.dark .btn-editorial-outline:hover {
+  background-color: #FAF8F5;
+  color: #161514;
+}
+
+.btn-editorial-white-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  background-color: transparent;
+  color: #FAF8F5;
+  border: 1px solid #FAF8F5;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+.btn-editorial-white-outline:hover {
+  background-color: #FAF8F5;
+  color: #161514;
+}
+
+/* Subtle editorial lines & dividers */
+.editorial-line {
+  height: 1px;
+  background-color: currentColor;
+  opacity: 0.15;
+}
+
+/* Focus styles */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #691829;
+  outline-offset: 3px;
+}

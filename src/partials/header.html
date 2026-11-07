@@ -1,0 +1,73 @@
+{{brand.sprite}}
+<header id="main-header" class="site-header">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="atelier-container site-header__bar">
+    <!-- Brand -->
+    {{brand.lockup}}
+
+    <!-- Primary navigation (desktop) -->
+    <nav class="site-nav" aria-label="Primary">
+      <ul class="site-nav__list">
+        <li id="home-dropdown-wrapper" class="site-nav__item site-nav__item--dropdown">
+          <button id="home-dropdown-trigger" type="button" class="site-nav__link site-nav__trigger" aria-expanded="false" aria-haspopup="true" aria-controls="home-dropdown-menu">
+            <span>Home</span>
+            <svg class="site-nav__chevron" width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5"/></svg>
+          </button>
+          <ul id="home-dropdown-menu" class="site-dropdown">
+            <li><a href="./index.html" class="site-dropdown__link">Home 1</a></li>
+            <li><a href="./home-2.html" class="site-dropdown__link">Home 2</a></li>
+          </ul>
+        </li>
+        <li class="site-nav__item"><a href="./about.html" class="site-nav__link">About</a></li>
+        <li class="site-nav__item"><a href="./courses.html" class="site-nav__link">Courses</a></li>
+        <li class="site-nav__item"><a href="./gallery.html" class="site-nav__link">Gallery</a></li>
+        <li class="site-nav__item"><a href="./contact.html" class="site-nav__link">Contact</a></li>
+        <li class="site-nav__item"><a href="./dashboard/index.html" class="site-nav__link">Dashboard</a></li>
+      </ul>
+    </nav>
+
+    <!-- Actions -->
+    <div class="site-header__actions">
+      <button id="theme-toggle-btn" type="button" class="site-control site-control--icon" aria-label="Switch to dark mode">
+        <svg id="theme-icon-sun" class="hidden" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg id="theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <button id="dir-toggle-btn" type="button" class="site-control site-control--text" aria-label="Switch to RTL">RTL</button>
+      <a href="./login.html" class="site-cta">Student Login</a>
+      <button id="mobile-menu-btn" type="button" class="site-burger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu-drawer">
+        <span class="site-burger__bar"></span>
+        <span class="site-burger__bar"></span>
+        <span class="site-burger__bar"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile navigation -->
+<div id="mobile-menu-backdrop" class="mobile-backdrop" aria-hidden="true"></div>
+<div id="mobile-menu-drawer" class="mobile-drawer" role="dialog" aria-modal="true" aria-label="Site navigation" aria-hidden="true">
+  <div class="mobile-drawer__head">
+    {{brand.lockup.compact}}
+    <button id="mobile-menu-close-btn" type="button" class="site-control site-control--icon" aria-label="Close navigation menu">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"/></svg>
+    </button>
+  </div>
+  <nav class="mobile-drawer__nav" aria-label="Mobile">
+    <ul>
+      <li>
+        <span class="mobile-drawer__label">Home</span>
+        <ul class="mobile-drawer__sub">
+          <li><a href="./index.html" class="mobile-drawer__link">Home 1</a></li>
+          <li><a href="./home-2.html" class="mobile-drawer__link">Home 2</a></li>
+        </ul>
+      </li>
+      <li><a href="./about.html" class="mobile-drawer__link mobile-drawer__link--main">About</a></li>
+      <li><a href="./courses.html" class="mobile-drawer__link mobile-drawer__link--main">Courses</a></li>
+      <li><a href="./gallery.html" class="mobile-drawer__link mobile-drawer__link--main">Gallery</a></li>
+      <li><a href="./contact.html" class="mobile-drawer__link mobile-drawer__link--main">Contact</a></li>
+      <li><a href="./dashboard/index.html" class="mobile-drawer__link mobile-drawer__link--main">Dashboard</a></li>
+    </ul>
+  </nav>
+  <a href="./login.html" class="site-cta site-cta--block">Student Login</a>
+</div>
