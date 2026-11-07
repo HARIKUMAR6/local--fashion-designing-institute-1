@@ -179,7 +179,6 @@ select.pf-input { appearance: none; background-image: linear-gradient(45deg, tra
 .sb__link[aria-current="page"] { background: rgba(194, 142, 152, 0.16); color: #FFFFFF; font-weight: 600; }
 .sb__link[aria-current="page"]::before { content: ""; position: absolute; inset-block: 0.55rem; inset-inline-start: -0.75rem; width: 3px; background: #C28E98; }
 .sb__link:focus-visible { outline-color: #C28E98; }
-.sb__link .badge { margin-inline-start: auto; min-width: 1.3rem; padding: 0 0.4rem; font-size: 0.65rem; font-weight: 700; line-height: 1.3rem; text-align: center; color: #161514; background: #C28E98; border-radius: 1rem; }
 .sb__foot { padding: 0.75rem; border-top: 1px solid rgba(247, 244, 238, 0.1); }
 .sb__ctl-slot { padding: 0.75rem 0.75rem 0.25rem; display: none; gap: 0.5rem; }
 .sb__ctl-slot[data-active="true"] { display: flex; }
@@ -369,10 +368,9 @@ dialog.dlg::backdrop { background: rgba(12, 11, 10, 0.6); }
 .portal .brand-lockup { color: var(--ink); }
 /* Brand: identical lockup everywhere. The portal changes ONLY text colour on the always-dark sidebar (same
    values the footer uses) and the lockup size token --u; emblem, spacing, tracking and proportions are untouched. */
-.sb .brand-lockup { --u: 1.05rem; max-width: 100%; color: #FAF8F5; }
+.sb .brand-lockup { --u: 1.22rem; max-width: 100%; color: #FAF8F5; }
 .sb .brand-lockup__name { color: #FAF8F5; }
 .sb .brand-lockup__name em { color: var(--accent-soft); }
-.sb .brand-lockup__sub { display: block; white-space: normal; line-height: 1.5; color: rgba(250, 248, 245, 0.7); border-top-color: rgba(250, 248, 245, 0.2); }
 .tb__brand { min-width: 0; }
 .sw { flex-wrap: wrap; }
 /* The off-canvas drawer must never widen the page (it sits to the right in RTL). */

@@ -4,9 +4,9 @@ import fs from 'node:fs';
 import { launch, newPage, sleep } from './cdp.mjs';
 const ROOT = 'file:///D:/Nov/Nov%20slot%201/Fashion%20Designing%20Institute/';
 const PAGES = ['index.html', 'home-2.html', 'about.html', 'courses.html', 'gallery.html', 'contact.html'];
-const PROPS = ['display','position','width','height','marginTop','marginBottom','marginLeft','marginRight','paddingTop','paddingBottom','paddingLeft','paddingRight','color','backgroundColor','backgroundImage','fontSize','fontFamily','fontWeight','lineHeight','letterSpacing','textAlign','textTransform','textDecorationLine','borderTopWidth','borderBottomWidth','borderTopColor','borderRadius','gridTemplateColumns','gridTemplateRows','gridColumnStart','gridColumnEnd','flexDirection','flexWrap','justifyContent','alignItems','gap','opacity','visibility','transform','boxShadow','overflow','zIndex','objectFit','aspectRatio','top','left'];
+const PROPS = ['display','position','width','height','marginTop','marginBottom','paddingTop','paddingBottom','paddingLeft','paddingRight','color','backgroundColor','backgroundImage','fontSize','fontFamily','fontWeight','lineHeight','letterSpacing','textAlign','textTransform','textDecorationLine','borderTopWidth','borderBottomWidth','borderTopColor','borderRadius','gridTemplateColumns','gridTemplateRows','gridColumnStart','gridColumnEnd','flexDirection','flexWrap','justifyContent','alignItems','gap','opacity','visibility','transform','boxShadow','overflow','zIndex','objectFit','aspectRatio','top','left'];
 if (!fs.existsSync('dist/output.noportal.css')) throw new Error('dist/output.noportal.css missing');
-const SIG = `(() => { const P = ${JSON.stringify(PROPS)}; const out = []; for (const el of document.querySelectorAll('html, body, body *')) { if (el.closest('.lb')) continue; const cs = getComputedStyle(el); out.push(el.tagName + '.' + String(el.className).slice(0,40) + '|' + P.map(p => cs[p]).join('~')); } return out; })()`;
+const SIG = `(() => { const P = ${JSON.stringify(PROPS)}; const out = []; for (const el of document.querySelectorAll('html, body, body *')) { if (el.closest('.lb')) continue; const cs = getComputedStyle(el); const r = el.getBoundingClientRect(); out.push(el.tagName + '.' + String(el.className).slice(0,40) + '|' + P.map(p => cs[p]).concat([Math.round((r.left + scrollX) * 10) / 10, Math.round((r.top + scrollY) * 10) / 10, Math.round(r.width * 10) / 10, Math.round(r.height * 10) / 10]).join('~')); } return out; })()`;
 const c = await launch(9866);
 let combos = 0, bad = 0, elements = 0; const report = [];
 for (const pg of PAGES) for (const w of [1440, 390]) for (const dark of [false, true]) for (const rtl of [false, true]) {
@@ -25,7 +25,7 @@ for (const pg of PAGES) for (const w of [1440, 390]) for (const dark of [false, 
   const b = await p.eval(SIG);
   combos++; elements += a.length;
   const diffs = []; const n = Math.min(a.length, b.length);
-  for (let i = 0; i < n; i++) if (a[i] !== b[i]) { const pa = a[i].split('|')[1].split('~'), pb = b[i].split('|')[1].split('~'); diffs.push(a[i].split('|')[0] + ': ' + PROPS.filter((_, k) => pa[k] !== pb[k]).map((k) => k).join(',')); }
+  for (let i = 0; i < n; i++) if (a[i] !== b[i]) { const pa = a[i].split('|')[1].split('~'), pb = b[i].split('|')[1].split('~'); diffs.push(a[i].split('|')[0] + ': ' + PROPS.concat(['x', 'y', 'w', 'h']).filter((_, k) => pa[k] !== pb[k]).join(',')); }
   if (a.length !== b.length || diffs.length) { bad++; report.push(`${pg} @${w}${dark ? ' dark' : ''}${rtl ? ' rtl' : ''}: ${a.length} vs ${b.length} elements, ${diffs.length} differ -> ${diffs.slice(0, 4).join(' | ')}`); }
   p.close();
 }

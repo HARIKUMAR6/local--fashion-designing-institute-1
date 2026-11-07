@@ -14,13 +14,13 @@ const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
 const nameHtml = (() => { const i = BRAND.name.lastIndexOf(' '); return i < 0 ? esc(BRAND.name) : `${esc(BRAND.name.slice(0, i))} <em>${esc(BRAND.name.slice(i + 1))}</em>`; })();
 const sprite = fs.readFileSync('src/partials/brand-sprite.html', 'utf8').trim();
 
-const lockup = (root, variant = '') => {
+const lockup = (root, variant = '', showSub = true) => {
   const full = variant === 'footer';
   // One emblem drawing everywhere (header, drawer, footer): never a different logo per placement.
   const [w, h, sym] = full ? [64, 77, 'ae-emblem'] : [variant === 'compact' ? 36 : 40, variant === 'compact' ? 43 : 48, 'ae-emblem'];
   return `<a href="${root}index.html" class="brand-lockup${variant ? ' brand-lockup--' + variant : ''}" aria-label="${esc(BRAND.name)} – Homepage">
       <svg class="brand-lockup__emblem" width="${w}" height="${h}" viewBox="0 0 60 72" aria-hidden="true" focusable="false"><use href="#${sym}"/></svg>
-      <span class="brand-lockup__text"><span class="brand-lockup__name">${nameHtml}</span>${variant === 'compact' ? '' : `<span class="brand-lockup__sub">${esc(BRAND.subtitle)}</span>`}</span>
+      <span class="brand-lockup__text"><span class="brand-lockup__name">${nameHtml}</span>${variant === 'compact' || variant === 'footer' || !showSub ? '' : `<span class="brand-lockup__sub">${esc(BRAND.subtitle)}</span>`}</span>
     </a>`;
 };
 const tokens = (root) => ({
@@ -64,7 +64,7 @@ for (const page of pages) {
   if (/<!-- @brand:head:start -->/.test(html)) html = html.replace(/<!-- @brand:head:start -->[\s\S]*?<!-- @brand:head:end -->/, head);
   else html = html.replace(/(<meta name="viewport"[^>]*>)/, `$1\n  ${head}`);
   // 3b. standalone lockup on pages without the shared header (login, dashboard)
-  html = html.replace(/(<!-- @brand:lockup:start -->)[\s\S]*?(<!-- @brand:lockup:end -->)/, (_, a, b) => `${a}\n${sprite}\n    ${lockup(root)}\n    ${b}`);
+  html = html.replace(/(<!-- @brand:lockup:start -->)[\s\S]*?(<!-- @brand:lockup:end -->)/, (_, a, b) => `${a}\n${sprite}\n    ${lockup(root, '', !page.startsWith('dashboard/'))}\n    ${b}`);
 
   if (html === original) { console.log(`unchanged ${page}`); continue; }
   fs.writeFileSync(page, html);

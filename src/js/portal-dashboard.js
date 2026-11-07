@@ -146,9 +146,7 @@ export function initDashboard() {
   }
 
   function renderChrome() {
-    const pend = assignments().filter((a) => a.status === 'pending').length, un = unread().length;
-    const setBadge = (k, n) => { const b = document.querySelector(`[data-badge="${k}"]`); b.textContent = n; b.hidden = !n; };
-    setBadge('assignments', pend); setBadge('announcements', un);
+    const un = unread().length;
     $('notif-dot').hidden = !(un && S.prefs.alerts);
     const list = S.prefs.alerts ? unread() : [];
     $('notif-list').innerHTML = list.map((n) => `<button type="button" class="dd__item" data-notif="${n.id}"><span class="dd__dot" aria-hidden="true"></span><span><strong>${esc(n.title)}</strong><span class="dd__note">${esc(n.short)}</span></span></button>`).join('') || `<p class="dd__item" style="cursor:default">${S.prefs.alerts ? 'You are all caught up.' : 'Announcement alerts are switched off in Settings.'}</p>`;

@@ -140,7 +140,7 @@ for (const [file, rel] of [['login.html', './'], ['dashboard/index.html', '../']
   await click(p, '[data-f=pending]'); await click(p, '[data-view-assign=a1]');
   log(await q(p, `document.getElementById('assign-dlg').open&&document.getElementById('ad-title').textContent==='Design development sketchbook'`), 'View Assignment dialog opens');
   await click(p, '#ad-submit'); await sleep(100);
-  log((await q(p, `document.querySelectorAll('#assign-list > li').length`)) === 3 && (await q(p, `document.querySelector('[data-badge=assignments]').textContent`)) === '3', 'mark submitted updates list + sidebar badge');
+  log((await q(p, `document.querySelectorAll('#assign-list > li').length`)) === 3 , 'mark submitted updates the assignment list');
   log((await q(p, `document.getElementById('assign-list').textContent.includes('Overdue')`)), 'overdue state shown');
   // schedule
   await click(p, '[data-nav=schedule]');
@@ -150,8 +150,8 @@ for (const [file, rel] of [['login.html', './'], ['dashboard/index.html', '../']
   log(await q(p, `['Studio','Critique','Lecture','Workshop','Completed','Today','Upcoming'].every(w=>document.getElementById('sched-list').textContent.includes(w))`), 'class types + statuses shown');
   // announcements
   await click(p, '[data-nav=announcements]');
-  log((await q(p, `document.querySelector('[data-badge=announcements]').textContent`)) === '4', 'announcements: 4 unread badge');
-  await click(p, '[data-ann=n2]'); log((await q(p, `document.querySelector('[data-ann=n2]').closest('.ann').dataset.open`)) === 'true' && (await q(p, `document.querySelector('[data-badge=announcements]').textContent`)) === '3', 'Read more expands and marks read');
+  log((await q(p, `document.querySelectorAll('#sb-links .badge, #sb-links [data-badge]').length`)) === 0, 'sidebar shows no count badges');
+  await click(p, '[data-ann=n2]'); log((await q(p, `document.querySelector('[data-ann=n2]').closest('.ann').dataset.open`)) === 'true' , 'Read more expands and marks read');
   // notifications
   await click(p, '#notif-btn'); log(await q(p, `document.getElementById('notif-panel').dataset.open==='true'&&document.querySelectorAll('#notif-list [data-notif]').length===3`), 'notification dropdown lists 3 unread');
   await p.key('Escape'); log(await q(p, `document.getElementById('notif-panel').dataset.open==='false'`), 'Escape closes dropdown');

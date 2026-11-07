@@ -96,10 +96,8 @@
 .brand-lockup--footer { --u: 1.3rem; gap: 0.62em; max-width: 100%; }
 @media (min-width: 640px) { .brand-lockup--footer { --u: 1.36rem; } } /* same size as the desktop header lockup */
 .brand-lockup--footer .brand-lockup__text { min-width: 0; }
-.brand-lockup--footer .brand-lockup__sub { display: block; }
 .site-footer .brand-lockup__name { color: #FAF8F5; }
 .site-footer .brand-lockup__name em { color: #D9A9B3; }
-.site-footer .brand-lockup__sub { color: rgba(250, 248, 245, 0.78); border-top-color: rgba(250, 248, 245, 0.22); }
 
 /* Desktop navigation */
 .site-nav { display: none; }
@@ -314,7 +312,6 @@
   .site-footer__grid { grid-template-columns: 1.7fr 1fr 1.25fr 1.45fr; gap: 3rem; }
 }
 .site-footer .brand-lockup__name em { color: var(--accent-soft); }
-.site-footer .brand-lockup__sub { color: rgba(250, 248, 245, 0.7); border-top-color: rgba(250, 248, 245, 0.2); }
 .site-footer__intro { margin: 1.5rem 0 0; max-width: 26rem; font-size: 0.9rem; line-height: 1.75; font-weight: 300; }
 .site-footer__social { display: flex; gap: 0.6rem; margin: 1.75rem 0 0; padding: 0; list-style: none; }
 .site-footer__social a {
