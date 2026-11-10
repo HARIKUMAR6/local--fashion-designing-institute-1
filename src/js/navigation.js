@@ -29,7 +29,11 @@ function markCurrentPage() {
     }
   });
   // The Home trigger is "current" on either home page.
-  if (document.querySelector("#home-dropdown-menu [aria-current=\"page\"]")) document.getElementById("home-dropdown-trigger")?.setAttribute("data-current", "true");
+  // (Marking the current page only highlights; it never opens a submenu.)
+  if (document.querySelector("#home-dropdown-menu [aria-current=\"page\"]")) {
+    document.getElementById("home-dropdown-trigger")?.setAttribute("data-current", "true");
+    document.getElementById("mobile-home-trigger")?.setAttribute("data-current", "true");
+  }
 }
 
 function initScrolledHeader() {
@@ -46,22 +50,21 @@ function initHomeDropdown() {
   const menu = document.getElementById('home-dropdown-menu');
   if (!item || !trigger || !menu) return;
 
-  let closeTimer;
   const links = () => [...menu.querySelectorAll('a')];
 
   const setOpen = (open) => {
-    clearTimeout(closeTimer);
     item.dataset.open = String(open);
     trigger.setAttribute('aria-expanded', String(open));
   };
 
-  trigger.addEventListener('click', () => setOpen(item.dataset.open !== 'true'));
+  // Always start closed (also when a page is restored from the back/forward cache).
+  setOpen(false);
+  window.addEventListener('pageshow', () => setOpen(false));
 
-  // Hover only for real pointers; touch devices use the click toggle above.
-  item.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') setOpen(true); });
-  item.addEventListener('pointerleave', (e) => {
-    if (e.pointerType === 'mouse') closeTimer = setTimeout(() => setOpen(false), 120);
-  });
+  // Click-only: the menu never opens from hover (a cursor already resting on "Home" when a page loads would
+  // otherwise open it by itself). Click toggles; click outside, Escape, focus leaving, or any link closes it.
+  trigger.addEventListener('click', () => setOpen(item.dataset.open !== 'true'));
+  menu.addEventListener('click', (e) => { if (e.target.closest('a')) setOpen(false); });
 
   item.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && item.dataset.open === 'true') {
@@ -83,6 +86,8 @@ function initHomeDropdown() {
     if (!item.contains(e.relatedTarget)) setOpen(false);
   });
   document.addEventListener('click', (e) => { if (!item.contains(e.target)) setOpen(false); });
+  // Leaving the desktop layout must not leave a stale open state behind.
+  window.matchMedia('(min-width: 1200px)').addEventListener('change', () => setOpen(false));
 }
 
 function initMobileDrawer() {
@@ -94,7 +99,23 @@ function initMobileDrawer() {
 
   const isOpen = () => drawer.dataset.open === 'true';
 
+  // Home submenu inside the drawer: a disclosure that is ALWAYS closed until the user clicks "Home".
+  // It is reset to closed whenever the drawer opens or closes (so opening the drawer never shows Home 1/2).
+  const homeBtn = document.getElementById('mobile-home-trigger');
+  const homeSub = document.getElementById('mobile-home-sub');
+  const setHome = (open) => {
+    if (!homeBtn || !homeSub) return;
+    homeSub.dataset.open = String(open);
+    homeBtn.setAttribute('aria-expanded', String(open));
+  };
+  setHome(false);
+  window.addEventListener('pageshow', () => setHome(false));
+  homeBtn?.addEventListener('click', () => setHome(homeSub.dataset.open !== 'true'));
+  // Clicking anywhere in the drawer outside the Home group (other items, empty space) closes it.
+  drawer.addEventListener('click', (e) => { if (!e.target.closest('#mobile-home-group')) setHome(false); });
+
   const setOpen = (open) => {
+    setHome(false);
     drawer.dataset.open = String(open);
     if (backdrop) backdrop.dataset.open = String(open);
     drawer.setAttribute('aria-hidden', String(!open));

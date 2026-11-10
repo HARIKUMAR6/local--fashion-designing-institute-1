@@ -52,7 +52,7 @@ for (const [w, h] of [[1440, 900], [768, 1024], [390, 844]]) for (const dark of 
       font: [cs(hn,'fontFamily'), cs(fn,'fontFamily')], track: [cs(hn,'letterSpacing')+'/'+fz(hn), cs(fn,'letterSpacing')+'/'+fz(fn)],
       gapRatio: [(q('.site-header .brand-lockup__text').getBoundingClientRect().left - he.right)/fz(hn), (q('.site-footer .brand-lockup__text').getBoundingClientRect().left - fe.right)/fz(fn)],
       centred: [Math.abs((he.top+he.height/2) - q('.site-header .brand-lockup').getBoundingClientRect().top - q('.site-header .brand-lockup').getBoundingClientRect().height/2), Math.abs((fe.top+fe.height/2) - q('.site-footer .brand-lockup').getBoundingClientRect().top - q('.site-footer .brand-lockup').getBoundingClientRect().height/2)],
-      hName: textContrast(hn), fName: textContrast(fn), hSub: hs && cs(hs,'display') !== 'none' ? textContrast(hs) : null, fSub: textContrast(fs),
+      hName: textContrast(hn), fName: textContrast(fn), hSub: hs && cs(hs,'display') !== 'none' ? textContrast(hs) : null, fSub: fs ? textContrast(fs) : 99,
       hEdge: ratio(edge, hdrBg), fEdge: ratio(edge, ftrBg), hFill: ratio(fill, hdrBg), fFill: ratio(fill, ftrBg),
       hAccent: textContrast(q('.site-header .brand-lockup__name em')), fAccent: textContrast(q('.site-footer .brand-lockup__name em')),
       emblemFill: [cs(q('.site-header .brand-lockup__emblem'),'color'), cs(q('.site-footer .brand-lockup__emblem'),'color')],

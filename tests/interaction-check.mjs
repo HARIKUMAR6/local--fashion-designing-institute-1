@@ -33,12 +33,14 @@ for (const [label, file] of [['Home 1', 'index.html'], ['Home 2', 'home-2.html']
   check(`${label}: only Home has a dropdown`, (await p.eval(`document.querySelectorAll('.site-nav__item--dropdown').length`)) === 1);
   const r = await rect(p, '#home-dropdown-trigger');
   await p.mouse(r.x, r.y); await sleep(350);
-  check(`${label}: dropdown opens on hover`, (await p.eval(`document.getElementById('home-dropdown-wrapper').dataset.open`)) === 'true' && (await p.eval(`getComputedStyle(document.getElementById('home-dropdown-menu')).visibility`)) === 'visible');
-  await p.mouse(700, 600); await sleep(500);
-  check(`${label}: dropdown closes on leave`, (await p.eval(`document.getElementById('home-dropdown-wrapper').dataset.open`)) === 'false');
-  await click(p, '#home-dropdown-trigger'); await p.mouse(700, 600); await sleep(400);
+  // Click-only (hover must NOT open it; a cursor resting on "Home" at page load used to open it by itself).
+  check(`${label}: dropdown stays closed on hover`, (await p.eval(`document.getElementById('home-dropdown-wrapper').dataset.open`)) === 'false' && (await p.eval(`getComputedStyle(document.getElementById('home-dropdown-menu')).visibility`)) === 'hidden');
   await click(p, '#home-dropdown-trigger');
-  check(`${label}: dropdown toggles on click`, ['true', 'false'].includes(await p.eval(`document.getElementById('home-dropdown-wrapper').dataset.open`)));
+  check(`${label}: dropdown opens on click`, (await p.eval(`document.getElementById('home-dropdown-wrapper').dataset.open`)) === 'true' && (await p.eval(`getComputedStyle(document.getElementById('home-dropdown-menu')).visibility`)) === 'visible');
+  await p.mouse(700, 600); await sleep(500);
+  check(`${label}: dropdown stays open when the pointer leaves`, (await p.eval(`document.getElementById('home-dropdown-wrapper').dataset.open`)) === 'true');
+  await click(p, '#home-dropdown-trigger');
+  check(`${label}: second click closes the dropdown`, (await p.eval(`document.getElementById('home-dropdown-wrapper').dataset.open`)) === 'false');
   await p.eval(`document.getElementById('home-dropdown-wrapper').dataset.open='false';document.getElementById('home-dropdown-trigger').focus()`);
   await p.key('ArrowDown'); await sleep(200);
   check(`${label}: ArrowDown opens dropdown and focuses first link`, (await p.eval(`document.activeElement.textContent.trim()`)) === 'Home 1');

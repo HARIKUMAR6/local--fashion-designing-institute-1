@@ -219,7 +219,9 @@
 }
 .dark .site-cta { color: #161514; }
 .site-cta:hover { background: transparent; color: var(--accent); }
-@media (min-width: 640px) { .site-cta { display: inline-flex; } }
+/* Header CTA: desktop only. Hidden on tablet (640–1199px, where the burger layout is used) and on mobile; the
+   drawer keeps its own full-width "Student Login" (.site-cta--block). */
+@media (min-width: 1200px) { .site-cta { display: inline-flex; } }
 .site-cta--block { display: flex; width: 100%; height: 3rem; }
 
 /* Burger */
@@ -285,7 +287,35 @@
   text-transform: uppercase;
   color: var(--accent);
 }
-.mobile-drawer__sub { padding-bottom: 0.5rem !important; }
+/* Home group: a real disclosure. Closed by default; JS (navigation.js) owns data-open / aria-expanded. */
+.mobile-drawer__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  min-height: 3.5rem;
+  padding: 0;
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  color: var(--ink);
+  text-align: start;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.mobile-drawer__trigger:hover, .mobile-drawer__trigger[aria-expanded="true"], .mobile-drawer__trigger[data-current="true"] { color: var(--accent); }
+.mobile-drawer__chevron { flex-shrink: 0; transition: transform 0.25s ease; }
+.mobile-drawer__trigger[aria-expanded="true"] .mobile-drawer__chevron { transform: rotate(180deg); }
+.mobile-drawer__subwrap {
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden; /* closed links must not be focusable or announced */
+  transition: grid-template-rows 0.3s var(--ease), visibility 0s linear 0.3s;
+}
+.mobile-drawer__subwrap[data-open="true"] { grid-template-rows: 1fr; visibility: visible; transition-delay: 0s; }
+.mobile-drawer__sub { min-height: 0; overflow: hidden; padding-bottom: 0 !important; }
+.mobile-drawer__subwrap[data-open="true"] .mobile-drawer__sub { padding-bottom: 0.5rem !important; }
 .mobile-drawer__link {
   display: flex;
   align-items: center;
